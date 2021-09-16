@@ -15,13 +15,14 @@
 | nickname              | string     | null: false                    |
 | sports_id             | integer    | null: false                    |
 | active_area_id        | integer    | null: false                    |
-| active_day_id         | integer    |                                |
-| active_time_id        | integer    |                                |
+| active_day_id         | integer    | null: false                    |
+| active_time_id        | integer    | null: false                    |
 | achievement_id        | integer    |                                |
 | achievement_content   | text       |                                |
 | profile               | text       |                                |
 
 # has_many :teams
+# has_many :comments
 # has_many :favorite
 
 ## teamsテーブル
@@ -37,11 +38,23 @@
 | place                 | text       | null: false                    |
 | gender_ratio          | string     | null: false                    |
 | level_id              | integer    | null: false                    |
-| profile               | text       | null: false                    |
+| profile               | text       |                                |
 | user                  | references | null: false, foreign_key: true |
 
 # belongs_to :user
+# has_many :comments
 # has_many :favorite
+
+## commentsテーブル
+
+| Column                | Type       | Options                        |
+| --------------------- | ---------- | -------------------------------|
+| user                  | references | null: false, foreign_key: true |
+| team                  | references | null: false, foreign_key: true |
+| text                  | text       | null: false                    |
+
+# belongs_to user
+# belongs_to :team
 
 ## favoriteテーブル
 

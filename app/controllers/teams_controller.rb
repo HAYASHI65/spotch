@@ -21,6 +21,8 @@ before_action :set_team, only: [:show, :edit, :update, :destroy]
   end
 
   def show
+    @comment = Comment.new
+    @comments = @team.comments.includes(:user)
   end
 
   def edit

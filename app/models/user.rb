@@ -11,6 +11,7 @@ class User < ApplicationRecord
   belongs_to :active_time
   belongs_to :achievement
   has_many :teams
+  has_many :comments
   has_one_attached :image
 
   with_options presence: true do
