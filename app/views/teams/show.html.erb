@@ -3,11 +3,11 @@
   <div class="team-info">
   <% if @team.favorited?(current_user) %>
     <%= link_to team_favorite_path(@team), method: :delete do %>
-      <span style="color:red;"><i class="fas fa-heart fa-3x"></i></span>
+      <span class="faa-parent animated-hover" style="color:red;"><i class="fas fa-heart faa-tada fa-2x"></i></span>
     <% end %>
   <% else %>
     <%= link_to team_favorites_path(@team), method: :post do %>
-      <span style="color:gray;"><i class="fas fa-heart fa-3x"></i></i></span>
+      <span class="faa-parent animated-hover" style="color:gray;"><i class="fas fa-heart faa-tada fa-2x"></i></i></span>
     <% end %>
   <% end %>
   <%= @team.favorites.count %>
