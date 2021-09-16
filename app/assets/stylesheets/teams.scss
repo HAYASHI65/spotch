@@ -1,3 +1,170 @@
-// Place all the styles related to the teams controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+*{
+  box-sizing: border-box;
+}
+
+
+a{
+  text-decoration: none;
+}
+
+.main{
+  background: #f8f8f8;
+}
+
+/* 画面上部の「あなたのスポーツをマッチする」帯部分 */
+.title-contents {
+  width: 100vw;
+  background-image: image-url('title-contents.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 30px 50px;
+  color: #fff;
+  font-weight: bold;
+}
+
+.service-title {
+  font-size: 8vh;
+  padding: 20px;
+}
+
+.service-explain {
+  font-size: 3vh;
+  margin-bottom: 20px;
+}
+
+.service-search{
+  display: flex;
+}
+
+.service-search a{
+  font-size: 6vh;
+  color: #fff;
+  background-color: #4eb554;
+  padding: 15px;
+  margin: 20px;
+  border-radius: 8px;
+  box-shadow: 5px 7px #000;
+  display: block;
+  cursor: pointer;
+}
+
+.service-search a:active{
+  position: relative;
+  top: 7px;
+  left: 5px;
+  box-shadow: none;
+}
+
+
+// 新着チーム一覧
+
+.team-contents {
+  height: 600px;
+  padding: 5vh 15vw;
+  margin: 80px 0;
+  background-image: image-url('team-contents.jpg');
+  background-size: cover;
+  overflow: scroll;
+}
+
+.team-contents>.title {
+  text-align: center;
+  font-size: 3.5vh;
+  font-weight: bold;
+  margin-bottom: 5vh;
+}
+
+
+.team-lists{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.team-lists>.list {
+  width: 37vh;
+  padding: 1vw;
+  background-color: #FFF;
+}
+
+.team-image{
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+// SPOTCHの説明
+
+.explain-contents {
+  padding: 5vh 15vw;
+}
+
+.explain-contents>.title {
+  text-align: center;
+  font-size: 3.5vh;
+  font-weight: bold;
+  margin-bottom: 5vh;
+  position: relative;
+}
+
+.explain-contents>.title::after {
+  content: '';
+  width: 70px;
+  height: 4px;
+  background-color: #3ccace;
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.explain-lists {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.explain-lists>.list {
+  width: 33vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.explain-image {
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.explain-list-number {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 60px;
+  height: 60px;
+  font-size: 30px;
+  text-align: center;
+  line-height: 60px;
+  background-color: #3ccace;
+  color: #fff;
+}
+
+.explain-list-text {
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 50px;
+}
+
+.explain-list-blue-text {
+  color: #3ccace;
+}
+
+.explain-list-description {
+  font-size: 18px;
+  margin-top: 20px;
+}
