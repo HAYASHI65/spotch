@@ -3,7 +3,13 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-
+  extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to :gender
+  belongs_to :sports
+  belongs_to :active_area
+  belongs_to :active_day
+  belongs_to :active_time
+  belongs_to :achievement
   has_many :teams
 
   with_options presence: true do

@@ -1,4 +1,12 @@
 class Team < ApplicationRecord
+  extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to :sports
+  belongs_to :group
+  belongs_to :active_area
+  belongs_to :active_day
+  belongs_to :active_time
+  belongs_to :level
+
   belongs_to :user
 
   with_options presence: true do
