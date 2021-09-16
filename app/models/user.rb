@@ -20,7 +20,7 @@ class User < ApplicationRecord
     validates :first_name_kana, format: { with: /\A[ァ-ヶー]+\z/, message: 'は全角カタカナで入力してください' }
     validates :gender_id, numericality: { other_than: 1, message: 'を入力してください' }
     validates :birthday
-    validates :image
+    validates :image, presence: { message: 'を選択してください' }
     validates :nickname, presence: { message: 'を入力してください' }
     validates :sports_id, numericality: { other_than: 1, message: 'を入力してください' }
     validates :active_area_id, numericality: { other_than: 1, message: 'を入力してください' }

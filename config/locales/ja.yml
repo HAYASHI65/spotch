@@ -1,0 +1,31 @@
+ja:
+  activerecord:
+    attributes:
+      user:
+        last_name: 名前
+        first_name: 名字
+        last_name_kana: 名前カナ
+        first_name_kana: 名字カナ
+        gender_id: 性別
+        birthday: 誕生日
+        image: プロフィール画像
+        nickname: ニックネーム
+        sports_id: スポーツカテゴリー
+        active_area_id: 活動地域
+        active_day_id: 参加できる曜日
+        active_time_id: 参加できる時間帯
+        achievement_id: 過去の実績
+        achievement_content: 過去の実績に関する補足事項
+        profile: プロフィール
+      team:
+        image: チーム画像
+        team_name: チーム名
+        sports_id: スポーツカテゴリー
+        group_id: 団体カテゴリー
+        active_area_id: 活動地域
+        active_day_id: 活動している曜日
+        active_time_id: 活動している時間帯
+        place: 具体的な活動場所
+        gender_ratio: 男女比
+        level_id: チームレベル
+        profile: プロフィール

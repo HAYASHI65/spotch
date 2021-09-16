@@ -11,6 +11,7 @@ class Team < ApplicationRecord
   has_one_attached :image
 
   with_options presence: true do
+    validates :image, presence: { message: 'を選択してください' }
     validates :team_name, presence: { message: 'を入力してください' }
     validates :sports_id, numericality: { other_than: 1, message: 'を入力してください' }
     validates :group_id, numericality: { other_than: 1, message: 'を入力してください' }
