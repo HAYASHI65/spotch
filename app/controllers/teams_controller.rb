@@ -1,4 +1,8 @@
 class TeamsController < ApplicationController
+
+before_action :authenticate_user!, except: :index
+before_action :set_team, only: [:show, :edit, :update, :destroy]
+
   def index
     @teams = Team.all
   end
@@ -17,15 +21,12 @@ class TeamsController < ApplicationController
   end
 
   def show
-    @team = Team.find(params[:id])
   end
 
   def edit
-    @team = Team.find(params[:id])
   end
 
   def update
-    @team = Team.find(params[:id])
     if @team.update(team_params)
       redirect_to team_path(@team.id)
     else
@@ -33,8 +34,17 @@ class TeamsController < ApplicationController
     end
   end
 
+  def destroy
+    @team.destroy
+    redirect_to root_path
+  end
+
   private
   def team_params
     params.require(:team).permit(:image, :team_name, :sports_id, :group_id, :active_area_id, :active_day_id, :active_time_id, :place, :gender_ratio, :level_id, :profile).merge(user_id: current_user.id)
+  end
+
+  def set_team
+    @team = Team.find(params[:id])
   end
 end
