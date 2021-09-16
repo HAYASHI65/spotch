@@ -24,6 +24,8 @@
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  list-style-type: none;
+  padding: 0;
 }
 
 .nav-list{
