@@ -4,7 +4,7 @@ before_action :authenticate_user!, except: :index
 before_action :set_team, only: [:show, :edit, :update, :destroy]
 
   def index
-    @teams = Team.all
+    @teams = Team.all.order("created_at DESC")
   end
 
   def new
