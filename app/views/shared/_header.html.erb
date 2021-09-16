@@ -6,7 +6,7 @@
     <ul class='nav-lists'>
       
 <% if user_signed_in?%>
-<li><%= link_to current_user.profile.nickname, profile_path(current_user.id), class: "nav-list" %></li>
+<li><%= link_to current_user.nickname, "#", class: "nav-list" %></li>
       <li><%= link_to 'お気に入り', "#", class: "nav-list"  %></li>
       <li><%= link_to 'オファー', "#", class: "nav-list" %></li>
       <li>

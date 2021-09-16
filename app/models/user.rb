@@ -11,6 +11,7 @@ class User < ApplicationRecord
   belongs_to :active_time
   belongs_to :achievement
   has_many :teams
+  has_one_attached :image
 
   with_options presence: true do
     validates :last_name, format: { with: /\A[ぁ-んァ-ヶ一-龥々ー]+\z/, message: 'は全角で入力してください' }
@@ -19,6 +20,7 @@ class User < ApplicationRecord
     validates :first_name_kana, format: { with: /\A[ァ-ヶー]+\z/, message: 'は全角カタカナで入力してください' }
     validates :gender_id, numericality: { other_than: 1, message: 'を入力してください' }
     validates :birthday
+    validates :image
     validates :nickname, presence: { message: 'を入力してください' }
     validates :sports_id, numericality: { other_than: 1, message: 'を入力してください' }
     validates :active_area_id, numericality: { other_than: 1, message: 'を入力してください' }

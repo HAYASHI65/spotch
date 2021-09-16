@@ -8,6 +8,7 @@ class Team < ApplicationRecord
   belongs_to :level
 
   belongs_to :user
+  has_one_attached :image
 
   with_options presence: true do
     validates :team_name, presence: { message: 'を入力してください' }

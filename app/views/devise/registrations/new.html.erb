@@ -84,6 +84,19 @@
                     date_separator: '%s'),
                   "<p> 年 </p>", "<p> 月 </p>") + "<p> 日 </p>" %>
     </div>
+    <div class="img-upload">
+      <div class="weight-bold-text">
+        プロフィール画像
+        <span class="indispensable">必須</span>
+      </div>
+      <div class="click-upload">
+        <p>
+          クリックしてファイルをアップロード
+        </p>
+        <%= f.file_field :image, id:"item-image" %>
+      </div>
+      <div id="image-list"></div>
+    </div>
     <div class="form-group">
     <div class='form-text-wrap'>
       <label class="form-text">ニックネーム</label>
