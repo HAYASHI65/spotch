@@ -1,0 +1,42 @@
+<h1>
+  商品検索
+</h1>
+<%= search_form_for @p, url: search_teams_path do |f| %>
+  <%= f.label :sports_id_eq, 'スポーツカテゴリー' %>
+  <%= f.collection_select :sports_id_eq, Sports.all, :id, :name,  include_blank: '指定なし' %>
+  <br>
+  <%= f.label :group_id_eq, '団体カテゴリー' %>
+  <%= f.collection_select :group_id_eq, Group.all, :id, :name,  include_blank: '指定なし' %>
+  <br>
+  <%= f.submit '検索' %>
+<% end %>
+<h1>
+  検索結果
+</h1>
+<%# 検索結果の個数で条件分岐 %>
+<% if @results.length !=0 %>
+
+  
+
+  <%# チーム一覧 %>
+  <div class="team-contents">
+    <h2 class="title">新着チーム</h2>
+    <ul class="team-lists">
+    <%  @results.each do |team| %>
+        <li class="list">
+        <div class='team-img-content'>
+          <%= image_tag team.image.variant(resize: '250x250'), class: "team-img" %>
+        </div>
+          <div class="team-name">
+            <%= link_to team.team_name, team_path(team.id) %>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+
+<% else %>
+  該当するチームはありません
+<% end %>
+<br>
+<%= link_to 'トップページへ戻る', root_path %>

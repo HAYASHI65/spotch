@@ -9,7 +9,7 @@
       SPOTCHはあなたの目的に合ったチームを探すスポーツマッチングアプリです
     </p>
     <div class="service-search">
-      <%= link_to "チームを検索する", "#", class: "fas fa-search" %>
+      <%= link_to "チームを検索する", presearch_teams_path, class: "fas fa-search" %>
       <%= link_to "チームを投稿する", new_team_path, class: "fab fa-telegram-plane" %>
     </div>
   </div>
@@ -73,7 +73,7 @@
     </ul>
   </div>
 </div>
-<%= link_to( "#", class: 'team-btn') do %>
+<%= link_to( presearch_teams_path, class: 'team-btn') do %>
   <span class='team-btn-text'>チーム検索</span>
   <%= image_tag 'team-icon.png' , size: '185x50' ,class: "team-btn-icon" %>
 <% end %>

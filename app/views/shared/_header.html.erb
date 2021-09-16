@@ -7,7 +7,7 @@
       
 <% if user_signed_in?%>
 <li><i class="fas fa-running fa-2x"> </i><%= link_to current_user.nickname, "#", class: "nav-list" %></li>
-      <li><i class="fas fa-heart fa-2x"></i><%= link_to 'お気に入り', "#", class: "nav-list"  %></li>
+      <li><i class="fas fa-heart header-heart fa-2x"></i><%= link_to 'お気に入り', "#", class: "nav-list"  %></li>
       <li><i class="fas fa-envelope fa-2x"></i><%= link_to 'オファー', "#", class: "nav-list" %></li>
       <li>
   <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "nav-list" %>

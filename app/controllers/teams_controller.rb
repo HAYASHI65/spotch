@@ -1,10 +1,10 @@
 class TeamsController < ApplicationController
-
-before_action :authenticate_user!, except: :index
-before_action :set_team, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: :index
+  before_action :set_team, only: [:show, :edit, :update, :destroy]
+  before_action :search_team, only: [:presearch, :search]
 
   def index
-    @teams = Team.all.order("created_at DESC")
+    @teams = Team.all.order('created_at DESC')
   end
 
   def new
@@ -41,12 +41,26 @@ before_action :set_team, only: [:show, :edit, :update, :destroy]
     redirect_to root_path
   end
 
+  def presearch
+    @teams = Team.all
+  end
+
+  def search
+    @results = @p.result
+  end
+
   private
+
   def team_params
-    params.require(:team).permit(:image, :team_name, :sports_id, :group_id, :active_area_id, :active_day_id, :active_time_id, :place, :gender_ratio, :level_id, :profile).merge(user_id: current_user.id)
+    params.require(:team).permit(:image, :team_name, :sports_id, :group_id, :active_area_id, :active_day_id, :active_time_id,
+                                 :place, :gender_ratio, :level_id, :profile).merge(user_id: current_user.id)
   end
 
   def set_team
     @team = Team.find(params[:id])
+  end
+
+  def search_team
+    @p = Team.ransack(params[:q])
   end
 end
