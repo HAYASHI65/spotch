@@ -1,0 +1,25 @@
+<header class='page-header'>
+  <div class='logo'>
+    <%= link_to image_tag("spotch-logo.png", class:"spotch-logo"), root_path %>
+  </div>
+  <div class='nav'>
+    <ul class='nav-lists'>
+      
+<% if user_signed_in?%>
+<li><%= link_to current_user.profile.nickname, profile_path(current_user.id), class: "nav-list" %></li>
+      <li><%= link_to 'お気に入り', "#", class: "nav-list"  %></li>
+      <li><%= link_to 'オファー', "#", class: "nav-list" %></li>
+      <li>
+  <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "nav-list" %>
+      </li>
+      <% else %>
+<li>
+<%= link_to "新規登録", new_user_registration_path, class: "nav-list"  %>
+</li>
+<li>
+  <%= link_to "ログイン", new_user_session_path, class: "nav-list"  %>
+</li>
+<% end %>
+    </ul>
+  </div>
+</header>

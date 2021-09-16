@@ -1,0 +1,34 @@
+*{
+  box-sizing: border-box;
+}
+
+.page-header{
+  width: 100vw;
+  padding: 2vh ;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background: #f8f8f8;
+}
+
+.logo{
+  width: 30vw;
+}
+
+.spotch-logo{
+  width: 150px;
+  transform: scale(1.8);
+}
+
+.nav-lists{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.nav-list{
+  text-decoration: none;
+  margin-right: 3vw;
+  color: #333333;
+  font-size: 3vh;
+}
