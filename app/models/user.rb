@@ -10,8 +10,9 @@ class User < ApplicationRecord
   belongs_to :active_day
   belongs_to :active_time
   belongs_to :achievement
-  has_many :teams
-  has_many :comments
+  has_many :teams, dependent: :destroy
+  has_many :comments, dependent: :destroy
+  has_many :favorites, dependent: :destroy
   has_one_attached :image
 
   with_options presence: true do

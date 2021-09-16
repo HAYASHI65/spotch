@@ -8,7 +8,8 @@ class Team < ApplicationRecord
   belongs_to :level
 
   belongs_to :user
-  has_many :comments
+  has_many :comments, dependent: :destroy
+  has_many :favorites, dependent: :destroy
   has_one_attached :image
 
   with_options presence: true do
@@ -22,5 +23,9 @@ class Team < ApplicationRecord
     validates :place, presence: { message: 'を入力してください' }
     validates :gender_ratio, presence: { message: 'を入力してください' }
     validates :level_id, numericality: { other_than: 1, message: 'を入力してください' }
+  end
+
+  def favorited?(user)
+    favorites.where(user_id: user.id).exists?
   end
 end
