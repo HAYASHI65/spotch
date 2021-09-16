@@ -1,0 +1,24 @@
+<%= render "shared/header" %>
+<div class="team-show">
+
+        <div class='item-img-content'>
+          <%= image_tag @team.image.variant(resize: '250x250'), class: "item-img" %>
+        </div>
+          <div class="team-name">
+            <%= @team.team_name %>
+          </div>
+          <div class="team-sports">
+            <%= @team.sports.name %>
+          </div>
+          <div class="team-group">
+            <%= @team.group.name %>
+          </div>
+          <div class="team-active-area">
+            <%= @team.active_area.name %>
+          </div>
+  </div>
+
+<%= link_to "編集", edit_team_path(@team.id) %>
+<%= link_to "削除", team_path(@team.id), method: :delete %>
+
+<%= render "shared/footer" %>
