@@ -1,0 +1,76 @@
+
+<div class="main">
+  <%# 検索ページへの遷移元 %>
+  <div class="title-contents">
+    <h2 class="service-title">
+      あなたのスポーツをマッチする
+    </h2>
+    <p class='service-explain'>
+      SPOTCHはあなたの目的に合ったチームを探すスポーツマッチングアプリです
+    </p>
+    <div class="service-search">
+      <a href="#">チームを検索する</a>
+      <%= link_to "チームを投稿する", "#" %>
+    </div>
+  </div>
+  
+
+  <%# 新着チーム一覧 %>
+  <div class="team-contents">
+    <h2 class="title">新着チーム</h2>
+    <ul class="team-lists">
+      <% @teams.each do |team| %>
+        <li class="list">
+          <div class="team-name">
+            <%= link_to team.team_name, team_path(team.id) %>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+
+  <%# SPOTCHの説明 %>
+  <div class="explain-contents">
+  <h2 class="title">カンタン3ステップ</h2>
+    <ul class="explain-lists">
+        <li class="list">
+          <%= image_tag "step1.jpg", class: "explain-image" %>
+          <span class='explain-list-number'>1</span>
+          <h3 class='explain-list-text'>
+          チームを
+          <span class='explain-list-blue-text'>探す</span>
+          </h3>
+          <p class='explain-list-description'>
+          参加したいチームを検索！<br>検索機能が便利！！
+        </p>
+        </li>
+        <li class="list">
+          <%= image_tag "step2.jpg", class: "explain-image" %>
+          <span class='explain-list-number'>2</span>
+          <h3 class='explain-list-text'>
+          チームに
+          <span class='explain-list-blue-text'>応募する</span>
+          </h3>
+          <p class='explain-list-description'>
+          参加したいチームに応募！
+          
+        </p>
+        </li>
+        <li class="list">
+          <%= image_tag "step3.jpg", class: "explain-image" %>
+          <span class='explain-list-number'>3</span>
+          <h3 class='explain-list-text'>
+          参加承認で
+          <span class='explain-list-blue-text'>SPOTCH!</span>
+          </h3>
+          <p class='explain-list-description'>
+          応募申請が承認されたら準備完了！チームに参加してスポーツを楽しもう！
+        </p>
+        </li>
+    </ul>
+  </div>
+</div>
+<%= link_to( "#", class: 'team-btn') do %>
+  <span class='team-btn-text'>チーム検索</span>
+  <%= image_tag 'team-icon.png' , size: '185x50' ,class: "team-btn-icon" %>
+<% end %>

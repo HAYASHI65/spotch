@@ -10,7 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_16_012926) do
+ActiveRecord::Schema.define(version: 2021_09_16_014640) do
+
+  create_table "teams", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "team_name", null: false
+    t.integer "sports_id", null: false
+    t.integer "group_id", null: false
+    t.integer "active_area_id", null: false
+    t.integer "active_day_id", null: false
+    t.integer "active_time_id", null: false
+    t.text "place", null: false
+    t.string "gender_ratio", null: false
+    t.integer "level_id", null: false
+    t.text "profile", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_teams_on_user_id"
+  end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -38,4 +55,5 @@ ActiveRecord::Schema.define(version: 2021_09_16_012926) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "teams", "users"
 end
