@@ -10,7 +10,7 @@
     </p>
     <div class="service-search">
       <a href="#">チームを検索する</a>
-      <%= link_to "チームを投稿する", "#" %>
+      <%= link_to "チームを投稿する", new_team_path %>
     </div>
   </div>
   
@@ -21,6 +21,9 @@
     <ul class="team-lists">
       <% @teams.each do |team| %>
         <li class="list">
+        <div class='team-img-content'>
+          <%= image_tag team.image.variant(resize: '250x250'), class: "team-img" %>
+        </div>
           <div class="team-name">
             <%= link_to team.team_name, team_path(team.id) %>
           </div>
