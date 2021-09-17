@@ -28,7 +28,7 @@
           <%= link_to team.team_name, team_path(team.id) %>
         </div>
         <div class="team-name">
-          投稿者<%= link_to team.user.nickname, user_path(team.user.id) %>
+          管理者<%= link_to team.user.nickname, user_path(team.user.id) %>
         </div>
       </li>
       <% end %>

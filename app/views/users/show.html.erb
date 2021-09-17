@@ -1,7 +1,9 @@
 <%= render "shared/header" %>
 <div class="main">
   <div class="user-info">
-
+    <div class='user-img-content'>
+        <%= image_tag @user.image.variant(resize: '100x100'), class: "user-img" %>
+    </div>
     <div class="user-nickname">
       <%= @user.nickname %>
     </div>
@@ -32,7 +34,25 @@
       <%= @user.profile %>
     </div>
     <% end %>
+  </div>
 
+  <div class="team-contents">
+    <h2 class="title"><%= @user.nickname %>が管理しているチーム </h2>
+    <ul class="team-lists">
+      <% @teams.each do |team| %>
+      <li class="list">
+        <div class='team-img-content'>
+          <%= image_tag team.image.variant(resize: '250x250'), class: "team-img" %>
+        </div>
+        <div class="team-name">
+          <%= link_to team.team_name, team_path(team.id) %>
+        </div>
+        <div class="team-name">
+          管理者<%= link_to team.user.nickname, user_path(team.user.id) %>
+        </div>
+      </li>
+      <% end %>
+    </ul>
   </div>
 </div>
 <%= render "shared/footer" %>

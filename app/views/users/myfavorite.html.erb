@@ -1,0 +1,24 @@
+<%= render "shared/header" %>
+<div class="main">
+
+<div class="team-contents">
+    <h2 class="title"><%= @user.nickname %> さんのお気に入りチーム</h2>
+    <ul class="team-lists">
+      <% @myfavorites.each do |myfavorite| %>
+      <% team = Team.find_by(id: myfavorite.team_id) %>
+      <li class="list">
+        <div class='team-img-content'>
+          <%= image_tag team.image.variant(resize: '250x250'), class: "team-img" %>
+        </div>
+        <div class="team-name">
+          <%= link_to team.team_name, team_path(team.id) %>
+        </div>
+        <div class="team-name">
+          管理者<%= link_to team.user.nickname, user_path(team.user.id) %>
+        </div>
+      </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+<%= render "shared/footer" %>

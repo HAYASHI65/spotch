@@ -28,6 +28,11 @@
         <%= @team.active_area.name %>
       </div>
     </div>
+    <div class="user-info">
+      <div class="user-nickname">
+        チーム管理者<%= link_to @team.user.nickname, user_path(@team.user.id) %>
+      </div>
+    </div>
     <%= link_to "編集", edit_team_path(@team.id) %>
     <%= link_to "削除", team_path(@team.id), method: :delete %>
 
