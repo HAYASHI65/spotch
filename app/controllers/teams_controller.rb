@@ -1,5 +1,6 @@
 class TeamsController < ApplicationController
-  before_action :authenticate_user!, except: :index
+  before_action :authenticate_user!, except: [:index, :show]
+  before_action :move_to_index, only: [:edit, :update, :destroy]
   before_action :set_team, only: [:show, :edit, :update, :destroy]
   before_action :search_team, only: [:presearch, :search]
 
@@ -54,6 +55,13 @@ class TeamsController < ApplicationController
   def team_params
     params.require(:team).permit(:image, :team_name, :sports_id, :group_id, :active_area_id, :active_day_id, :active_time_id,
                                  :place, :gender_ratio, :level_id, :profile).merge(user_id: current_user.id)
+  end
+
+  def move_to_index
+    @team = Team.find(params[:id])
+    unless current_user.id == @team.user_id
+      redirect_to root_path
+    end
   end
 
   def set_team
