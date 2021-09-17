@@ -50,9 +50,10 @@ class TeamsController < ApplicationController
     @results = @p.result
   end
 
-  def teamapply
+  def apply
     @user = current_user
     @teamapplies = Apply.where(team_id: @user.teams)
+    @selfapplies = Apply.where(user_id: @user.id)
   end
 
   private

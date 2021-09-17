@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     collection do
       get 'presearch'
       get 'search'
-      get 'teamapply'
+      get 'apply'
     end
     resources :comments, only: [:create]
     resources :favorites, only: [:create, :destroy]
@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   end
   resources :users, only: :show do
     collection do
-      get 'myfavorite'
+      get 'favorite'
     end
   end
 end
