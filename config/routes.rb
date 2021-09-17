@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     end
     resources :comments, only: [:create]
     resources :favorites, only: [:create, :destroy]
+    resources :applies, only: [:create, :destroy]
   end
   resources :users, only: :show do
     collection do

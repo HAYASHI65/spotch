@@ -13,6 +13,7 @@ class User < ApplicationRecord
   has_many :teams, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
+  has_many :applies, dependent: :destroy
   has_one_attached :image
 
   with_options presence: true do

@@ -24,6 +24,7 @@
 # has_many :teams
 # has_many :comments
 # has_many :favorites
+# has_many :applies
 
 ## teamsテーブル
 
@@ -44,6 +45,7 @@
 # belongs_to :user
 # has_many :comments
 # has_many :favorites
+# has_many :applies
 
 ## commentsテーブル
 
@@ -53,7 +55,7 @@
 | team                  | references | null: false, foreign_key: true |
 | text                  | text       | null: false                    |
 
-# belongs_to user
+# belongs_to :user
 # belongs_to :team
 
 ## favoritesテーブル
@@ -64,4 +66,14 @@
 | team                  | references | null: false, foreign_key: true |
 
 # belongs_to user
+# belongs_to :team
+
+## appliesテーブル
+
+| Column                | Type       | Options                        |
+| --------------------- | ---------- | -------------------------------|
+| user                  | references | null: false, foreign_key: true |
+| team                  | references | null: false, foreign_key: true |
+
+# belongs_to :user
 # belongs_to :team

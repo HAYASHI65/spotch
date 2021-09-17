@@ -10,6 +10,7 @@ class Team < ApplicationRecord
   belongs_to :user
   has_many :comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
+  has_many :applies, dependent: :destroy
   has_one_attached :image
 
   with_options presence: true do
@@ -26,6 +27,10 @@ class Team < ApplicationRecord
   end
 
   def favorited?(user)
-    favorites.where(user_id: user.id).exists?
+    favorites.where(user_id: user.id).exists? #引数のuserと同じidをuser_idにもつfavoriteレコードは存在する？のメソッド
+  end
+
+  def applied?(user)
+    applies.where(user_id: user.id).exists? #引数のuserと同じidをuser_idにもつapplyレコードは存在する？のメソッド
   end
 end
