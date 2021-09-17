@@ -1,4 +1,6 @@
-<h2>Log in</h2>
+<%= render "shared/header" %>
+<div class="main">
+<h2>ログイン</h2>
 
  <div class='login-flash-message'>
       <%= flash[:notice] %>
@@ -26,5 +28,5 @@
     <%= f.submit "Log in" %>
   </div>
 <% end %>
-
-<%= render "devise/shared/links" %>
+</div>
+<%= render "shared/footer" %>
