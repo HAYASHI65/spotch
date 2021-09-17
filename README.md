@@ -23,7 +23,7 @@
 
 # has_many :teams
 # has_many :comments
-# has_many :favorite
+# has_many :favorites
 
 ## teamsテーブル
 
@@ -43,7 +43,7 @@
 
 # belongs_to :user
 # has_many :comments
-# has_many :favorite
+# has_many :favorites
 
 ## commentsテーブル
 
@@ -56,7 +56,7 @@
 # belongs_to user
 # belongs_to :team
 
-## favoriteテーブル
+## favoritesテーブル
 
 | Column                | Type       | Options                        |
 | --------------------- | ---------- | -------------------------------|

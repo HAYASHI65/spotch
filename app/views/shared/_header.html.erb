@@ -6,7 +6,7 @@
     <ul class='nav-lists'>
       
 <% if user_signed_in?%>
-<li class="faa-parent animated-hover"><i class="fas fa-running faa-bounce fa-2x"> </i><%= link_to current_user.nickname, "#", class: "nav-list" %></li>
+<li class="faa-parent animated-hover"><i class="fas fa-running faa-bounce fa-2x"> </i><%= link_to current_user.nickname, user_path(current_user.id), class: "nav-list" %></li>
       <li class="faa-parent animated-hover"><i class="fas fa-heart header-heart faa-tada fa-2x"></i><%= link_to 'お気に入り', "#", class: "nav-list"  %></li>
       <li class="faa-parent animated-hover "><i class="fas fa-envelope faa-shake fa-2x"></i><%= link_to 'オファー', "#", class: "nav-list" %></li>
       <li>

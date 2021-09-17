@@ -5,7 +5,7 @@ class TeamsController < ApplicationController
   before_action :search_team, only: [:presearch, :search]
 
   def index
-    @teams = Team.all.order('created_at DESC')
+    @teams = Team.includes(:user).order('created_at DESC')
   end
 
   def new
@@ -59,9 +59,7 @@ class TeamsController < ApplicationController
 
   def move_to_index
     @team = Team.find(params[:id])
-    unless current_user.id == @team.user_id
-      redirect_to root_path
-    end
+    redirect_to root_path unless current_user.id == @team.user_id
   end
 
   def set_team

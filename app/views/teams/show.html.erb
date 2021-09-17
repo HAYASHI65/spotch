@@ -1,56 +1,59 @@
 <%= render "shared/header" %>
-<div class="team-show">
-  <div class="team-info">
-  <% if @team.favorited?(current_user) %>
-    <%= link_to team_favorite_path(@team), method: :delete do %>
+<div class="main">
+  <div class="team-show">
+    <div class="team-info">
+      <% if @team.favorited?(current_user) %>
+      <%= link_to team_favorite_path(@team), method: :delete do %>
       <span class="faa-parent animated-hover" style="color:red;"><i class="fas fa-heart faa-tada fa-2x"></i></span>
-    <% end %>
-  <% else %>
-    <%= link_to team_favorites_path(@team), method: :post do %>
+      <% end %>
+      <% else %>
+      <%= link_to team_favorites_path(@team), method: :post do %>
       <span class="faa-parent animated-hover" style="color:gray;"><i class="fas fa-heart faa-tada fa-2x"></i></i></span>
-    <% end %>
-  <% end %>
-  <%= @team.favorites.count %>
-        <div class='item-img-content'>
-          <%= image_tag @team.image.variant(resize: '250x250'), class: "item-img" %>
-        </div>
-          <div class="team-name">
-            <%= @team.team_name %>
-          </div>
-          <div class="team-sports">
-            <%= @team.sports.name %>
-          </div>
-          <div class="team-group">
-            <%= @team.group.name %>
-          </div>
-          <div class="team-active-area">
-            <%= @team.active_area.name %>
-          </div>
-          </div>
-          <%= link_to "編集", edit_team_path(@team.id) %>
-<%= link_to "削除", team_path(@team.id), method: :delete %>
+      <% end %>
+      <% end %>
+      <%= @team.favorites.count %>
+      <div class='item-img-content'>
+        <%= image_tag @team.image.variant(resize: '250x250'), class: "item-img" %>
+      </div>
+      <div class="team-name">
+        <%= @team.team_name %>
+      </div>
+      <div class="team-sports">
+        <%= @team.sports.name %>
+      </div>
+      <div class="team-group">
+        <%= @team.group.name %>
+      </div>
+      <div class="team-active-area">
+        <%= @team.active_area.name %>
+      </div>
+    </div>
+    <%= link_to "編集", edit_team_path(@team.id) %>
+    <%= link_to "削除", team_path(@team.id), method: :delete %>
 
-<div class="container">
-  <% if user_signed_in? %>
-    <%= form_with(model: [@team, @comment], local: true) do |form| %>
+    <div class="container">
+      <% if user_signed_in? %>
+      <%= form_with(model: [@team, @comment], local: true) do |form| %>
       <%= form.text_area :text, placeholder: "ここにコメントを入力してください", rows: "2" %>
       <%= form.submit "送信" %>
-    <% end %>
-  <% else %>
-    <strong><p>コメントの投稿には新規登録/ログインが必要です</p></strong>
-  <% end %>
-  <div class="comments">
-  <h4>＜コメント一覧＞</h4>
-  <% @comments.each do |comment| %>
-    <p>
-      <strong><%= link_to comment.user.nickname, "#" %>：</strong>
-      <%= comment.text %>
-    </p>
-  <% end %>
+      <% end %>
+      <% else %>
+      <strong>
+        <p>コメントの投稿には新規登録/ログインが必要です</p>
+      </strong>
+      <% end %>
+      <div class="comments">
+        <h4>＜コメント一覧＞</h4>
+        <% @comments.each do |comment| %>
+        <p>
+          <strong><%= link_to comment.user.nickname, "#" %>：</strong>
+          <%= comment.text %>
+        </p>
+        <% end %>
+      </div>
+    </div>
   </div>
+
+
 </div>
-  </div>
-
-
-
 <%= render "shared/footer" %>

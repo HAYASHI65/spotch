@@ -1,0 +1,38 @@
+<%= render "shared/header" %>
+<div class="main">
+  <div class="user-info">
+
+    <div class="user-nickname">
+      <%= @user.nickname %>
+    </div>
+    <div class="user-sports">
+      <%= @user.sports.name %>
+    </div>
+    <div class="user-active-area">
+      <%= @user.active_area.name %>
+    </div>
+    <div class="user-active-day">
+      <%= @user.active_day.name %>
+    </div>
+    <div class="user-active-time">
+      <%= @user.active_time.name %>
+    </div>
+    <% if @user.achievement %>
+    <div class="user-achievement">
+      <%= @user.achievement.name %>
+    </div>
+    <% end %>
+    <% if @user.achievement_content %>
+    <div class="user-achievement-content">
+      <%= @user.achievement_content %>
+    </div>
+    <% end %>
+    <% if @user.profile %>
+    <div class="user-profile">
+      <%= @user.profile %>
+    </div>
+    <% end %>
+
+  </div>
+</div>
+<%= render "shared/footer" %>

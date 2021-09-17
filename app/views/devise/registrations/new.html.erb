@@ -1,5 +1,5 @@
 <%= render "shared/header" %>
-
+<div class="main">
 <%= form_with model: @user, url: user_registration_path, class: 'registration-main', local: true do |f| %>
 <div class='form-wrap'>
   <div class='form-header'>
@@ -159,5 +159,5 @@
     <%= f.submit "会員登録" ,class:"register-red-btn" %>
   </div>
 <% end %>
-
+</div>
 <%= render "shared/footer" %>
