@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     collection do
       get 'presearch'
       get 'search'
+      get 'teamapply'
     end
     resources :comments, only: [:create]
     resources :favorites, only: [:create, :destroy]

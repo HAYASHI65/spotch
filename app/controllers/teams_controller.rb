@@ -50,6 +50,11 @@ class TeamsController < ApplicationController
     @results = @p.result
   end
 
+  def teamapply
+    @user = current_user
+    @teamapplies = Apply.where(team_id: @user.teams)
+  end
+
   private
 
   def team_params
