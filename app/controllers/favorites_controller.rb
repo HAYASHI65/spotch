@@ -4,7 +4,8 @@ class FavoritesController < ApplicationController
 
   def create
     @team_favorite = Favorite.new(user_id: current_user.id, team_id: params[:team_id])
-    redirect_to team_path(params[:team_id]) if @team_favorite.save
+    @team_favorite.save
+    redirect_to team_path(params[:team_id])
   end
 
   def destroy
