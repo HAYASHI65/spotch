@@ -1,3 +1,6 @@
+<%= render "shared/header" %>
+<div class="main">
+
 <%= form_with url: cards_path, id: 'charge-form', class: 'card-form', local: true do |f| %>
 
   <div class="Cardpage">
@@ -15,12 +18,15 @@
   <br>
     <p>【有効期限】</p>
     <div class="input-expiration-date-wrap">
-      <%= f.text_field :exp_month, class: "exp_month", placeholder:"例）3" %>
+      <%= f.text_field :exp_month, class: "exp-month", placeholder:"例）3" %>
       <p>月</p>
-      <%= f.text_field :exp_year, class: "year_month", placeholder:"例）24" %>
+      <%= f.text_field :exp_year, class: "year-month", placeholder:"例）24" %>
       <p>年</p>
     </div>
   </div>
   <%= f.submit "登録する", class:"button", id:"button" %>
 
 <% end %>
+
+</div>
+<%= render "shared/footer" %>

@@ -36,9 +36,13 @@
     <% end %>
   </div>
 
-  <div class="card-new">
-    <%= link_to "クレジットカード情報を登録する", new_card_path %>
-  </div>
+  <% if user_signed_in? && @user.id == current_user.id %>
+    <% if @user.card %>
+      <%= link_to "登録しているカード情報を確認する", card_path(@user) %>
+    <% else %>
+      <%= link_to "クレジットカードを登録する", new_card_path %>
+    <% end %>
+  <% end %>
 
   <div class="team-contents">
     <h2 class="title"><%= @user.nickname %>さんが管理しているチーム </h2>

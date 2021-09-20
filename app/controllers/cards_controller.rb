@@ -21,6 +21,16 @@ class CardsController < ApplicationController
       redirect_to :new
     end
   end
+
+  def show
+    @user = User.find(params[:id])
+    
+    Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
+    card = Card.find_by(user_id: @user.id)
+
+    customer = Payjp::Customer.retrieve(card.customer_token) # 一行上で定義したカード情報のcustomer_tokenカラムを元に、Payjpから顧客情報を取得
+    @card = customer.cards.first
+  end
 end
 
 # 具体的なカード情報（カード番号など）をそのままデータベースに保存することは法律上禁止されているが、トークン化された顧客情報であれば保存可能。

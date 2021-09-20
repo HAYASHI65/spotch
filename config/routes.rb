@@ -17,5 +17,5 @@ Rails.application.routes.draw do
       get 'favorite'
     end
   end
-  resources :cards, only: [:new, :create]
+  resources :cards, only: [:new, :create, :show]
 end
