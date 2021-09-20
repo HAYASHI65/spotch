@@ -19,6 +19,9 @@
         <%= link_to "このチームに応募する", team_applies_path(@team.id), method: :post %>
         <% end %>
       </div>
+      <div class="team-donation">
+        <%= link_to "このチームに寄付する", "#" %>
+      </div>
 
       <div class='item-img-content'>
         <%= image_tag @team.image.variant(resize: '250x250'), class: "item-img" %>

@@ -25,6 +25,7 @@
 # has_many :comments
 # has_many :favorites
 # has_many :applies
+# has_one :card
 
 ## teamsテーブル
 
@@ -77,3 +78,12 @@
 
 # belongs_to :user
 # belongs_to :team
+
+## cardsテーブル
+
+| Column                | Type       | Options                        |
+| --------------------- | ---------- | -------------------------------|
+| customer_token        | string     | null: false                    |
+| user                  | references | null: false, foreign_key: true |
+
+# belongs_to :user

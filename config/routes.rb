@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'cards/new'
   devise_for :users
   root to: "teams#index"
   resources :teams do
@@ -16,4 +17,5 @@ Rails.application.routes.draw do
       get 'favorite'
     end
   end
+  resources :cards, only: [:new, :create]
 end
