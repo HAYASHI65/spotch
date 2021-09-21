@@ -10,6 +10,7 @@
       <li class="faa-parent animated-hover"><i class="fas fa-heart faa-tada fa-2x" style="color:red;"></i><%= link_to 'お気に入り', favorite_users_path, class: "nav-list"  %></li>
       <li class="faa-parent animated-hover "><i class="fas fa-bell faa-ring fa-2x" style="color:blue;"></i><%= link_to '応募申請', apply_teams_path, class: "nav-list" %></li>
       <li class="faa-parent animated-hover "><i class="fas fa-envelope faa-shake fa-2x" style="color:lightgreen;"></i><%= link_to 'オファー', "#", class: "nav-list" %></li>
+      <li class="faa-parent animated-hover "><i class="fas fa-hands-helping faa-vertical fa-2x" style="color:orange;"></i><%= link_to '寄付', donation_teams_path, class: "nav-list" %></li>
       <li>
   <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "nav-list" %>
       </li>

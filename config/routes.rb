@@ -8,6 +8,7 @@ Rails.application.routes.draw do
       get 'presearch'
       get 'search'
       get 'apply'
+      get 'donation'
     end
     resources :comments, only: [:create]
     resources :favorites, only: [:create, :destroy]

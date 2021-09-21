@@ -52,8 +52,14 @@ class TeamsController < ApplicationController
 
   def apply
     @user = current_user
-    @teamapplies = Apply.where(team_id: @user.teams)
-    @selfapplies = Apply.where(user_id: @user.id)
+    @team_applies = Apply.where(team_id: @user.teams)
+    @self_applies = Apply.where(user_id: @user.id)
+  end
+
+  def donation
+    @user = current_user
+    @received_donations = TeamDonation.where(team_id: @user.teams)
+    @send_donations = TeamDonation.where(user_id: @user.id)
   end
 
   private

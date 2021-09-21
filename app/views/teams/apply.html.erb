@@ -3,11 +3,11 @@
 
 <div class="team-contents">
     <h2 class="title"><%= @user.nickname %> さんのチームへの応募申請</h2>
-    <% if @teamapplies %>
+    <% if @team_applies %>
     <ul class="team-lists">
-      <% @teamapplies.each do |teamapply| %>
-      <% user = User.find_by(id: teamapply.user_id) %>
-      <% team = Team.find_by(id: teamapply.team_id) %>
+      <% @team_applies.each do |team_apply| %>
+      <% user = User.find_by(id: team_apply.user_id) %>
+      <% team = Team.find_by(id: team_apply.team_id) %>
       <li class="list">
         <div class="applied-team-name">
           <%= link_to team.team_name, team_path(team.id) %>に応募申請が来ています
@@ -28,11 +28,11 @@
   </div>
   <div class="team-contents">
     <h2 class="title"><%= @user.nickname %> さんが応募しているチーム</h2>
-    <% if @selfapplies %>
+    <% if @self_applies %>
     <ul class="team-lists">
-      <% @selfapplies.each do |teamapply| %>
-      <% user = User.find_by(id: teamapply.user_id) %>
-      <% team = Team.find_by(id: teamapply.team_id) %>
+      <% @self_applies.each do |team_apply| %>
+      <% user = User.find_by(id: team_apply.user_id) %>
+      <% team = Team.find_by(id: team_apply.team_id) %>
       <li class="list">
         <div class="applied-team-name">
           <%= link_to team.team_name, team_path(team.id) %>へ応募中
