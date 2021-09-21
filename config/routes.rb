@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     resources :comments, only: [:create]
     resources :favorites, only: [:create, :destroy]
     resources :applies, only: [:create, :destroy]
+    resources :donation, only: [:index, :create]
   end
   resources :users, only: :show do
     collection do

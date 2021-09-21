@@ -25,6 +25,7 @@
 # has_many :comments
 # has_many :favorites
 # has_many :applies
+# has_many :team_donations
 # has_one :card
 
 ## teamsテーブル
@@ -47,6 +48,7 @@
 # has_many :comments
 # has_many :favorites
 # has_many :applies
+# has_many :team_donations
 
 ## commentsテーブル
 
@@ -87,3 +89,24 @@
 | user                  | references | null: false, foreign_key: true |
 
 # belongs_to :user
+
+## team_donationsテーブル
+
+| Column                | Type       | Options                        |
+| --------------------- | ---------- | -------------------------------|
+| user                  | references | null: false, foreign_key: true |
+| team                  | references | null: false, foreign_key: true |
+
+# belongs_to :user
+# belongs_to :team
+# has_one :donation
+
+## donationsテーブル
+
+| Column                | Type       | Options                        |
+| --------------------- | ---------- | -------------------------------|
+| price                 | integer    | null: false                    |
+| text                  | text       |                                |
+| team_donation         | references | null: false, foreign_key: true |
+
+# belongs_to :team_donation

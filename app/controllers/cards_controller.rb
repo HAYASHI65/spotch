@@ -11,7 +11,7 @@ class CardsController < ApplicationController
     )
     # 顧客トークンとログインしているユーザーを紐付けるインスタンスを生成
     card = Card.new(
-      card_token: params[:card_token], #カード情報(Cardモデルでattr_accessorとバリデーションを設定)
+      card_token: params[:card_token], # attr_accessorで追加したcard_tokenキーに対する、カード情報params[:card_token])
       customer_token: customer.id,  # 顧客トークン
       user_id: current_user.id # ログインしているユーザー
     )
@@ -22,9 +22,9 @@ class CardsController < ApplicationController
     end
   end
 
-  def show
+  def show # 「マイページは誰でも見られる、且つクレジット登録は任意」を実現するため、クレジット情報の詳細はusers/showではなく、cards/showビューに表示することにした
     @user = User.find(params[:id])
-    
+
     Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
     card = Card.find_by(user_id: @user.id)
 

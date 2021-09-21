@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_20_054506) do
+ActiveRecord::Schema.define(version: 2021_09_20_081605) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -60,6 +60,15 @@ ActiveRecord::Schema.define(version: 2021_09_20_054506) do
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
+  create_table "donations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "price", null: false
+    t.text "text"
+    t.bigint "team_donation_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["team_donation_id"], name: "index_donations_on_team_donation_id"
+  end
+
   create_table "favorites", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "team_id", null: false
@@ -67,6 +76,15 @@ ActiveRecord::Schema.define(version: 2021_09_20_054506) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["team_id"], name: "index_favorites_on_team_id"
     t.index ["user_id"], name: "index_favorites_on_user_id"
+  end
+
+  create_table "team_donations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "team_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["team_id"], name: "index_team_donations_on_team_id"
+    t.index ["user_id"], name: "index_team_donations_on_user_id"
   end
 
   create_table "teams", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -118,7 +136,10 @@ ActiveRecord::Schema.define(version: 2021_09_20_054506) do
   add_foreign_key "cards", "users"
   add_foreign_key "comments", "teams"
   add_foreign_key "comments", "users"
+  add_foreign_key "donations", "team_donations"
   add_foreign_key "favorites", "teams"
   add_foreign_key "favorites", "users"
+  add_foreign_key "team_donations", "teams"
+  add_foreign_key "team_donations", "users"
   add_foreign_key "teams", "users"
 end
