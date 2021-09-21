@@ -10,6 +10,18 @@
   <%= f.label :group_id_eq, '団体カテゴリー' %>
   <%= f.collection_select :group_id_eq, Group.all, :id, :name,  include_blank: '指定なし' %>
   <br>
+  <%= f.label :active_area_id_eq, '活動地域' %>
+  <%= f.collection_select :active_area_id_eq, ActiveArea.all, :id, :name,  include_blank: '指定なし' %>
+  <br>
+  <%= f.label :active_day_id_eq, '活動曜日' %>
+  <%= f.collection_select :active_day_id_eq, ActiveDay.all, :id, :name,  include_blank: '指定なし' %>
+  <br>
+  <%= f.label :active_time_id_eq, '活動時間帯' %>
+  <%= f.collection_select :active_time_id_eq, ActiveTime.all, :id, :name,  include_blank: '指定なし' %>
+  <br>
+  <%= f.label :level_id_eq, 'チームレベル' %>
+  <%= f.collection_select :level_id_eq, Level.all, :id, :name,  include_blank: '指定なし' %>
+  <br>
   <%= f.submit '検索' %>
 <% end %>
 </div>

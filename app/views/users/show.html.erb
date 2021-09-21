@@ -5,33 +5,33 @@
         <%= image_tag @user.image.variant(resize: '100x100'), class: "user-img" %>
     </div>
     <div class="user-nickname">
-      <%= @user.nickname %>
+      ニックネーム：<%= @user.nickname %>
     </div>
     <div class="user-sports">
-      <%= @user.sports.name %>
+      スポーツカテゴリー：<%= @user.sports.name %>
     </div>
     <div class="user-active-area">
-      <%= @user.active_area.name %>
+      活動地域：<%= @user.active_area.name %>
     </div>
     <div class="user-active-day">
-      <%= @user.active_day.name %>
+      活動曜日：<%= @user.active_day.name %>
     </div>
     <div class="user-active-time">
-      <%= @user.active_time.name %>
+      活動時間帯：<%= @user.active_time.name %>
     </div>
     <% if @user.achievement %>
     <div class="user-achievement">
-      <%= @user.achievement.name %>
+      過去の実績：<%= @user.achievement.name %>
     </div>
     <% end %>
     <% if @user.achievement_content %>
     <div class="user-achievement-content">
-      <%= @user.achievement_content %>
+      過去の実績の補足：<%= @user.achievement_content %>
     </div>
     <% end %>
     <% if @user.profile %>
     <div class="user-profile">
-      <%= @user.profile %>
+      プロフィール：<%= @user.profile %>
     </div>
     <% end %>
   </div>

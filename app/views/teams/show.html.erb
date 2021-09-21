@@ -30,21 +30,39 @@
       </div>
 
       <div class="team-name">
-        <%= @team.team_name %>
+        チーム名：<%= @team.team_name %>
       </div>
       <div class="team-sports">
-        <%= @team.sports.name %>
+        スポーツカテゴリー：<%= @team.sports.name %>
       </div>
       <div class="team-group">
-        <%= @team.group.name %>
+        団体カテゴリー：<%= @team.group.name %>
       </div>
       <div class="team-active-area">
-        <%= @team.active_area.name %>
+        活動地域：<%= @team.active_area.name %>
+      </div>
+      <div class="team-active-day">
+        活動曜日：<%= @team.active_day.name %>
+      </div>
+      <div class="team-active-time">
+        活動時間帯：<%= @team.active_time.name %>
+      </div>
+      <div class="team-level">
+        チームレベル：<%= @team.level.name %>
+      </div>
+      <div class="team-place">
+        具体的な活動場所：<%= @team.place %>
+      </div>
+      <div class="team-gender-ratio">
+        チームの男女比：<%= @team.gender_ratio %>
+      </div>
+      <div class="team-profile">
+        チームのプロフィール：<%= @team.profile %>
       </div>
     </div>
     <div class="user-info">
       <div class="user-nickname">
-        チーム管理者<%= link_to @team.user.nickname, user_path(@team.user.id) %>
+        チームの管理者：<%= link_to @team.user.nickname, user_path(@team.user.id) %>
       </div>
     </div>
     <% if user_signed_in? && current_user.id == @team.user_id %>
