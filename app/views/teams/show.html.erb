@@ -12,6 +12,7 @@
       <% end %>
       <% end %>
       <%= @team.favorites.count %>
+      <% if user_signed_in? && current_user.id != @team.user_id %>
       <div class="team-apply">
         <% if @team.applied?(current_user) %>
         <%= link_to "このチームへの応募を取り消す", team_apply_path(@team.id), method: :delete %>
@@ -22,6 +23,7 @@
       <div class="team-donation">
         <%= link_to "このチームに寄付する", new_team_donation_path(@team.id) %>
       </div>
+      <% end %>
 
       <div class='item-img-content'>
         <%= image_tag @team.image.variant(resize: '250x250'), class: "item-img" %>
@@ -45,8 +47,10 @@
         チーム管理者<%= link_to @team.user.nickname, user_path(@team.user.id) %>
       </div>
     </div>
-    <%= link_to "編集", edit_team_path(@team.id) %>
-    <%= link_to "削除", team_path(@team.id), method: :delete %>
+    <% if user_signed_in? && current_user.id == @team.user_id %>
+      <%= link_to "編集", edit_team_path(@team.id) %>
+      <%= link_to "削除", team_path(@team.id), method: :delete %>
+    <% end %>
 
     <div class="container">
       <% if user_signed_in? %>
