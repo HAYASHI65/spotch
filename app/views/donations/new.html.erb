@@ -25,6 +25,7 @@
       </div>
     </div>
   </div>
+  <p>寄付には<%= link_to "クレジットカードの登録", new_card_path %>が必要です</p>
   <%= form_with model: @donation_object, url:team_donations_path(@team.id), method: :post, local: true do |f| %>
   <%= render 'shared/error_messages', model: @donation_object %>
   <div class="form-group">
