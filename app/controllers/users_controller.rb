@@ -3,6 +3,9 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @teams = @user.teams
+
+    @team_applies = Apply.where(team_id: @user.teams)
+    @self_applies = Apply.where(user_id: @user.id)
   end
 
   def favorite

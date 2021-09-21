@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_20_081605) do
+ActiveRecord::Schema.define(version: 2021_09_21_092804) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -40,6 +40,15 @@ ActiveRecord::Schema.define(version: 2021_09_20_081605) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["team_id"], name: "index_applies_on_team_id"
     t.index ["user_id"], name: "index_applies_on_user_id"
+  end
+
+  create_table "approves", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "team_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["team_id"], name: "index_approves_on_team_id"
+    t.index ["user_id"], name: "index_approves_on_user_id"
   end
 
   create_table "cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -133,6 +142,8 @@ ActiveRecord::Schema.define(version: 2021_09_20_081605) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "applies", "teams"
   add_foreign_key "applies", "users"
+  add_foreign_key "approves", "teams"
+  add_foreign_key "approves", "users"
   add_foreign_key "cards", "users"
   add_foreign_key "comments", "teams"
   add_foreign_key "comments", "users"

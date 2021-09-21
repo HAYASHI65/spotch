@@ -42,18 +42,17 @@ class TeamsController < ApplicationController
     redirect_to root_path
   end
 
+  def myteam
+    @user = current_user
+    @teams = @user.teams
+  end
+
   def presearch
     @teams = Team.all
   end
 
   def search
     @results = @p.result
-  end
-
-  def apply
-    @user = current_user
-    @team_applies = Apply.where(team_id: @user.teams)
-    @self_applies = Apply.where(user_id: @user.id)
   end
 
   def donation

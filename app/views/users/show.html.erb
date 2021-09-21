@@ -44,23 +44,32 @@
     <% end %>
   <% end %>
 
+  
+
   <div class="team-contents">
-    <h2 class="title"><%= @user.nickname %>さんが管理しているチーム </h2>
+    <h2 class="title"><%= @user.nickname %> さんが応募しているチーム</h2>
+    <% if @self_applies %>
     <ul class="team-lists">
-      <% @teams.each do |team| %>
+      <% @self_applies.each do |team_apply| %>
+      <% user = User.find_by(id: team_apply.user_id) %>
+      <% team = Team.find_by(id: team_apply.team_id) %>
       <li class="list">
-        <div class='team-img-content'>
-          <%= image_tag team.image.variant(resize: '250x250'), class: "team-img" %>
+        <div class="applied-team-name">
+          <%= link_to team.team_name, team_path(team.id) %>へ応募中
         </div>
-        <div class="team-name">
-          <%= link_to team.team_name, team_path(team.id) %>
+        <div class='user-img-content'>
+          <%= image_tag team.image.variant(resize: '250x250'), class: "user-img" %>
         </div>
-        <div class="team-name">
-          管理者<%= link_to team.user.nickname, user_path(team.user.id) %>
+        <div class="user-name">
+          チーム管理者：<%= link_to team.user.nickname, user_path(user.id) %>
         </div>
+        
       </li>
       <% end %>
     </ul>
+    <% else %>
+      現在応募はありません
+    <% end %>
   </div>
 </div>
 <%= render "shared/footer" %>

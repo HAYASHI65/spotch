@@ -8,7 +8,7 @@
 <% if user_signed_in?%>
 <li class="faa-parent animated-hover"><i class="fas fa-running faa-bounce fa-2x"> </i><%= link_to current_user.nickname, user_path(current_user.id), class: "nav-list" %></li>
       <li class="faa-parent animated-hover"><i class="fas fa-heart faa-tada fa-2x" style="color:red;"></i><%= link_to 'お気に入り', favorite_users_path, class: "nav-list"  %></li>
-      <li class="faa-parent animated-hover "><i class="fas fa-bell faa-ring fa-2x" style="color:blue;"></i><%= link_to '応募申請', apply_teams_path, class: "nav-list" %></li>
+      <li class="faa-parent animated-hover "><i class="fas fa-bell faa-ring fa-2x" style="color:blue;"></i><%= link_to 'Myチーム', myteam_teams_path, class: "nav-list" %></li>
       <li class="faa-parent animated-hover "><i class="fas fa-envelope faa-shake fa-2x" style="color:lightgreen;"></i><%= link_to 'オファー', "#", class: "nav-list" %></li>
       <li class="faa-parent animated-hover "><i class="fas fa-hands-helping faa-vertical fa-2x" style="color:orange;"></i><%= link_to '寄付', donation_teams_path, class: "nav-list" %></li>
       <li>

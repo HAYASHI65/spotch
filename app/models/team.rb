@@ -11,6 +11,7 @@ class Team < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
   has_many :applies, dependent: :destroy
+  has_many :approves, dependent: :destroy
   has_many :team_donations
   has_one_attached :image
 
