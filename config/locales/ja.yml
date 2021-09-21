@@ -29,3 +29,8 @@ ja:
         gender_ratio: 男女比
         level_id: チームレベル
         profile: プロフィール
+  activemodel:
+    attributes:
+      donation_object:
+        price: 寄付金額
+        text: 応援メッセージ

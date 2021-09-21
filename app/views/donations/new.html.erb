@@ -1,0 +1,56 @@
+<%= render "shared/header" %>
+<div class="main">
+
+  <div class="tema-info">
+    <div class='item-img-content'>
+        <%= image_tag @team.image.variant(resize: '250x250'), class: "item-img" %>
+      </div>
+
+      <div class="team-name">
+        <%= @team.team_name %>
+      </div>
+      <div class="team-sports">
+        <%= @team.sports.name %>
+      </div>
+      <div class="team-group">
+        <%= @team.group.name %>
+      </div>
+      <div class="team-active-area">
+        <%= @team.active_area.name %>
+      </div>
+    </div>
+    <div class="user-info">
+      <div class="user-nickname">
+        チーム管理者<%= link_to @team.user.nickname, user_path(@team.user.id) %>
+      </div>
+    </div>
+  </div>
+  <%= form_with model: @donation_object, url:team_donations_path(@team.id), method: :post, local: true do |f| %>
+  <%= render 'shared/error_messages', model: @donation_object %>
+  <div class="form-group">
+    <div class='form-text-wrap'>
+      <label class="form-text">寄付金額(半角数字のみ)</label>
+      <span class="indispensable">必須</span>
+    </div>
+    <%= "¥" %>
+    <%= f.text_field :price, class:"input-default", id:"donation-price", placeholder:"3000", autofocus: true %>
+  </div>
+  <div class="form-group">
+    <div class='form-text-wrap'>
+      <label class="form-text">応援メッセージ</label>
+      <span class="indispensable">必須</span>
+    </div>
+    <%= f.text_field :text, class:"input-default", id:"donation-text", placeholder:"このチームのOBです！応援してます！", autofocus: true %>
+  </div>
+  <div class='register-btn'>
+    <%= f.submit "寄付する" ,class:"register-red-btn" %>
+  </div>
+</div>
+  <% end %>
+
+
+
+
+
+</div>
+<%= render "shared/footer" %>

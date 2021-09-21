@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'donations/index'
   get 'cards/new'
   devise_for :users
   root to: "teams#index"
@@ -11,7 +12,7 @@ Rails.application.routes.draw do
     resources :comments, only: [:create]
     resources :favorites, only: [:create, :destroy]
     resources :applies, only: [:create, :destroy]
-    resources :donation, only: [:index, :create]
+    resources :donations, only: [:new, :create]
   end
   resources :users, only: :show do
     collection do
