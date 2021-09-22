@@ -16,6 +16,9 @@ class User < ApplicationRecord
   has_many :applies, dependent: :destroy
   has_many :approves, dependent: :destroy
   has_many :team_donations
+  has_many :rooms, through: :user_rooms
+  has_many :user_rooms
+  has_many :chats
   has_one :card, dependent: :destroy
   has_one_attached :image
 

@@ -4,6 +4,9 @@
     <div class='user-img-content'>
         <%= image_tag @user.image.variant(resize: '100x100'), class: "user-img" %>
     </div>
+    <% if current_user.id != @user.id %>
+      <%= link_to "#{@user.nickname}さんとチャットする", chat_path(@user.id) %>
+    <% end %>
     <div class="user-nickname">
       ニックネーム：<%= @user.nickname %>
     </div>

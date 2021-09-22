@@ -22,5 +22,5 @@ Rails.application.routes.draw do
     end
   end
   resources :cards, only: [:new, :create, :show]
-  resources :posts, only: [:index, :create]
+  resources :chats, only: [:show, :create]
 end

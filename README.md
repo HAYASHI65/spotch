@@ -27,6 +27,9 @@
 # has_many :applies
 # has_many :team_donations
 # has_one :card
+# has_many :rooms, through: :user_rooms
+# has_many :user_rooms
+# has_many :chats
 
 ## teamsテーブル
 
@@ -110,3 +113,33 @@
 | team_donation         | references | null: false, foreign_key: true |
 
 # belongs_to :team_donation
+
+## rooms テーブル
+
+| Column | Type   | Options     |
+| ------ | ------ | ----------- |
+
+# has_many :users, through: :user_rooms
+# has_many :user_rooms
+# has_many :chats
+
+## user_rooms テーブル
+
+| Column | Type       | Options                        |
+| ------ | ---------- | ------------------------------ |
+| user   | references | null: false, foreign_key: true |
+| room   | references | null: false, foreign_key: true |
+
+# belongs_to :user
+# belongs_to :room
+
+## chats テーブル
+
+| Column  | Type       | Options                        |
+| ------- | ---------- | ------------------------------ |
+| message | text       |                                |
+| user    | references | null: false, foreign_key: true |
+| room    | references | null: false, foreign_key: true |
+
+# belongs_to :user
+# belongs_to :room
