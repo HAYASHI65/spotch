@@ -6,6 +6,7 @@
     <h2 class="title"><%= current_user.nickname %> さんのチームへの応募申請</h2>
     <ul class="team-lists">
       <% @applies.each do |apply| %>
+      <% approve = Approve.find_by(user_id: apply.user_id, team_id: apply.team_id) %>
       <li class="list">
         <div class="applied-team-name">
           <%= link_to apply.team.team_name, team_path(apply.team) %>に応募申請が来ています
@@ -16,8 +17,12 @@
         <div class="user-name">
           応募申請者：<%= link_to apply.user.nickname, user_path(apply.user) %>
         </div>
+        <% if approve %>
         <%#= link_to "参加を却下する", team_approfe_path(user_id: apply.user_id, team_id: apply.team_id), method: :delete %>
+        <h1>SPOTCH!!</h1>
+        <% else %>
         <%= link_to "参加を承認する", team_approves_path(user_id: apply.user_id, team_id: apply.team_id), method: :post %>
+        <% end %>
       </li>
       <% end %>
     </ul>

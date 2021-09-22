@@ -53,6 +53,7 @@
       <% @self_applies.each do |team_apply| %>
       <% user = User.find_by(id: team_apply.user_id) %>
       <% team = Team.find_by(id: team_apply.team_id) %>
+      <% approve = Approve.find_by(user_id: user.id, team_id: team.id) %>
       <li class="list">
         <div class="applied-team-name">
           <%= link_to team.team_name, team_path(team.id) %>へ応募中
@@ -63,6 +64,12 @@
         <div class="user-name">
           チーム管理者：<%= link_to team.user.nickname, user_path(user.id) %>
         </div>
+        <% if approve %>
+        <%#= link_to "参加を却下する", team_approfe_path(user_id: apply.user_id, team_id: apply.team_id), method: :delete %>
+        <h1>SPOTCH!!</h1>
+        <% else %>
+        <h1>申請中</h1>
+        <% end %>
         
       </li>
       <% end %>
