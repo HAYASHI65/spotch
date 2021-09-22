@@ -3,7 +3,9 @@ class AppliesController < ApplicationController
   before_action :authenticate_user!
 
   def index
+    @team = Team.find(params[:team_id])
     @applies = Apply.where(team_id: params[:team_id])
+    @approves = Approve.where(team_id: params[:team_id])
   end
 
   def create

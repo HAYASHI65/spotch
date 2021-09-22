@@ -64,10 +64,7 @@
         <div class="user-name">
           チーム管理者：<%= link_to team.user.nickname, user_path(user.id) %>
         </div>
-        <% if approve %>
-        <%#= link_to "参加を却下する", team_approfe_path(user_id: apply.user_id, team_id: apply.team_id), method: :delete %>
-        <h1>SPOTCH!!</h1>
-        <% else %>
+        <% if team_apply %>
         <h1>申請中</h1>
         <% end %>
         
@@ -77,6 +74,30 @@
     <% else %>
       現在応募はありません
     <% end %>
+  </div>
+
+  <div class="team-contents">
+    <h2 class="title"><%= @user.nickname %> さんがSPOTCHしたチーム</h2>
+    <ul class="team-lists">
+      <% @approves.each do |approve| %>
+      <% user = User.find_by(id: approve.user_id) %>
+      <% team = Team.find_by(id: approve.team_id) %>
+      <% approve = Approve.find_by(user_id: user.id, team_id: team.id) %>
+      <li class="list">
+        <div class="applied-team-name">
+          <%= link_to team.team_name, team_path(team.id) %>から承認されました
+          承認時間<%= approve.created_at %>
+        </div>
+        <div class='user-img-content'>
+          <%= image_tag team.image.variant(resize: '250x250'), class: "user-img" %>
+        </div>
+        <div class="user-name">
+          チーム管理者：<%= link_to team.user.nickname, user_path(user.id) %>
+        </div>
+        
+      </li>
+      <% end %>
+    </ul>
   </div>
 </div>
 <%= render "shared/footer" %>

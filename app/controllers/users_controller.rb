@@ -6,6 +6,7 @@ class UsersController < ApplicationController
 
     @team_applies = Apply.where(team_id: @user.teams)
     @self_applies = Apply.where(user_id: @user.id)
+    @approves = Approve.where(user_id: @user.id)
   end
 
   def favorite

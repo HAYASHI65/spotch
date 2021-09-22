@@ -3,10 +3,9 @@
 
 
   <div class="team-contents">
-    <h2 class="title"><%= current_user.nickname %> さんのチームへの応募申請</h2>
+    <h2 class="title"><%= @team.team_name %> への応募申請</h2>
     <ul class="team-lists">
       <% @applies.each do |apply| %>
-      <% approve = Approve.find_by(user_id: apply.user_id, team_id: apply.team_id) %>
       <li class="list">
         <div class="applied-team-name">
           <%= link_to apply.team.team_name, team_path(apply.team) %>に応募申請が来ています
@@ -17,12 +16,29 @@
         <div class="user-name">
           応募申請者：<%= link_to apply.user.nickname, user_path(apply.user) %>
         </div>
-        <% if approve %>
-        <%#= link_to "参加を却下する", team_approfe_path(user_id: apply.user_id, team_id: apply.team_id), method: :delete %>
-        <h1>SPOTCH!!</h1>
-        <% else %>
-        <%= link_to "参加を承認する", team_approves_path(user_id: apply.user_id, team_id: apply.team_id), method: :post %>
-        <% end %>
+        <%= link_to "参加を却下する", team_approfe_path(apply, user_id: apply.user_id, team_id: apply.team_id), method: :delete %>
+        <%= link_to "参加を承認する", team_approves_path(apply, user_id: apply.user_id, team_id: apply.team_id), method: :post %>
+      </li>
+      <% end %>
+    </ul>
+  </div>
+
+  <div class="team-contents">
+    <h2 class="title"><%= @team.team_name %> とSPOTCHした参加申請者</h2>
+    <ul class="team-lists">
+      <% @approves.each do |approve| %>
+      <% user = User.find_by(id: approve.user_id) %>
+      <% team = Team.find_by(id: approve.team_id) %>
+      <% approve = Approve.find_by(user_id: user.id, team_id: team.id) %>
+      <li class="list">
+        <div class="applied-team-name">
+          <%= link_to user.nickname, user_path(user.id) %>を承認しました
+          承認時間<%= approve.created_at %>
+        </div>
+        <div class='user-img-content'>
+          <%= image_tag user.image.variant(resize: '250x250'), class: "user-img" %>
+        </div>
+        
       </li>
       <% end %>
     </ul>
