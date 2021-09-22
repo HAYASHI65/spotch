@@ -9,8 +9,7 @@ function chat (){
     XHR.responseType = "json";
     XHR.send(formData);
 
-   
-
+    
   });
 };
 
