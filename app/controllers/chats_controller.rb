@@ -22,12 +22,13 @@ class ChatsController < ApplicationController
   end
 
   def create
-    @chat = Chat.new(chat_params)
-    @chat.save
+    chat = current_user.chats.new(chat_params)
+    chat.save
+    render json:{ chat: chat}
   end
 
   private
   def chat_params
-    params.require(:chat).permit(:message, :room_id).merge(user_id: current_user.id)
+    params.require(:chat).permit(:message, :room_id)
   end
 end
