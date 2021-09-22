@@ -3,9 +3,7 @@ class AppliesController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @user = current_user
-    @team = Team.find(params[:team_id])
-    @team_applies = Apply.where(team_id: @team.id)
+    @applies = Apply.where(team_id: params[:team_id])
   end
 
   def create

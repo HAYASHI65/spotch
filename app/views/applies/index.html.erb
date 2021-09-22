@@ -1,24 +1,23 @@
 <%= render "shared/header" %>
 <div class="main">
 
-<div class="team-contents">
-    <h2 class="title"><%= @user.nickname %> さんのチームへの応募申請</h2>
+
+  <div class="team-contents">
+    <h2 class="title"><%= current_user.nickname %> さんのチームへの応募申請</h2>
     <ul class="team-lists">
-      <% @team_applies.each do |team_apply| %>
-      <% user = User.find_by(id: team_apply.user_id) %>
-      <% team = Team.find_by(id: team_apply.team_id) %>
-      <% approve = Approve.find_by(user_id: user.id, team_id: team.id) %>
+      <% @applies.each do |apply| %>
       <li class="list">
         <div class="applied-team-name">
-          <%= link_to team.team_name, team_path(team.id) %>に応募申請が来ています
+          <%= link_to apply.team.team_name, team_path(apply.team) %>に応募申請が来ています
         </div>
         <div class='user-img-content'>
-          <%= image_tag user.image.variant(resize: '250x250'), class: "user-img" %>
+          <%= image_tag apply.user.image.variant(resize: '250x250'), class: "user-img" %>
         </div>
         <div class="user-name">
-          応募申請者：<%= link_to user.nickname, user_path(user.id) %>
+          応募申請者：<%= link_to apply.user.nickname, user_path(apply.user) %>
         </div>
-        
+        <%#= link_to "参加を却下する", team_approfe_path(user_id: apply.user_id, team_id: apply.team_id), method: :delete %>
+        <%= link_to "参加を承認する", team_approves_path(user_id: apply.user_id, team_id: apply.team_id), method: :post %>
       </li>
       <% end %>
     </ul>

@@ -1,16 +1,19 @@
 class ApprovesController < ApplicationController
 
   def create
-    team_apply = Apply.find_by(params[:team_id])
-    approve = Approve.new(user_id: team_apply.user_id, team_id: team_apply.team_id)
+    approve = Approve.new(user_id: approve_params[:user_id], team_id: approve_params[:team_id])
     approve.save
     redirect_to root_path
   end
 
   def destroy
-    team_apply = Apply.find_by(params[:team_id])
-    approve = Approve.new(user_id: team_apply.user_id, team_id: team_apply.team_id)
-    approve.destroy
+    apply = Apply.find_by(user_id: approve_params[:user_id], team_id: approve_params[:team_id])
+    apply.destroy
     redirect_to root_path
+  end
+
+  private
+  def approve_params
+    params.permit(:user_id, :team_id)
   end
 end
