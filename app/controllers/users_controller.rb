@@ -10,7 +10,7 @@ class UsersController < ApplicationController
   end
 
   def favorite
-    @user = current_user
-    @myfavorites = Favorite.where(user_id: @user.id)
+    @myfavorites = Favorite.where(user_id: current_user.id)
+    @favorited = Favorite.where(team_id: current_user.teams)
   end
 end
