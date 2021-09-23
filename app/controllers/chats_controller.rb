@@ -22,13 +22,20 @@ class ChatsController < ApplicationController
   end
 
   def create
-    chat = current_user.chats.new(chat_params)
-    chat.save
-    render json:{ chat: chat} #レスポンスで返却されるデータフォーマットにJSONを指定
+    @chat = Chat.new(chat_params)
+    respond_to do |format|
+      if @chat.save
+        format.html { redirect_to @chat } # showアクションを実行し、詳細ページを表示
+        format.js  # create.js.erbが呼び出される
+      else
+        format.html { render :new } # new.html.erbを表示
+        format.js { render :errors } # 一番最後に実装の解説あります
+      end
+    end
   end
 
   private
   def chat_params
-    params.require(:chat).permit(:message, :room_id)
+    params.require(:chat).permit(:message, :room_id).merge(user_id: current_user.id)
   end
 end

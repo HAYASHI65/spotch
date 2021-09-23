@@ -34,11 +34,12 @@
               <% end %>
             </table>
 
-            <%= form_with model: @chat, id: "form" do |f| %>
+            <%= form_with model: @chat, remote: true do |f| %>
               <%= f.text_field :message %>
               <%= f.hidden_field :room_id %>
-              <%= f.submit "SEND", id:"chat-submit" %>
+              <%= f.submit "SEND", class:"btn btn-sm btn-success chat-btn" %>
             <% end %>
+            <div class="js-message-errors"></div>
         </div>
     </div>
 </div>

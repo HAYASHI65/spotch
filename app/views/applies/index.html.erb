@@ -16,6 +16,9 @@
         <div class="user-name">
           応募申請者：<%= link_to apply.user.nickname, user_path(apply.user) %>
         </div>
+        <%# teamsコントローラーにネストしており、URIに:team_idを含むが、teams#showからこのページへ遷移する際、どのteamのページなのか、teamsコントローラはわからない状態。 %>
+        <%# そのため、「どのチームの(ここでteam_idを確定)、applyの、どのユーザーのapplyの番号なのか(ここでuser_idを確定)」を引数で教えてあげる必要がある。 %>
+        <%# /teams/:team_id/favorites/:id → teamsコントローラーから遷移するにあたり、:team_id/favorites/:idの情報が揃ってなければならない。 %>
         <%= link_to "参加を却下する", team_approfe_path(apply, user_id: apply.user_id, team_id: apply.team_id), method: :delete %>
         <%= link_to "参加を承認する", team_approves_path(apply, user_id: apply.user_id, team_id: apply.team_id), method: :post %>
       </li>
