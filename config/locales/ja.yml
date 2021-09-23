@@ -23,8 +23,8 @@ ja:
         sports_id: スポーツカテゴリー
         group_id: 団体カテゴリー
         active_area_id: 活動地域
-        active_day_id: 活動している曜日
-        active_time_id: 活動している時間帯
+        active_day_id: 活動曜日
+        active_time_id: 活動時間帯
         place: 具体的な活動場所
         gender_ratio: 男女比
         level_id: チームレベル
