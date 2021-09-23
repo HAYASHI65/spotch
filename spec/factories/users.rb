@@ -21,9 +21,9 @@ FactoryBot.define do
     achievement_id { 2 }
     achievement_content { Faker::Lorem.sentence }
     profile { Faker::Lorem.sentence }
-  end
 
-  after(:build) do |user|
-    user.image.attach(io: File.open('public/images/test_image.png'), filename: 'test_image.png')
+    after(:build) do |user|
+      user.image.attach(io: File.open('public/images/test_image.png'), filename: 'test_image.png')
+    end
   end
 end
