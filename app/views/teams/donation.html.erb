@@ -45,7 +45,7 @@
           <%= link_to team.team_name, team_path(team.id) %>に寄付しました
         </div>
         <div class='user-img-content'>
-          <%= image_tag user.image.variant(resize: '250x250'), class: "user-img" %>
+          <%= image_tag team.image.variant(resize: '250x250'), class: "user-img" %>
         </div>
         <div class="user-name">
           チーム管理者：<%= link_to team.user.nickname, user_path(team.user.id) %>

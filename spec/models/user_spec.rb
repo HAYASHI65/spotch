@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe User, type: :model do
   before do
     @user = FactoryBot.build(:user)
-    sleep 0.1
+    sleep 0.2
   end
 
   describe 'ユーザーの新規登録' do

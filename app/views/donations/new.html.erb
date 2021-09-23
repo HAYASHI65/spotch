@@ -31,7 +31,7 @@
   <div class="form-group">
     <div class='form-text-wrap'>
       <label class="form-text">寄付金額(半角数字のみ)</label>
-      <span class="indispensable">必須</span>
+      <span class="indispensable">必須(¥1,000~9,999,999の間で入力してください)</span>
     </div>
     <%= "¥" %>
     <%= f.text_field :price, class:"input-default", id:"donation-price", placeholder:"3000", autofocus: true %>
@@ -39,9 +39,9 @@
   <div class="form-group">
     <div class='form-text-wrap'>
       <label class="form-text">応援メッセージ</label>
-      <span class="indispensable">必須</span>
+      <span class="indispensable">任意(100文字以内)</span>
     </div>
-    <%= f.text_field :text, class:"input-default", id:"donation-text", placeholder:"このチームのOBです！応援してます！", autofocus: true %>
+    <%= f.text_field :text, class:"input-default", id:"donation-text", placeholder:"このチームのOBです！応援してます！", autofocus: true, maxlength:"100" %>
   </div>
   <div class='register-btn'>
     <%= f.submit "寄付する" ,class:"register-red-btn" %>

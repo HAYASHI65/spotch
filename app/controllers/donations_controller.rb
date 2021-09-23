@@ -10,6 +10,7 @@ class DonationsController < ApplicationController
   def create
     @donation_object = DonationObject.new(donation_params)
 
+    if @donation_object.valid? #カード登録済みなれど金額が決済システムの範囲外の場合を弾く
     Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
     customer_token = current_user.card.customer_token # ログインしているユーザーの顧客トークンを定義
     Payjp::Charge.create(    #Chargeオブジェクト:PAY.JP側であらかじめ用意されている支払い情報を生成するオブジェクト
@@ -18,7 +19,6 @@ class DonationsController < ApplicationController
       currency: 'jpy'
     )
 
-    if @donation_object.valid?
       @donation_object.save
       redirect_to team_path(params[:team_id])
     else

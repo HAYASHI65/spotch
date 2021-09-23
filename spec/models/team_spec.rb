@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe Team, type: :model do
   before do
     @team = FactoryBot.build(:team)
-    sleep 0.1
+    sleep 0.2
   end
 
   describe 'チームの新規投稿' do
@@ -67,6 +67,11 @@ RSpec.describe Team, type: :model do
         @team.level_id = ''
         @team.valid?
         expect(@team.errors.full_messages).to include("チームレベルを入力してください")
+      end
+      it '「user_id」が存在しない場合登録できない' do
+        @team.user = nil
+        @team.valid?
+        expect(@team.errors.full_messages).to include("Userを入力してください")
       end
     end
   end
