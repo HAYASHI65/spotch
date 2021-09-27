@@ -13,6 +13,8 @@
 
 .logo{
   width: 25vw;
+  display: flex;
+  justify-content: center;
 }
 
 .spotch-logo{
