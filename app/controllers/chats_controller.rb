@@ -28,7 +28,7 @@ class ChatsController < ApplicationController
         format.html { redirect_to @chat } # showアクションを実行し、詳細ページを表示
         format.js  # create.js.erbが呼び出される
       else
-        format.html { render :new } # new.html.erbを表示
+        format.html { render :show } # show.html.erbを表示
         format.js { render :errors } # 一番最後に実装の解説あります
       end
     end

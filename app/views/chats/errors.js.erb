@@ -1,6 +1,6 @@
-$('.js-message-errors').replaceWith(
+$('.error-alert').replaceWith(
   "<%= j(
-    render 'layouts/validation_errors',
-    instance: @chat
+    render 'shared/error_messages',
+    model: @chat
   ) %>"
 );
