@@ -1,106 +1,127 @@
 <%= render "shared/header" %>
 <div class="main">
   <div class="user-info">
-    <div class='user-img-content'>
-        <%= image_tag @user.image.variant(resize: '100x100'), class: "user-img" %>
+    <div class="user-wrapper">
+      <h1 class="title"><%= @user.nickname %> さんの登録情報</h1>
+      <div class="user-contents">
+        <div class="user-contents-left">
+          <div class='user-img-content'>
+            <%= image_tag @user.image.variant(resize: '400x200'), class: "user-img" %>
+          </div>
+            <div class="user-chat">
+              <% if current_user.id != @user.id %>
+              <%= link_to "#{@user.nickname}さんとチャットする", chat_path(@user.id) %>
+              <% end %>
+            </div>
+            <div class="user-card">
+              <% if user_signed_in? && @user.id == current_user.id %>
+              <% if @user.card %>
+              <%= link_to "登録しているクレジットカード情報を確認する", card_path(@user) %>
+              <% else %>
+              <%= link_to "クレジットカードを登録する", new_card_path %>
+              <% end %>
+              <% end %>
+            </div>
+        </div>
+        <div class="user-contents-right">
+          <div class="info-lists">
+            ニックネーム：<%= @user.nickname %>
+          </div>
+          <div class="info-lists">
+            スポーツカテゴリー：<%= @user.sports.name %>
+          </div>
+          <div class="info-lists">
+            活動地域：<%= @user.active_area.name %>
+          </div>
+          <div class="info-lists">
+            活動曜日：<%= @user.active_day.name %>
+          </div>
+          <div class="info-lists">
+            活動時間帯：<%= @user.active_time.name %>
+          </div>
+          <div class="info-lists">
+            過去の実績：<%= @user.achievement.name %>
+          </div>
+          <div class="info-lists">
+            過去の実績の補足：<%= @user.achievement_content %>
+          </div>
+          <div class="info-lists">
+            プロフィール：<%= @user.profile %>
+          </div>
+          【<%= @user.nickname %>さんが管理しているチーム】
+          <div class="info-lists">
+            <% @user.teams.each do |team| %>
+              「<%= link_to team.team_name, team_path(team.id) %>」
+            <% end %>
+          </div>
+        </div>
+      </div>
     </div>
-    <% if current_user.id != @user.id %>
-      <%= link_to "#{@user.nickname}さんとチャットする", chat_path(@user.id) %>
-    <% end %>
-    <div class="user-nickname">
-      ニックネーム：<%= @user.nickname %>
-    </div>
-    <div class="user-sports">
-      スポーツカテゴリー：<%= @user.sports.name %>
-    </div>
-    <div class="user-active-area">
-      活動地域：<%= @user.active_area.name %>
-    </div>
-    <div class="user-active-day">
-      活動曜日：<%= @user.active_day.name %>
-    </div>
-    <div class="user-active-time">
-      活動時間帯：<%= @user.active_time.name %>
-    </div>
-    <% if @user.achievement %>
-    <div class="user-achievement">
-      過去の実績：<%= @user.achievement.name %>
-    </div>
-    <% end %>
-    <% if @user.achievement_content %>
-    <div class="user-achievement-content">
-      過去の実績の補足：<%= @user.achievement_content %>
-    </div>
-    <% end %>
-    <% if @user.profile %>
-    <div class="user-profile">
-      プロフィール：<%= @user.profile %>
-    </div>
-    <% end %>
-  </div>
 
-  <% if user_signed_in? && @user.id == current_user.id %>
-    <% if @user.card %>
-      <%= link_to "登録しているクレジットカード情報を確認する", card_path(@user) %>
-    <% else %>
-      <%= link_to "クレジットカードを登録する", new_card_path %>
-    <% end %>
-  <% end %>
+    <div class="team-wrapper">
+      <h1 class="title"><%= @user.nickname %> さんが応募しているチーム</h1>
+      <div class="team-contents">
+        <ul class="team-lists">
+          <% @self_applies.each do |team_apply| %>
+          <% user = User.find_by(id: team_apply.user_id) %>
+          <% team = Team.find_by(id: team_apply.team_id) %>
+          <li class="team-list">
+            <div class="team-name">
+              <%= link_to team.team_name, team_path(team.id) %>へ応募中
+            </div>
+            <div class='team-img-content'>
+              <%= image_tag team.image.variant(resize: '100x130'), class: "team-img" %>
+            </div>
+            <div class="team-sports">
+              【種目】<%= team.sports.name %>
+            </div>
+            <div class="team-group">
+              【団体】<%= team.group.name %>
+            </div>
+            <div class="team-active-area">
+              【活動地域】<%= team.active_area.name %>
+            </div>
+            <div class="team-user-name">
+              【管理者】<%= link_to team.user.nickname, user_path(team.user.id) %>
+            </div>
+          </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
 
-  
+    <div class="team-wrapper">
+      <h1 class="title"><%= @user.nickname %> さんがSPOTCHしたチーム</h1>
+      <div class="team-contents">
+        <ul class="team-lists">
+          <% @approves.each do |approve| %>
+          <% user = User.find_by(id: approve.user_id) %>
+          <% team = Team.find_by(id: approve.team_id) %>
+          <li class="team-list">
+            <div class="applied-team-name">
+              <%= link_to team.team_name, team_path(team.id) %>から承認されました
+            </div>
+            <div class='team-img-content'>
+              <%= image_tag team.image.variant(resize: '100x130'), class: "team-img" %>
+            </div>
+            <div class="team-sports">
+              【種目】<%= team.sports.name %>
+            </div>
+            <div class="team-group">
+              【団体】<%= team.group.name %>
+            </div>
+            <div class="team-active-area">
+              【活動地域】<%= team.active_area.name %>
+            </div>
+            <div class="team-user-name">
+              【管理者】<%= link_to team.user.nickname, user_path(team.user.id) %>
+            </div>
+          </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
 
-  <div class="team-contents">
-    <h2 class="title"><%= @user.nickname %> さんが応募しているチーム</h2>
-    <% if @self_applies %>
-    <ul class="team-lists">
-      <% @self_applies.each do |team_apply| %>
-      <% user = User.find_by(id: team_apply.user_id) %>
-      <% team = Team.find_by(id: team_apply.team_id) %>
-      <% approve = Approve.find_by(user_id: user.id, team_id: team.id) %>
-      <li class="list">
-        <div class="applied-team-name">
-          <%= link_to team.team_name, team_path(team.id) %>へ応募中
-        </div>
-        <div class='user-img-content'>
-          <%= image_tag team.image.variant(resize: '250x250'), class: "user-img" %>
-        </div>
-        <div class="user-name">
-          チーム管理者：<%= link_to team.user.nickname, user_path(user.id) %>
-        </div>
-        <% if team_apply %>
-        <h1>申請中</h1>
-        <% end %>
-        
-      </li>
-      <% end %>
-    </ul>
-    <% else %>
-      現在応募はありません
-    <% end %>
-  </div>
-
-  <div class="team-contents">
-    <h2 class="title"><%= @user.nickname %> さんがSPOTCHしたチーム</h2>
-    <ul class="team-lists">
-      <% @approves.each do |approve| %>
-      <% user = User.find_by(id: approve.user_id) %>
-      <% team = Team.find_by(id: approve.team_id) %>
-      <% approve = Approve.find_by(user_id: user.id, team_id: team.id) %>
-      <li class="list">
-        <div class="applied-team-name">
-          <%= link_to team.team_name, team_path(team.id) %>から承認されました
-          承認時間<%= approve.created_at %>
-        </div>
-        <div class='user-img-content'>
-          <%= image_tag team.image.variant(resize: '250x250'), class: "user-img" %>
-        </div>
-        <div class="user-name">
-          チーム管理者：<%= link_to team.user.nickname, user_path(user.id) %>
-        </div>
-        
-      </li>
-      <% end %>
-    </ul>
   </div>
 </div>
 <%= render "shared/footer" %>

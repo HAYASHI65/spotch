@@ -15,6 +15,7 @@ a{
 
 .team-wrapper{
   padding: 5vh 15vw;
+  background-color: white;
 }
 
 .title {
@@ -28,19 +29,6 @@ a{
   padding: 0.5em 0;/*上下の余白*/
   border-top: solid 3px #3ccace;/*上線*/
   border-bottom: solid 3px #3ccace;/*下線*/
-}
-
-.team-contents {
-  height: 400px;
-  background-color: #f8f8f8;
-  overflow: scroll;
-}
-
-.team-lists{
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  list-style: none;
 }
 
 .team-list {
@@ -324,4 +312,48 @@ a{
   line-height: 48px;
   font-size: 14px;
   cursor: pointer;
+}
+
+//ユーザー詳細ページ
+
+.user-info{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+ background-color: white;
+}
+
+.user-wrapper{
+  padding: 5vh 15vw;
+  height: 80vh;
+  text-align: center;
+}
+
+.user-contents {
+  height: 400px;
+  background-color: #f8f8f8;
+  display: flex;
+  overflow: scroll;
+}
+
+.user-contents-left{
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px;
+}
+
+.user-contents-right{
+  width: 50%;
+  padding: 30px 50px 0 0;
+  text-align: left;
+}
+
+.user-img-content{
+  padding-bottom: 27vh;
+}
+
+.info-lists{
+  padding: 8px 0;
 }

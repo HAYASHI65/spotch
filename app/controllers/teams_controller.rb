@@ -44,7 +44,7 @@ class TeamsController < ApplicationController
 
   def myteam
     @user = current_user
-    @teams = @user.teams
+    @teams = @user.teams.order("created_at DESC")
   end
 
   def presearch
