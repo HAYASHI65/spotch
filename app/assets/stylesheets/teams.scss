@@ -25,15 +25,25 @@ a{
   justify-content: center;
   color: #fff;
   font-weight: bold;
+  margin-bottom: 80px;
 }
 
 .service-title {
   font-size: 8vh;
+  text-shadow:1px 0 0 #000,0 1px 0 #000,-1px 0 0 #000,0 -1px 0 #000,3px 3px 0 #000;
+  color:white;
+  background-color: rgba($color: #f5aa2c, $alpha: 0.8);
+  padding: 20px;
+  margin-top: 150px;
+  margin-bottom: -10px;
 }
 
 .service-explain {
-  font-size: 3vh;
+  text-align: center;
+  margin-top: 50px;
   margin-bottom: 20px;
+  text-shadow:1px 0 0 #000,0 1px 0 #000,-1px 0 0 #000,0 -1px 0 #000,3px 3px 0 #000;
+  font-size: 30px;
 }
 
 .service-search{
@@ -63,70 +73,90 @@ a{
   margin-right: 5px;
 }
 
+// 問題提起
 
+.problem-contents{
+  height: 400px;
+  position: relative;
 
-// 新着チーム一覧
-
-.team-contents {
-  height: 600px;
-  padding: 5vh 15vw;
-  margin: 80px 0;
-  background-image: image-url('team-contents.jpg');
-  background-size: cover;
-  overflow: scroll;
-}
-
-.team-contents>.title {
+  margin: 1.5em 0;
+  padding: 7px 10px;
+  min-width: 120px;
+  max-width: 100%;
+  color: #555;
+  font-size: 16px;
+  background: #e0edff;
   text-align: center;
-  font-size: 3.5vh;
-  font-weight: bold;
-  margin-bottom: 5vh;
 }
 
+.problem-contents:before {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -15px;
+  border: 15px solid transparent;
+  border-top: 15px solid #e0edff;
+}
 
-.team-lists{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  list-style-type: none;
+.problem-contents p {
+  margin: 0;
   padding: 0;
 }
 
-.team-lists>.list {
-  width: 37vh;
-  padding: 1vw;
-  margin-right: 50px;
-  background-color: #FFF;
+.problem-title{
+  margin: 50px 0;
+  display: inline-block;
+  color: white;
+  background-color: #1d5c8a;
+  padding: 10px 50px;
 }
 
-.team-image{
-  margin-bottom: 20px;
-  width: 100%;
+.problem-title span{
+  font-size: 40px;
+}
+
+.problem{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.problem-left{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 200px;
+}
+
+.problem-image{
+  width: 20vw;
+}
+
+.problem-lists{
+  display: flex;
+  align-items: center;
+}
+
+.problem-list{
+  border: 1px solid #000;
+  border-radius: 5px;
+  padding: 20px;
+  margin-right: 30px;
+  width:25%;
+  list-style: none;
+  text-align: center;
+}
+
+.problem-list h3{
+  font-size: 20px;
+  color: #1d5c8a;
 }
 
 // SPOTCHの説明
 
 .explain-contents {
   padding: 5vh 15vw;
-}
-
-.explain-contents>.title {
-  text-align: center;
-  font-size: 3.5vh;
-  font-weight: bold;
-  margin-bottom: 5vh;
-  position: relative;
-}
-
-.explain-contents>.title::after {
-  content: '';
-  width: 70px;
-  height: 4px;
-  background-color: #3ccace;
-  position: absolute;
-  bottom: -10px;
-  left: 50%;
-  transform: translateX(-50%);
 }
 
 .explain-lists {
@@ -174,4 +204,59 @@ a{
 .explain-list-description {
   font-size: 18px;
   margin-top: 20px;
+  text-align: center;
+}
+
+// 新着チーム一覧
+
+.team-wrapper{
+  padding: 5vh 15vw;
+}
+
+.title {
+  text-align: center;
+  font-size: 3.5vh;
+  font-weight: bold;
+  padding-top: 30px;
+  margin-bottom: 5vh;
+  color: #000;/*文字色*/
+  padding: 0.5em 0;/*上下の余白*/
+  border-top: solid 3px #3ccace;/*上線*/
+  border-bottom: solid 3px #3ccace;/*下線*/
+}
+
+.team-contents {
+  height: 400px;
+  background-color: #f8f8f8;
+  overflow: scroll;
+}
+
+.team-lists{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  list-style: none;
+}
+
+.team-list {
+  width: 15vw;
+  padding: 1vw;
+  margin-right: 10px;
+  margin-bottom: 30px;
+  background-color: #FFF;
+  border: 2px solid #1d5c8a;
+  border-radius: 5px;
+}
+
+.team-name{
+  margin-bottom: 10px;
+}
+
+.team-img-content{
+  height: 130px;
+}
+
+.team-image{
+  margin-bottom: 20px;
+  width: 100%;
 }

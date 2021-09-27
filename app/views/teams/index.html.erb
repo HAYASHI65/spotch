@@ -2,79 +2,123 @@
 <div class="main">
   <%# 検索ページへの遷移元 %>
   <div class="title-contents">
-    <h2 class="service-title">
+    <h3 class="service-title">
       あなたとスポーツをマッチする
+    </h3>
+    <h2 class='service-explain'>
+      SPOTCHはあなたの目的に合ったチームを探す<br>スポーツマッチングアプリです
     </h2>
-    <p class='service-explain'>
-      SPOTCHはあなたの目的に合ったチームを探すスポーツマッチングアプリです
-    </p>
+    <% if user_signed_in? %>
     <div class="service-search">
       <%= link_to "チームを検索する", presearch_teams_path, class: "fas fa-search" %>
       <%= link_to "チームを投稿する", new_team_path, class: "fab fa-telegram-plane" %>
     </div>
+    <% else %>
+    <div class="service-search">
+      <%= link_to "まずは無料で会員登録", new_user_registration_path %>
+    </div>
+    <% end %>
   </div>
+</div>
 
+<%# 問題提起 %>
+<div class="problem-contents">
+  <h2 class="problem-title">こんな<span>お悩み</span>ありませんか？</h2>
+  <div class="problem">
+    <div class="problem-left">
+      <%= image_tag "problem.png", class: "problem-image" %>
+    </div>
+    <div class="problem-right">
+      <ul class="problem-lists">
+        <li class="problem-list">
+          <h3>久しぶりに運動したい…</h3>
+          <p>昔は定期的に運動していたけど、最近はなんだか運動不足気味</p>
+        </li>
+        <li class="problem-list">
+          <h3>人を集めたり場所を探すのは大変…</h3>
+          <p>近場で活動しているチームを楽に探したい</p>
+        </li>
+        <li class="problem-list">
+          <h3>昔やっていたスポーツをやりたい！</h3>
+          <p>学生時代打ち込んでいたスポーツで体を動かしたい！</p>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
 
-  <%# 新着チーム一覧 %>
+<%# SPOTCHの説明 %>
+<div class="explain-contents">
+  <h2 class="title">あなたのチームがきっと見つかる！カンタン3ステップ！！</h2>
+  <ul class="explain-lists">
+    <li class="list">
+      <%= image_tag "step1.jpg", class: "explain-image" %>
+      <span class='explain-list-number'>1</span>
+      <h3 class='explain-list-text'>
+        チームを
+        <span class='explain-list-blue-text'>探す</span>
+      </h3>
+      <p class='explain-list-description'>
+        参加したいチームを検索！<br>「地域別」や「スポーツ別」に絞り込める検索機能が便利！
+      </p>
+    </li>
+    <li class="list">
+      <%= image_tag "step2.jpg", class: "explain-image" %>
+      <span class='explain-list-number'>2</span>
+      <h3 class='explain-list-text'>
+        チームに
+        <span class='explain-list-blue-text'>応募する</span>
+      </h3>
+      <p class='explain-list-description'>
+        気になるチームが見つかったら参加の応募をしよう！
+
+      </p>
+    </li>
+    <li class="list">
+      <%= image_tag "step3.jpg", class: "explain-image" %>
+      <span class='explain-list-number'>3</span>
+      <h3 class='explain-list-text'>
+        参加承認で
+        <span class='explain-list-blue-text'>SPOTCH!</span>
+      </h3>
+      <p class='explain-list-description'>
+        応募が承認されたら準備完了！チームに参加してスポーツを<br>思いっきり楽しもう！
+      </p>
+    </li>
+  </ul>
+</div>
+
+<%# 新着チーム一覧 %>
+<div class="team-wrapper">
+  <h1 class="title">新着チームもどんどん更新中！</h1>
   <div class="team-contents">
-    <h2 class="title">新着チーム</h2>
     <ul class="team-lists">
       <% @teams.each do |team| %>
-      <li class="list">
-        <div class='team-img-content'>
-          <%= image_tag team.image.variant(resize: '250x250'), class: "team-img" %>
-        </div>
+      <li class="team-list">
         <div class="team-name">
           <%= link_to team.team_name, team_path(team.id) %>
         </div>
-        <div class="team-name">
-          管理者<%= link_to team.user.nickname, user_path(team.user.id) %>
+        <div class='team-img-content'>
+          <%= image_tag team.image.variant(resize: '100x130'), class: "team-img" %>
+        </div>
+        <div class="team-sports">
+          【種目】<%= team.sports.name %>
+        </div>
+        <div class="team-group">
+          【団体】<%= team.group.name %>
+        </div>
+        <div class="team-active-area">
+          【活動地域】<%= team.active_area.name %>
+        </div>
+        <div class="team-user-name">
+          【管理者】<%= link_to team.user.nickname, user_path(team.user.id) %>
         </div>
       </li>
       <% end %>
     </ul>
   </div>
+</div>
 
-  <%# SPOTCHの説明 %>
-  <div class="explain-contents">
-    <h2 class="title">カンタン3ステップ</h2>
-    <ul class="explain-lists">
-      <li class="list">
-        <%= image_tag "step1.jpg", class: "explain-image" %>
-        <span class='explain-list-number'>1</span>
-        <h3 class='explain-list-text'>
-          チームを
-          <span class='explain-list-blue-text'>探す</span>
-        </h3>
-        <p class='explain-list-description'>
-          参加したいチームを検索！<br>検索機能が便利！！
-        </p>
-      </li>
-      <li class="list">
-        <%= image_tag "step2.jpg", class: "explain-image" %>
-        <span class='explain-list-number'>2</span>
-        <h3 class='explain-list-text'>
-          チームに
-          <span class='explain-list-blue-text'>応募する</span>
-        </h3>
-        <p class='explain-list-description'>
-          参加したいチームに応募！
-
-        </p>
-      </li>
-      <li class="list">
-        <%= image_tag "step3.jpg", class: "explain-image" %>
-        <span class='explain-list-number'>3</span>
-        <h3 class='explain-list-text'>
-          参加承認で
-          <span class='explain-list-blue-text'>SPOTCH!</span>
-        </h3>
-        <p class='explain-list-description'>
-          応募申請が承認されたら準備完了！チームに参加してスポーツを楽しもう！
-        </p>
-      </li>
-    </ul>
-  </div>
 </div>
 <%= link_to( presearch_teams_path, class: 'team-btn') do %>
 <span class='team-btn-text'>チーム検索</span>
