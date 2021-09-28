@@ -1,47 +1,32 @@
 <%= render "shared/header" %>
 <div class="main">
-
-<div class="container">
-    <div class="row">
-        <div class="col-xs-6">
-            <h2>CHAT WITH <%= @user.nickname %></h2>
-
-            <table class="message table">
-              <thead>
-                <tr>
-                  <th style="text-align: left; font-size: 20px;"><%= current_user.nickname %></th>
-                  <th style="text-align: right; font-size: 20px;"><%= @user.nickname %></th>
-                </tr>
-              </thead>
+<div class="chats">
+  <div class="chat-wrapper">
+    <h1 class="title"><%= @user.nickname %> さんとのチャットルーム</h1>
+    <div class="chat-user">
+    <%= image_tag current_user.image.variant(resize: '80x80') %>
+                  <p style="text-align: left; font-size: 20px;"><%= current_user.nickname %>(自分)</p>
+                  <p style="text-align: right; font-size: 20px;"><%= @user.nickname %>(相手)</p>
+                  <%= image_tag @user.image.variant(resize: '80x80') %>
+                  </div>
+    <div class="chat-contents message">
               <% @chats.each do |chat| %>
                 <% if chat.user_id == current_user.id %>
-                <tbody>
-                  <tr>
-                    <th>
                       <p style="text-align: left;"><%= chat.message %></p>
-                    </th>
-                    <th></th>
-                  </tr>
                 <% else %>
-                  <tr>
-                    <th></th>
-                    <th>
                       <p style="text-align: right;"><%= chat.message %></p>
-                    </th>
-                  </tr>
-                </tbody>
                 <% end %>
               <% end %>
-            </table>
-
-            <%= form_with model: @chat, class: "js-form" do |f| %>
-              <%= f.text_field :message %>
-              <%= f.hidden_field :room_id %>
-              <%= f.submit "SEND", class:"btn btn-sm btn-success chat-btn" %>
-            <% end %>
-            <div class="error-alert"></div>
-        </div>
     </div>
+  </div>
+  <div class="message-wrapper">
+    <%= form_with model: @chat, class: "js-form" do |f| %>
+    <%= f.text_field :message, placeholder: "ここにメッセージを入力してください", class: "chat-box" %>
+    <%= f.hidden_field :room_id %>
+    <%= f.submit "送信", class:"chat-red-btn" %>
+    <% end %>
+  </div>
+  <div class="error-alert"></div>
 </div>
 
 </div>

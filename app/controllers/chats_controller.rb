@@ -16,7 +16,7 @@ class ChatsController < ApplicationController
       @room = user_room.room  #トークルームのroom_idをもつ中間テーブルが存在する場合は、その中間テーブルに紐づくroomを取り出し、トークルーム(@room)に代入する
     end
 
-    @chats = @room.chats   #2人のトークルームに紐づく全てのチャットを取得＝これがチャット履歴となり、ビューでeach文を使い一つずつ抽出する
+    @chats = @room.chats.order("created_at DESC")   #2人のトークルームに紐づく全てのチャットを取得＝これがチャット履歴となり、ビューでeach文を使い一つずつ抽出する
     @chat = Chat.new(room_id: @room.id) #新しくチャットを打ち、form_withのcreateアクションへ繋げるため、メッセージカラムが空の@chatインスタンスを生成。
                                         #ただし、「どのトークルームのチャットなのか」はここで記述する必要がある。ここで渡しておかないと、メッセージのroom_idに渡すチャンスがなくなる
   end
