@@ -101,17 +101,19 @@
         <div class='team-img-content'>
           <%= image_tag team.image.variant(resize: '100x130'), class: "team-img" %>
         </div>
-        <div class="team-sports">
-          【種目】<%= team.sports.name %>
-        </div>
-        <div class="team-group">
-          【団体】<%= team.group.name %>
-        </div>
-        <div class="team-active-area">
-          【活動地域】<%= team.active_area.name %>
-        </div>
-        <div class="team-user-name">
-          【管理者】<%= link_to team.user.nickname, user_path(team.user.id) %>
+        <div class="team-info">
+          <div class="team-sports">
+            【種目】<%= team.sports.name %>
+          </div>
+          <div class="team-group">
+            【団体】<%= team.group.name %>
+          </div>
+          <div class="team-active-area">
+            【活動地域】<%= team.active_area.name %>
+          </div>
+          <div class="team-user-name">
+            【管理者】<%= link_to team.user.nickname, user_path(team.user.id) %>
+          </div>
         </div>
       </li>
       <% end %>
