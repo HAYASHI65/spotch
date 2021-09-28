@@ -1,65 +1,59 @@
 <%= render "shared/header" %>
 <div class="main">
 
-<div class="team-contents">
-    <h2 class="title"><%= @user.nickname %> さんのチームへの寄付</h2>
-    <% if @received_donations %>
-    <ul class="team-lists">
-      <% @received_donations.each do |received_donation| %>
-      <% user = User.find_by(id: received_donation.user_id) %>
-      <% team = Team.find_by(id: received_donation.team_id) %>
-      <li class="list">
-        <div class="applied-team-name">
-          <%= link_to team.team_name, team_path(team.id) %>に寄付が来ています
-        </div>
-        <div class='user-img-content'>
-          <%= image_tag user.image.variant(resize: '250x250'), class: "user-img" %>
-        </div>
-        <div class="user-name">
-          寄付してくれた人：<%= link_to user.nickname, user_path(user.id) %>
-        </div>
-        <div class="donation-price">
-          寄付金額：<%= received_donation.donation.price %>
-        </div>
-        <div class="donation-text">
-          メッセージ：<%= received_donation.donation.text %>
-        </div>
-        
-      </li>
-      <% end %>
-    </ul>
-    <% else %>
-      <h1>現在寄付されたチームはありません</h1>
-    <% end %>
+  <div class="team-wrapper">
+    <h1 class="title"><%= @user.nickname %> さんのチームへの寄付</h1>
+    <div class="team-contents">
+      <ul class="team-lists">
+        <% @received_donations.each do |received_donation| %>
+        <% user = User.find_by(id: received_donation.user_id) %>
+        <% team = Team.find_by(id: received_donation.team_id) %>
+        <li class="team-list">
+          <div class="team-name">
+            <%= link_to team.team_name, team_path(team.id) %>に寄付が来ています
+          </div>
+          <div class='team-img-content'>
+            <%= image_tag user.image.variant(resize: '100x130'), class: "user-img" %>
+          </div>
+          <div class="user-name">
+            寄付してくれた人：<%= link_to user.nickname, user_path(user.id) %>
+          </div>
+          <div class="donation-price">
+            寄付金額：<%= received_donation.donation.price %>
+          </div>
+          <div class="donation-text">
+            メッセージ：<%= received_donation.donation.text %>
+          </div>
+        </li>
+        <% end %>
+      </ul>
+    </div>
   </div>
 
-  <div class="team-contents">
-    <h2 class="title"><%= @user.nickname %> さんが寄付したチーム</h2>
-    <% if @send_donations %>
-    <ul class="team-lists">
-      <% @send_donations.each do |send_donation| %>
-      <% user = User.find_by(id: send_donation.user_id) %>
-      <% team = Team.find_by(id: send_donation.team_id) %>
-      <li class="list">
-        <div class="applied-team-name">
-          <%= link_to team.team_name, team_path(team.id) %>に寄付しました
-        </div>
-        <div class='user-img-content'>
-          <%= image_tag team.image.variant(resize: '250x250'), class: "user-img" %>
-        </div>
-        <div class="user-name">
-          チーム管理者：<%= link_to team.user.nickname, user_path(team.user.id) %>
-        </div>
-        <div class="price">
-          寄付金額：<%= send_donation.donation.price %>
-        </div>
-        
-      </li>
-      <% end %>
-    </ul>
-    <% else %>
-      <div>現在寄付したチームはありません</div>
-    <% end %>
+  <div class="team-wrapper">
+    <h1 class="title"><%= @user.nickname %> さんが寄付したチーム</h1>
+    <div class="team-contents">
+      <ul class="team-lists">
+        <% @send_donations.each do |send_donation| %>
+        <% user = User.find_by(id: send_donation.user_id) %>
+        <% team = Team.find_by(id: send_donation.team_id) %>
+        <li class="team-list">
+          <div class="team-name">
+            <%= link_to team.team_name, team_path(team.id) %>に寄付しました
+          </div>
+          <div class='team-img-content'>
+            <%= image_tag team.image.variant(resize: '100x130'), class: "team-img" %>
+          </div>
+          <div class="user-name">
+            チーム管理者：<%= link_to team.user.nickname, user_path(team.user.id) %>
+          </div>
+          <div class="price">
+            寄付金額：<%= send_donation.donation.price %>
+          </div>
+        </li>
+        <% end %>
+      </ul>
+    </div>
   </div>
 
 </div>
