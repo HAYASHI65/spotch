@@ -252,6 +252,75 @@ a{
 
 //チーム詳細ページ
 
-.team-show{
-  padding-top: 20vh;
+.team-info{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  background-color: white;
+}
+
+.team-contents {
+  height: 400px;
+  background-color: #f8f8f8;
+  display: flex;
+  overflow: scroll;
+}
+
+.team-contents-left{
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px;
+}
+
+.team-contents-right{
+  width: 50%;
+  padding: 30px 50px 0 0;
+  text-align: left;
+}
+
+.team-img-content{
+  padding-bottom: 27vh;
+}
+
+.apply-destroy, .team-destroy{
+  color: white;
+  background-color: red;
+  border-radius: 3px;
+  padding: 10px;
+  margin: 10px;
+}
+
+.apply-list, .apply-create{
+  color: white;
+  background-color: lightskyblue;
+  border-radius: 3px;
+  padding: 10px;
+  margin: 10px;
+}
+
+.team-edit{
+  color: white;
+  background-color: green;
+  border-radius: 3px;
+  padding: 10px;
+  margin: 10px;
+}
+
+.donation{
+  color: white;
+  background-color: orange;
+  border-radius: 3px;
+  padding: 10px;
+  margin: 10px;
+}
+
+.user-img-content{
+  position: relative;
+}
+
+.favorite{
+  position: absolute;
+  top: 0px;
 }

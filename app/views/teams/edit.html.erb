@@ -53,14 +53,14 @@
   </div>
   <div class="form-group">
     <div class='form-text-wrap'>
-      <label class="form-text">活動している曜日</label>
+      <label class="form-text">活動曜日</label>
       <span class="indispensable">必須</span>
     </div>
     <%= f.collection_select(:active_day_id, ActiveDay.all, :id, :name, {}, {class:"select-box", id:"team-active-day"}) %>
   </div>
   <div class="form-group">
     <div class='form-text-wrap'>
-      <label class="form-text">活動している時間帯</label>
+      <label class="form-text">活動時間帯</label>
       <span class="indispensable">必須</span>
     </div>
     <%= f.collection_select(:active_time_id, ActiveTime.all, :id, :name, {}, {class:"select-box", id:"team-active-time"}) %>
@@ -68,9 +68,9 @@
   <div class="form-group">
     <div class='form-text-wrap'>
       <label class="form-text">具体的な活動場所</label>
-      <span class="indispensable">必須(300文字以内)</span>
+      <span class="indispensable">必須(100文字以内)</span>
     </div>
-    <%= f.text_area :place, class:"input-default", id:"team-place", placeholder:"例) 新宿スポーツセンター", maxlength:"300" %>
+    <%= f.text_area :place, class:"input-default", id:"team-place", placeholder:"例) 新宿スポーツセンター", maxlength:"100" %>
   </div>
   <div class="form-group">
     <div class='form-text-wrap'>
@@ -88,12 +88,12 @@
   </div>
   <div class='form-text-wrap'>
       <label class="form-text">プロフィール</label>
-      <span class="indispensable">任意(300文字以内)</span>
+      <span class="indispensable">任意(100文字以内)</span>
     </div>
-    <%= f.text_area :profile, class:"input-default", id:"team-profile", placeholder:"例) 人数は約30名で、20~30代多め。男女ともに仲の良いチームです！", maxlength:"300" %>
+    <%= f.text_area :profile, class:"input-default", id:"team-profile", placeholder:"例) 人数は約30名で、20~30代多め。男女ともに仲の良いチームです！", maxlength:"100" %>
   </div>
   <div class='register-btn'>
-    <%= f.submit "チーム情報を変更する" ,class:"register-red-btn" %>
+    <%= f.submit "チーム情報を編集する" ,class:"register-red-btn" %>
   </div>
 </div>
 <% end %>

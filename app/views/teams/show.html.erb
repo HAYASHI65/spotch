@@ -2,96 +2,78 @@
 <div class="main">
   <div class="team-show">
     <div class="team-info">
-      
-      <div id = "fovorite-<%= @team.id %>">
-        <%= render partial: "shared/favorite", locals: { team: @team } %>
-      </div>
-      
-      <% if user_signed_in? && current_user.id != @team.user_id %>
-      <div class="team-apply">
-        <% if @team.applied?(current_user) %>
-        <%= link_to "このチームへの応募を取り消す", team_apply_path(@team.id), method: :delete %>
-        <% else %>
-        <%= link_to "このチームに応募する", team_applies_path(@team.id), method: :post %>
-        <% end %>
-      </div>
-      <div class="team-donation">
-        <%= link_to "このチームに寄付する", new_team_donation_path(@team.id) %>
-      </div>
-      <% end %>
 
-      <% if user_signed_in? && current_user.id == @team.user_id %>
-        <%= link_to "申請承認待ち一覧ページ", team_applies_path(@team.id) %>
-      <% end %>
+      <div class="team-wrapper">
+        <h1 class="title"><%= @team.team_name %> のチーム情報</h1>
+        <div class="team-contents">
+          <div class="team-contents-left">
+            <div class='team-img-content'>
+              <%= image_tag @team.image.variant(resize: '400x200'), class: "team-img" %>
+              <% if user_signed_in? && current_user.id != @team.user_id %>
+              <div id="fovorite-<%= @team.id %>" , class="favorite">
+                <%= render partial: "shared/favorite", locals: { team: @team } %>
+              </div>
+              <% end %>
+            </div>
 
-      <div class='item-img-content'>
-        <%= image_tag @team.image.variant(resize: '250x250'), class: "item-img" %>
-      </div>
+            <% if user_signed_in? && current_user.id != @team.user_id %>
+            <% if @team.applied?(current_user) %>
+            <%= link_to "このチームへの応募を取り消す", team_apply_path(@team.id), method: :delete, class: "apply-destroy"%>
+            <% else %>
+            <%= link_to "このチームに応募する", team_applies_path(@team.id), method: :post, class: "apply-create" %>
+            <% end %>
+            <%= link_to "このチームに寄付する", new_team_donation_path(@team.id), class: "donation" %>
+            <% end %>
 
-      <div class="team-name">
-        チーム名：<%= @team.team_name %>
-      </div>
-      <div class="team-sports">
-        スポーツカテゴリー：<%= @team.sports.name %>
-      </div>
-      <div class="team-group">
-        団体カテゴリー：<%= @team.group.name %>
-      </div>
-      <div class="team-active-area">
-        活動地域：<%= @team.active_area.name %>
-      </div>
-      <div class="team-active-day">
-        活動曜日：<%= @team.active_day.name %>
-      </div>
-      <div class="team-active-time">
-        活動時間帯：<%= @team.active_time.name %>
-      </div>
-      <div class="team-level">
-        チームレベル：<%= @team.level.name %>
-      </div>
-      <div class="team-place">
-        具体的な活動場所：<%= @team.place %>
-      </div>
-      <div class="team-gender-ratio">
-        チームの男女比：<%= @team.gender_ratio %>
-      </div>
-      <div class="team-profile">
-        チームのプロフィール：<%= @team.profile %>
-      </div>
-    </div>
-    <div class="user-info">
-      <div class="user-nickname">
-        チームの管理者：<%= link_to @team.user.nickname, user_path(@team.user.id) %>
-      </div>
-    </div>
-    <% if user_signed_in? && current_user.id == @team.user_id %>
-      <%= link_to "編集", edit_team_path(@team.id) %>
-      <%= link_to "削除", team_path(@team.id), method: :delete %>
-    <% end %>
+            <% if user_signed_in? && current_user.id == @team.user_id %>
+            <%= link_to "申請承認待ち一覧ページ", team_applies_path(@team.id), class: "apply-list" %>
+            <% end %>
 
-    <div class="container">
-      <% if user_signed_in? %>
-      <%= form_with(model: [@team, @comment], local: true) do |form| %>
-      <%= form.text_area :text, placeholder: "ここにコメントを入力してください", rows: "2" %>
-      <%= form.submit "送信" %>
-      <% end %>
-      <% else %>
-      <strong>
-        <p>コメントの投稿には新規登録/ログインが必要です</p>
-      </strong>
-      <% end %>
-      <div class="comments">
-        <h4>＜コメント一覧＞</h4>
-        <% @comments.each do |comment| %>
-        <p>
-          <strong><%= link_to comment.user.nickname, "#" %>：</strong>
-          <%= comment.text %>
-        </p>
-        <% end %>
+            <% if user_signed_in? && current_user.id == @team.user_id %>
+            <%= link_to "チーム情報を編集する", edit_team_path(@team.id), class: "team-edit" %>
+            or
+            <%= link_to "このチームを削除する", team_path(@team.id), method: :delete, class: "team-destroy" %>
+            <% end %>
+          </div>
+          <div class="team-contents-right">
+            <div class="info-lists">
+              チーム名：<%= @team.team_name %>
+            </div>
+            <div class="info-lists">
+              スポーツカテゴリー：<%= @team.sports.name %>
+            </div>
+            <div class="info-lists">
+              団体カテゴリー：<%= @team.group.name %>
+            </div>
+            <div class="info-lists">
+              活動地域：<%= @team.active_area.name %>
+            </div>
+            <div class="info-lists">
+              活動曜日：<%= @team.active_day.name %>
+            </div>
+            <div class="info-lists">
+              活動時間帯：<%= @team.active_time.name %>
+            </div>
+            <div class="info-lists">
+              チームレベル：<%= @team.level.name %>
+            </div>
+            <div class="info-lists">
+              具体的な活動場所：<%= @team.place %>
+            </div>
+            <div class="info-lists">
+              チームの男女比：<%= @team.gender_ratio %>
+            </div>
+            <div class="info-lists">
+              プロフィール：<%= @team.profile %>
+            </div>
+            <div class="info-lists">
+              チームの管理者：<%= link_to @team.user.nickname, user_path(@team.user.id) %>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-
 
 </div>
 <%= render "shared/footer" %>
