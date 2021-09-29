@@ -6,7 +6,6 @@ Rails.application.routes.draw do
   resources :teams do
     collection do
       get 'myteam'
-      get 'presearch'
       get 'search'
       get 'donation'
     end

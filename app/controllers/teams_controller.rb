@@ -47,12 +47,8 @@ class TeamsController < ApplicationController
     @teams = @user.teams.order("created_at DESC")
   end
 
-  def presearch
-    @teams = Team.all
-  end
-
   def search
-    @results = @p.result
+    @results = @p.result.order("created_at DESC")
   end
 
   def donation

@@ -1,0 +1,31 @@
+.search{
+  display: flex;
+  padding: 10vh 10vw;
+}
+
+.search-container{
+  width: 30%;
+}
+
+.search-results{
+  height: 50vh;
+  width: 70%;
+  margin-left: 5vw;
+}
+
+
+.search-contents {
+  height: 60vh;
+  overflow: scroll;
+}
+
+.team-lists{
+  display: flex;
+  justify-content: space-between;
+}
+
+.search-box{
+  display: flex;
+  justify-content: space-between;
+  padding: 2vh 1vw;
+}

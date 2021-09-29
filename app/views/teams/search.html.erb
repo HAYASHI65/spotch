@@ -1,59 +1,93 @@
 <%= render "shared/header" %>
 <div class="main">
-<h1>
-  チーム検索
-</h1>
-<%= search_form_for @p, url: search_teams_path do |f| %>
-  <%= f.label :sports_id_eq, 'スポーツカテゴリー' %>
-  <%= f.collection_select :sports_id_eq, Sports.all, :id, :name,  include_blank: '指定なし' %>
-  <br>
-  <%= f.label :group_id_eq, '団体カテゴリー' %>
-  <%= f.collection_select :group_id_eq, Group.all, :id, :name,  include_blank: '指定なし' %>
-  <br>
-  <%= f.label :active_area_id_eq, '活動地域' %>
-  <%= f.collection_select :active_area_id_eq, ActiveArea.all, :id, :name,  include_blank: '指定なし' %>
-  <br>
-  <%= f.label :active_day_id_eq, '活動曜日' %>
-  <%= f.collection_select :active_day_id_eq, ActiveDay.all, :id, :name,  include_blank: '指定なし' %>
-  <br>
-  <%= f.label :active_time_id_eq, '活動時間帯' %>
-  <%= f.collection_select :active_time_id_eq, ActiveTime.all, :id, :name,  include_blank: '指定なし' %>
-  <br>
-  <%= f.label :level_id_eq, 'チームレベル' %>
-  <%= f.collection_select :level_id_eq, Level.all, :id, :name,  include_blank: '指定なし' %>
-  <br>
-  <%= f.submit '検索' %>
-<% end %>
-<%# 検索結果の個数で条件分岐 %>
-<% if @results.length !=0 %>
-
-  
-
-  <%# チーム一覧 %>
-  <div class="team-contents">
-    <h2 class="title">検索結果</h2>
-    <ul class="team-lists">
-    <%  @results.each do |team| %>
-        <li class="list">
-        <div class='team-img-content'>
-          <%= image_tag team.image.variant(resize: '250x250'), class: "team-img" %>
-        </div>
-          <div class="team-name">
-            <%= link_to team.team_name, team_path(team.id) %>
+  <div class="search">
+    <div class="search-container">
+      <div class='form-wrap'>
+        <h1 class='form-title'>チーム検索</h1>
+        <div class="search-contents">
+          <%= search_form_for @p, url: search_teams_path do |f| %>
+          <div class="search-box">
+            <%= f.label :sports_id_eq, 'スポーツカテゴリー' %>
+            <%= f.collection_select :sports_id_eq, Sports.all, :id, :name,  include_blank: '指定なし' %>
           </div>
-          <div class="team-name">
-          管理者<%= link_to team.user.nickname, user_path(team.user.id) %>
+          <div class="search-box">
+            <%= f.label :group_id_eq, '団体カテゴリー' %>
+            <%= f.collection_select :group_id_eq, Group.all, :id, :name,  include_blank: '指定なし' %>
+          </div>
+          <div class="search-box">
+            <%= f.label :active_area_id_eq, '活動地域' %>
+            <%= f.collection_select :active_area_id_eq, ActiveArea.all, :id, :name,  include_blank: '指定なし' %>
+          </div>
+          <div class="search-box">
+            <%= f.label :active_day_id_eq, '活動曜日' %>
+            <%= f.collection_select :active_day_id_eq, ActiveDay.all, :id, :name,  include_blank: '指定なし' %>
+          </div>
+          <div class="search-box">
+            <%= f.label :active_time_id_eq, '活動時間帯' %>
+            <%= f.collection_select :active_time_id_eq, ActiveTime.all, :id, :name,  include_blank: '指定なし' %>
+          </div>
+          <div class="search-box">
+            <%= f.label :level_id_eq, 'チームレベル' %>
+            <%= f.collection_select :level_id_eq, Level.all, :id, :name,  include_blank: '指定なし' %>
+          </div>
+          <div class="btn">
+            <%= f.submit '検索', class:"red-btn" %>
+          </div>
+          <% end %>
         </div>
-        </li>
-      <% end %>
-    </ul>
+      </div>
+    </div>
+
+    <%# 検索結果の個数で条件分岐 %>
+
+    <%# チーム一覧 %>
+    <div class="search-results">
+      <div class='form-wrap'>
+        <h1 class="form-title">検索結果</h1>
+        <div class="search-contents">
+          <ul class="team-lists">
+            <% if @results.length !=0 %>
+            <%  @results.each do |team| %>
+            <li class="team-list">
+              <div class="team-name">
+                <%= link_to team.team_name, team_path(team.id) %>
+              </div>
+              <div class='team-img-content'>
+                <%= image_tag team.image.variant(resize: '100x130'), class: "team-img" %>
+              </div>
+              <div class="team-info">
+                <div class="team-sports">
+                  【種目】<%= team.sports.name %>
+                </div>
+                <div class="team-group">
+                  【団体】<%= team.group.name %>
+                </div>
+                <div class="team-active-area">
+                  【活動地域】<%= team.active_area.name %>
+                </div>
+                <div class="team-active-day">
+                  【活動曜日】<%= team.active_day.name %>
+                </div>
+                <div class="team-active-time">
+                  【活動時間帯】<%= team.active_time.name %>
+                </div>
+                <div class="team-level">
+                  【チームレベル】<%= team.level.name %>
+                </div>
+                <div class="team-user-name">
+                  【管理者】<%= link_to team.user.nickname, user_path(team.user.id) %>
+                </div>
+              </div>
+            </li>
+            <% end %>
+            <% else %>
+            <h1>該当するチームはありません</h1>
+            <% end %>
+          </ul>
+
+        </div>
+      </div>
+    </div>
   </div>
-
-<% else %>
-  該当するチームはありません
-<% end %>
-<br>
-<%= link_to 'トップページへ戻る', root_path %>
-
 </div>
 <%= render "shared/footer" %>
