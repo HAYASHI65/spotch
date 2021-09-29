@@ -137,12 +137,12 @@ a{
 }
 
 //新規登録画面
-.registration-wrapper{
+.form-container{
   padding: 5vh 20vw;
   text-align: center;
 }
 
-.registration-title {
+.form-title {
   text-align: center;
   font-size: 3.5vh;
   font-weight: bold;
@@ -175,6 +175,15 @@ a{
   font-size: 5px;
   color: white;
   background-color: red;
+  padding: 5px;
+  border-radius: 2px;
+  margin-left: 5px;
+}
+
+.indispensable-none{
+  font-size: 5px;
+  color: white;
+  background-color: gray;
   padding: 5px;
   border-radius: 2px;
   margin-left: 5px;
@@ -284,7 +293,7 @@ a{
   resize: none;
 }
 
-#profile{
+.profile{
   height: 48px;
   padding-bottom: 100px;
   border-radius: 4px;
@@ -294,12 +303,12 @@ a{
   resize: none;
 }
 
-.register-btn {
+.btn {
   width: 50%;
   margin: 0 auto;
 }
 
-.register-red-btn {
+.red-btn {
   width: 100%;
   margin-bottom: 30px;
   background: #ea352d;

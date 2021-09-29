@@ -1,10 +1,10 @@
 <%= render "shared/header" %>
 <div class="main">
-  <div class="registration-wrapper">
+  <div class="form-container">
     <%= form_with model: @user, url: user_registration_path, class: 'registration-main', local: true do |f| %>
     <div class='form-wrap'>
       <div class='form-header'>
-        <h1 class='registration-title'>
+        <h1 class='form-title'>
           ユーザー新規登録
         </h1>
         <p class='form-info-text'>
@@ -103,7 +103,7 @@
           </div>
         </div>
         <div class='form-header'>
-          <h1 class='registration-title'>
+          <h1 class='form-title'>
             プロフィール情報入力
           </h1>
           <p class='form-info-text'>
@@ -183,7 +183,7 @@
           <div class="select-group">
             <div class='form-text-wrap'>
               <label class="form-text">過去の実績</label>
-              <span class="indispensable">任意</span>
+              <span class="indispensable-none">任意</span>
             </div>
             <div class="box">
               <%= f.collection_select(:achievement_id, Achievement.all, :id, :name, {}, {class:"select-box", id:"profile-achievement"}) %>
@@ -194,7 +194,7 @@
           <div class="select-group">
             <div class='form-text-wrap'>
               <label class="form-text">過去の実績に関する補足事項</label>
-              <span class="indispensable">任意(50文字以内)</span>
+              <span class="indispensable-none">任意(50文字以内)</span>
             </div>
             <div class="box">
               <%= f.text_area :achievement_content, class:"input-default", id:"profile-achievement-content", placeholder:"例) 高校時代：神奈川県大会ベスト8", maxlength:"50" %>
@@ -205,15 +205,15 @@
           <div class="select-group">
             <div class='form-text-wrap'>
               <label class="form-text">プロフィール</label>
-              <span class="indispensable">任意(100文字以内)</span>
+              <span class="indispensable-none">任意(100文字以内)</span>
             </div>
             <div class="box">
-              <%= f.text_area :profile, class:"input-default", id:"profile", placeholder:"例) 中学から10年以上プレイしています。よろしくお願いします！", maxlength:"100" %>
+              <%= f.text_area :profile, class:"input-default", class:"profile", placeholder:"例) 中学から10年以上プレイしています。よろしくお願いします！", maxlength:"100" %>
             </div>
           </div>
         </div>
-<div class='register-btn'>
-    <%= f.submit "会員登録" ,class:"register-red-btn" %>
+<div class='btn'>
+    <%= f.submit "会員登録" ,class:"red-btn" %>
   </div>
         <% end %>
       </div>
