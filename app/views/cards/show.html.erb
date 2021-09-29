@@ -1,22 +1,23 @@
 <%= render "shared/header" %>
 <div class="main">
+  <div class="card">
+    <div class="card-wrapper">
+      <h1 class='form-title'><%= @user.nickname %>さんの<br>クレジットカード情報</h1>
+      <div class="card-contents">
+        <div class="card-info">
+          【カード番号】
+          <%= "**** **** ****" + @card[:last4] %>
+          </div>
+        <div class="card-info">
+          【有効期限】
+          <%= @card[:exp_month] %>
+          /
+          <%= @card[:exp_year] %>
+        </div>
 
-    <div class="card-title">
-      カード情報
+        <%= link_to "マイページへ戻る", user_path(@user.id) %>
+      </div>
     </div>
-    <div class="card-info">
-      【カード番号】
-      <br>
-      <%= "**** **** ****" + @card[:last4] %>
-      <br>
-      【有効期限】
-      <br>
-      <%= @card[:exp_month] %>
-      /
-      <%= @card[:exp_year] %>
-    </div>
-
-  <%= link_to "マイページへ戻る", user_path(@user.id) %>
-
+  </div>
 </div>
 <%= render "shared/footer" %>
