@@ -248,13 +248,6 @@ a{
 
 //チーム詳細ページ
 
-.team-info{
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  background-color: white;
-}
-
 .team-contents {
   height: 400px;
   background-color: #f8f8f8;
@@ -304,7 +297,7 @@ a{
   margin: 10px;
 }
 
-.donation{
+.donation-btn{
   color: white;
   background-color: orange;
   border-radius: 3px;
@@ -312,11 +305,12 @@ a{
   margin: 10px;
 }
 
-.user-img-content{
+.team-img-content{
   position: relative;
 }
 
 .favorite{
   position: absolute;
   top: 0px;
+  right: 0px;
 }
