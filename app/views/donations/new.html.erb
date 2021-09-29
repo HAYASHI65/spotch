@@ -1,55 +1,75 @@
 <%= render "shared/header" %>
 <div class="main">
+  <div class="donation">
+    <div class="donation-container">
+      <div class='form-wrap'>
+        <h1 class='form-title'>チーム情報</h1>
+        <div class="donation-contents">
+          <div class='team-img-content'>
+            <%= image_tag @team.image.variant(resize: '100x130'), class: "team-img" %>
+          </div>
+          <div class="info-lists">
+            【チーム名】<%= link_to @team.team_name, team_path(@team.id) %>
+          </div>
+            <div class="info-lists">
+              【種目】<%= @team.sports.name %>
+            </div>
+            <div class="info-lists">
+              【団体】<%= @team.group.name %>
+            </div>
+            <div class="info-lists">
+              【活動地域】<%= @team.active_area.name %>
+            </div>
+            <div class="info-lists">
+              【活動曜日】<%= @team.active_day.name %>
+            </div>
+            <div class="info-lists">
+              【活動時間帯】<%= @team.active_time.name %>
+            </div>
+            <div class="info-lists">
+              【チームレベル】<%= @team.level.name %>
+            </div>
+            <div class="info-lists">
+              【管理者】<%= link_to @team.user.nickname, user_path(@team.user.id) %>
+            </div>
+        </div>
+      </div>
+    </div>
 
-  <div class="tema-info">
-    <div class='item-img-content'>
-        <%= image_tag @team.image.variant(resize: '250x250'), class: "item-img" %>
-      </div>
+    <%# 検索結果の個数で条件分岐 %>
 
-      <div class="team-name">
-        <%= @team.team_name %>
-      </div>
-      <div class="team-sports">
-        <%= @team.sports.name %>
-      </div>
-      <div class="team-group">
-        <%= @team.group.name %>
-      </div>
-      <div class="team-active-area">
-        <%= @team.active_area.name %>
+    <%# チーム一覧 %>
+    <div class="donation-info">
+      <div class='form-wrap'>
+        <h1 class="form-title"><%= @team.team_name %>への寄付金額を決めてください</h1>
+        <div class="donation-contents">
+          <p>※寄付には<%= link_to "クレジットカードの登録", new_card_path %>が必要です</p>
+          <%= form_with model: @donation_object, url:team_donations_path(@team.id), method: :post, local: true do |f| %>
+          <%= render 'shared/error_messages', model: @donation_object %>
+          <div class="form-group">
+            <div class='donation-text-wrap'>
+              <label class="form-donation-text">寄付金額(半角数字のみ)</label><br>
+              <span class="indispensable">必須(¥1,000~9,999,999の間で入力してください)</span>
+            </div>
+            <%= "¥" %>
+            <%= f.text_field :price, class:"input-default", id:"donation-price", placeholder:"3000", autofocus: true %>
+          </div>
+          <div class="form-group">
+            <div class='donation-text-wrap'>
+              <label class="form-donation-text">応援メッセージ</label><br>
+              <span class="indispensable-none">任意(50文字以内)</span>
+            </div>
+            <%= f.text_field :text, class:"input-default", id:"donation-text", placeholder:"このチームのOBです！応援してます！", autofocus: true, maxlength:"50" %>
+          </div>
+          <div class='register-btn'>
+            <%= f.submit "寄付する" ,class:"register-red-btn" %>
+          </div>
+        </div>
+        <% end %>
       </div>
     </div>
-    <div class="user-info">
-      <div class="user-nickname">
-        チーム管理者<%= link_to @team.user.nickname, user_path(@team.user.id) %>
-      </div>
-    </div>
-  </div>
-  <p>寄付には<%= link_to "クレジットカードの登録", new_card_path %>が必要です</p>
-  <%= form_with model: @donation_object, url:team_donations_path(@team.id), method: :post, local: true do |f| %>
-  <%= render 'shared/error_messages', model: @donation_object %>
-  <div class="form-group">
-    <div class='form-text-wrap'>
-      <label class="form-text">寄付金額(半角数字のみ)</label>
-      <span class="indispensable">必須(¥1,000~9,999,999の間で入力してください)</span>
-    </div>
-    <%= "¥" %>
-    <%= f.text_field :price, class:"input-default", id:"donation-price", placeholder:"3000", autofocus: true %>
-  </div>
-  <div class="form-group">
-    <div class='form-text-wrap'>
-      <label class="form-text">応援メッセージ</label>
-      <span class="indispensable">任意(100文字以内)</span>
-    </div>
-    <%= f.text_field :text, class:"input-default", id:"donation-text", placeholder:"このチームのOBです！応援してます！", autofocus: true, maxlength:"100" %>
-  </div>
-  <div class='register-btn'>
-    <%= f.submit "寄付する" ,class:"register-red-btn" %>
   </div>
 </div>
-  <% end %>
-
-
 
 
 

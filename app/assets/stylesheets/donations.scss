@@ -1,3 +1,40 @@
-// Place all the styles related to the donations controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.donation{
+  display: flex;
+  padding: 10vh 10vw;
+}
+
+.donation-container{
+  width: 30%;
+}
+
+.donation-info{
+  height: 50vh;
+  width: 70%;
+  margin-left: 5vw;
+  text-align: center;
+}
+
+
+.donation-contents {
+  height: 60vh;
+}
+
+.donation-contents p{
+  padding-bottom: 10px;
+}
+
+#donation-price{
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.form-donation-text{
+  font-size: 20px;
+  font-weight: bold;
+}
+
+#donation-text{
+  width: 80%;
+  margin-top: 20px;
+  resize: none;
+}
