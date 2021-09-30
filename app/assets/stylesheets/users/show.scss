@@ -1,0 +1,52 @@
+//ユーザー詳細ページ
+
+.user-info{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.user-wrapper{
+  padding: 5vh 15vw;
+  height: 80vh;
+  text-align: center;
+}
+
+.user-contents {
+  height: 50vh;
+  background-color: #fff;
+  display: flex;
+  overflow: scroll;
+}
+
+.user-contents-left{
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 5vh 3vw;
+}
+
+.user-contents-right{
+  width: 50%;
+  padding-top: 5vh;
+  padding-right: 5vw;
+  text-align: left;
+}
+
+.user-img-content{
+  padding-bottom: 5vh;
+}
+
+.user-show-img-content{
+  padding-bottom: 5vh;
+}
+
+.info-lists{
+  padding-top: 1vh;
+  padding-bottom: 1vh;
+}
+
+.user-card{
+  margin-top: 4vh;
+}
