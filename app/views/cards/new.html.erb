@@ -1,32 +1,33 @@
 <%= render "shared/header" %>
 <div class="main">
+  <div class="card">
+    <div class="card-wrapper">
+      <h1 class='form-title'>クレジットカード登録</h1>
+      <div class="card-registration">
+        <%= form_with url: cards_path, id: 'charge-form', class: 'card-form', local: true do |f| %>
+        <div class="card-wrap">
+          <%= f.label :number, "【カード番号】" %>
+          <%= f.text_field :number, class:"number", placeholder:"カード番号(半角英数字)", maxlength:"16" %>
+        </div>
+        <div class="card-wrap">
+          <%= f.label :cvc, "【CVC】" %>
+          <%= f.text_field :cvc, class:"cvc", placeholder:"カード背面にある3桁の番号", maxlength:"4" %>
+        </div>
+        <div class="card-wrap">
+          <br>
+          <div class="input-expiration-date-wrap">
+            【有効期限】
+            <%= f.text_field :exp_month, class: "exp-month exp-month-box", placeholder:"例）3" %>月
+            <%= f.text_field :exp_year, class: "exp-year exp-year-box", placeholder:"例）24" %>年
+          </div>
+        </div>
+        <div class='card-btn'>
+        <%= f.submit "登録する", class:"red-btn", id:"button" %>
+        </div>
+      <% end %>
+      </div>
 
-<%= form_with url: cards_path, id: 'charge-form', class: 'card-form', local: true do |f| %>
-
-  <div class="Cardpage">
-    <h1>カード登録</h1><br>
-  </div>
-  <div class="form-wrap">
-    <%= f.label :number, "【カード番号】" %>
-    <%= f.text_field :number, class:"number", placeholder:"カード番号(半角英数字)", maxlength:"16" %>
-  </div>
-  <div class="form-wrap">
-    <%= f.label :cvc, "【CVC】" %>
-    <%= f.text_field :cvc, class:"cvc", placeholder:"カード背面にある3桁の番号", maxlength:"4" %>
-  </div>
-  <div class="form-wrap">
-  <br>
-    <p>【有効期限】</p>
-    <div class="input-expiration-date-wrap">
-      <%= f.text_field :exp_month, class: "exp-month", placeholder:"例）3" %>
-      <p>月</p>
-      <%= f.text_field :exp_year, class: "year-month", placeholder:"例）24" %>
-      <p>年</p>
     </div>
   </div>
-  <%= f.submit "登録する", class:"button", id:"button" %>
-
-<% end %>
-
 </div>
 <%= render "shared/footer" %>

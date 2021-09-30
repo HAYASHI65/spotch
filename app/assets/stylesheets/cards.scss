@@ -1,3 +1,43 @@
-// Place all the styles related to the cards controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.card{
+  padding: 6vh 25vw;
+  height: 100vh;
+  text-align: center;
+}
+
+.card-wrapper{
+  height: 40vh;
+  background-color: white;
+}
+
+.card-info{
+  font-weight: bold;
+  text-align: center;
+  padding: 2vh 0 2vh 16vw;
+  display: flex;
+}
+
+.card-wrap{
+  padding-bottom: 3vh;
+}
+
+.card-registration{
+  text-align: left;
+  padding-left: 13vw;
+}
+
+.input-expiration-date-wrap{
+  display: flex;
+}
+
+.number, .cvc{
+  width: 15vw;
+}
+
+.exp-month-box, .exp-year-box{
+  margin-left: 2vw;
+  width: 5vw;
+}
+
+.card-btn{
+  margin-right: 13vw;
+}

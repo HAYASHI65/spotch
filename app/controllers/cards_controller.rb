@@ -18,7 +18,7 @@ class CardsController < ApplicationController
     if card.save
       redirect_to root_path
     else
-      redirect_to :new
+      redirect_to new_card_path
     end
   end
 
