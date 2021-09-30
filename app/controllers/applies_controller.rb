@@ -1,5 +1,4 @@
 class AppliesController < ApplicationController
-
   before_action :authenticate_user!
 
   def index
@@ -10,9 +9,7 @@ class AppliesController < ApplicationController
 
   def create
     @team_apply = Apply.new(user_id: current_user.id, team_id: params[:team_id])
-    if @team_apply.save
-      redirect_to team_path(params[:team_id])
-    end
+    redirect_to team_path(params[:team_id]) if @team_apply.save
   end
 
   def destroy
@@ -20,5 +17,4 @@ class AppliesController < ApplicationController
     @team_apply.destroy
     redirect_to team_path(params[:team_id])
   end
-
 end

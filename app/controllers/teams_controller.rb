@@ -44,11 +44,11 @@ class TeamsController < ApplicationController
 
   def myteam
     @user = current_user
-    @teams = @user.teams.order("created_at DESC")
+    @teams = @user.teams.order('created_at DESC')
   end
 
   def search
-    @results = @p.result.order("created_at DESC")
+    @results = @p.result.order('created_at DESC')
   end
 
   def donation

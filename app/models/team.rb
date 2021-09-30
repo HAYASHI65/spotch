@@ -29,10 +29,10 @@ class Team < ApplicationRecord
   end
 
   def favorited?(user)
-    favorites.where(user_id: user.id).exists? #引数のuserと同じidをuser_idにもつfavoriteレコードは存在する？のメソッド
+    favorites.where(user_id: user.id).exists? # 引数のuserと同じidをuser_idにもつfavoriteレコードは存在する？のメソッド
   end
 
   def applied?(user)
-    applies.where(user_id: user.id).exists? #引数のuserと同じidをuser_idにもつapplyレコードは存在する？のメソッド
+    applies.where(user_id: user.id).exists? # 引数のuserと同じidをuser_idにもつapplyレコードは存在する？のメソッド
   end
 end

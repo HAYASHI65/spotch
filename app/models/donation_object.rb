@@ -5,7 +5,9 @@ class DonationObject
   with_options presence: true do
     validates :user_id
     validates :team_id
-    validates :price, numericality: {only_integer: true, greater_than_or_equal_to: 1000, less_than_or_equal_to: 1000000, message: 'は¥1,000~9,999,999の間で、半角数字で入力してください'}
+    validates :price,
+              numericality: { only_integer: true, greater_than_or_equal_to: 1000, less_than_or_equal_to: 1_000_000,
+                              message: 'は¥1,000~9,999,999の間で、半角数字で入力してください' }
   end
 
   def save
