@@ -1,43 +1,127 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<%= render "shared/header" %>
+<div class="main">
+  <div class="form-container">
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-    <% if @minimum_password_length %>
-      <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
+    <div class='form-wrap'>
+      <div class='form-header'>
+        <h1 class='form-title'>
+          プロフィール情報入力
+        </h1>
+        <p class='form-info-text'>
+          SPOTCH上で公開されるプロフィール情報です。
+        </p>
+      </div>
+      <div class="form-group">
+        <div class="select-group">
+          <div class='form-text-wrap'>
+            <label class="form-text">プロフィール画像</label>
+            <span class="indispensable">必須</span>
+          </div>
+          <div class="box">
+            <label class="form-image">
+              <span class="image-file">画像を選択してください</span>
+              <%= f.file_field :image, id:"item-image", class:"hidden" %>
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="select-group">
+          <div class='form-text-wrap'>
+            <label class="form-text">ニックネーム</label><br>
+            <span class="indispensable">必須(30文字以内)</span>
+          </div>
+          <div class="box">
+            <%= f.text_area :nickname, class:"input-default", id:"", placeholder:"例) spotch太郎", maxlength:"30" %>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="select-group">
+          <div class='form-text-wrap'>
+            <label class="form-text">スポーツカテゴリ</label>
+            <span class="indispensable">必須</span>
+          </div>
+          <div class="box">
+            <%= f.collection_select(:sports_id, Sports.all, :id, :name, {}, {class:"select-box", id:"profile-sports"}) %>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="select-group">
+          <div class='form-text-wrap'>
+            <label class="form-text">活動地域</label>
+            <span class="indispensable">必須</span>
+          </div>
+          <div class="box">
+            <%= f.collection_select(:active_area_id, ActiveArea.all, :id, :name, {}, {class:"select-box", id:"profile-active-area"}) %>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="select-group">
+          <div class='form-text-wrap'>
+            <label class="form-text">参加できる曜日</label>
+            <span class="indispensable">必須</span>
+          </div>
+          <div class="box">
+            <%= f.collection_select(:active_day_id, ActiveDay.all, :id, :name, {}, {class:"select-box", id:"profile-active-day"}) %>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="select-group">
+          <div class='form-text-wrap'>
+            <label class="form-text">参加できる時間帯</label>
+            <span class="indispensable">必須</span>
+          </div>
+          <div class="box">
+            <%= f.collection_select(:active_time_id, ActiveTime.all, :id, :name, {}, {class:"select-box", id:"profile-active-time"}) %>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="select-group">
+          <div class='form-text-wrap'>
+            <label class="form-text">過去の実績</label>
+            <span class="indispensable-none">任意</span>
+          </div>
+          <div class="box">
+            <%= f.collection_select(:achievement_id, Achievement.all, :id, :name, {}, {class:"select-box", id:"profile-achievement"}) %>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="select-group">
+          <div class='form-text-wrap'>
+            <label class="form-text">過去の実績の補足</label><br>
+            <span class="indispensable-none">任意(50文字以内)</span>
+          </div>
+          <div class="box">
+            <%= f.text_area :achievement_content, class:"input-default", id:"profile-achievement-content", placeholder:"例) 高校時代：神奈川県大会ベスト8", maxlength:"50" %>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="select-group">
+          <div class='form-text-wrap'>
+            <label class="form-text">プロフィール</label><br>
+            <span class="indispensable-none">任意(100文字以内)</span>
+          </div>
+          <div class="box">
+            <%= f.text_area :profile, class:"input-default", class:"profile", placeholder:"例) 中学から10年以上プレイしています。よろしくお願いします！", maxlength:"100" %>
+          </div>
+        </div>
+      </div>
+      <div class='btn'>
+        <%= f.submit "会員登録" ,class:"red-btn" %>
+      </div>
+    </div>
     <% end %>
+
   </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "current-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Update" %>
-  </div>
-<% end %>
-
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "Back", :back %>
+</div>
+<%= render "shared/footer" %>

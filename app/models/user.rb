@@ -23,6 +23,7 @@ class User < ApplicationRecord
   has_one_attached :image
 
   with_options presence: true do
+    validates :password,  format: { with: /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i , message: "は6文字以上の半角英数字で入力してください"}, on: :create
     validates :last_name, format: { with: /\A[ぁ-んァ-ヶ一-龥々ー]+\z/, message: 'は全角で入力してください' }
     validates :first_name, format: { with: /\A[ぁ-んァ-ヶ一-龥々ー]+\z/, message: 'は全角で入力してください' }
     validates :last_name_kana, format: { with: /\A[ァ-ヶー]+\z/, message: 'は全角カタカナで入力してください' }
@@ -36,5 +37,4 @@ class User < ApplicationRecord
     validates :active_day_id, numericality: { other_than: 1, message: 'を入力してください' }
     validates :active_time_id, numericality: { other_than: 1, message: 'を入力してください' }
   end
-  validates :password, format: { with: /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i , message: "は6文字以上の半角英数字で入力してください"}
 end

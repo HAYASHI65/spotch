@@ -8,21 +8,24 @@
           <div class='user-show-img-content'>
             <%= image_tag @user.image.variant(resize: '400x200'), class: "user-img" %>
           </div>
-            <div class="user-chat">
-              <% if current_user.id != @user.id %>
-              <%= link_to "#{@user.nickname}さんとチャットする", chat_path(@user.id), class:"go-chat-room" %>
-              <% end %>
+          <div class="user-chat">
+            <% if current_user.id != @user.id %>
+            <%= link_to "#{@user.nickname}さんとチャットする", chat_path(@user.id), class:"go-chat-room" %>
+            <% end %>
+          </div>
+          
+            <% if user_signed_in? && @user.id == current_user.id %>
+            <div class="user-edit">
+            <%= link_to "ユーザー情報を編集する", edit_user_registration_path, class:"go-user-edit" %><br>
             </div>
-            <%= link_to "ユーザー情報を編集する", edit_user_registration_path %>
             <div class="user-card">
-              <% if user_signed_in? && @user.id == current_user.id %>
-              <% if @user.card %>
-              <%= link_to "登録しているクレジットカード情報を確認する", card_path(@user) %>
-              <% else %>
-              <%= link_to "クレジットカードを登録する", new_card_path %>
-              <% end %>
-              <% end %>
-            </div>
+            <% if @user.card %>
+            <%= link_to "登録しているクレジットカード情報を確認する", card_path(@user), class:"credit-info" %>
+            <% else %>
+            <%= link_to "クレジットカードを登録する", new_card_path, class:"card-regist" %>
+            <% end %>
+            <% end %>
+          </div>
         </div>
         <div class="user-contents-right">
           <div class="info-lists">
@@ -52,7 +55,7 @@
           【<%= @user.nickname %>さんが管理しているチーム】
           <div class="info-lists">
             <% @user.teams.each do |team| %>
-              「<%= link_to team.team_name, team_path(team.id) %>」
+            「<%= link_to team.team_name, team_path(team.id) %>」
             <% end %>
           </div>
         </div>
