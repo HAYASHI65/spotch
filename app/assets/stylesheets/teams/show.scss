@@ -1,0 +1,26 @@
+//チーム詳細ページ
+
+.team-contents-left{
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 3vh 3vw;
+}
+
+.team-contents-right{
+  width: 50%;
+  padding: 3vh 5vw 0 0;
+  text-align: left;
+}
+
+.team-img-content{
+  padding-bottom: 3vh;
+  position: relative;
+}
+
+.favorite-icon{
+  position: absolute;
+  top: 0px;
+  right: 0px;
+}

@@ -1,0 +1,22 @@
+.team-btn {
+  width: 120px;
+  background: #3ccace;
+  text-align: center;
+  border-radius: 4%;
+  bottom: 3.2vh;
+  right: 3.2vw;
+  position: fixed;
+  padding: 15px;
+}
+
+.team-btn-text {
+  color: #fff;
+  display: block;
+  font-size: 18px;
+  text-decoration: none;
+  margin-bottom: 5px;
+}
+
+.team-btn-icon {
+  width: 60%;
+}

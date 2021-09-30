@@ -1,0 +1,194 @@
+/* 画面上部の「あなたのスポーツをマッチする」帯部分 */
+.title-contents {
+  width: 100vw;
+  background-image: image-url('title-contents.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-weight: bold;
+  margin-bottom: 8vh;
+}
+
+.service-title {
+  font-size: 8vh;
+  text-shadow:1px 0 0 #000,0 1px 0 #000,-1px 0 0 #000,0 -1px 0 #000,3px 3px 0 #000;
+  color:white;
+  background-color: rgba($color: #f5aa2c, $alpha: 0.8);
+  padding: 2vh 2vw;
+  margin-top: 20vh;
+  margin-bottom: -1vh;
+}
+
+.service-explain {
+  text-align: center;
+  margin-top: 5vh;
+  margin-bottom: 2vh;
+  text-shadow:1px 0 0 #000,0 1px 0 #000,-1px 0 0 #000,0 -1px 0 #000,3px 3px 0 #000;
+  font-size: 30px;
+}
+
+.service-search{
+  display: flex;
+}
+
+.service-search a{
+  font-size: 6vh;
+  color: #fff;
+  background-color: #4eb554;
+  padding: 3vh 2vw;
+  margin: 3vh 2vw;
+  border-radius: 8px;
+  box-shadow: 5px 7px #000;
+  display: block;
+  cursor: pointer;
+}
+
+.service-search a:active{
+  position: relative;
+  top: 7px;
+  left: 5px;
+  box-shadow: none;
+}
+
+.fas{
+  margin-right: 5px;
+}
+
+// 問題提起
+
+.problem-contents{
+  height: 55vh;
+  position: relative;
+  margin: 1.5em 0;
+  padding: 7px 10px;
+  min-width: 12vw;
+  max-width: 100%;
+  color: #555;
+  font-size: 16px;
+  background: #e0edff;
+  text-align: center;
+}
+
+.problem-contents:before {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -15px;
+  border: 15px solid transparent;
+  border-top: 15px solid #e0edff;
+}
+
+.problem-contents p {
+  margin: 0;
+  padding: 0;
+}
+
+.problem-title{
+  margin: 5vh 0;
+  display: inline-block;
+  color: white;
+  background-color: #1d5c8a;
+  padding: 1vh 4vw;
+}
+
+.problem-title span{
+  font-size: 40px;
+}
+
+.problem{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.problem-left{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 15vw;
+}
+
+.problem-image{
+  width: 20vw;
+}
+
+.problem-lists{
+  display: flex;
+  align-items: center;
+}
+
+.problem-list{
+  border: 1px solid #000;
+  border-radius: 5px;
+  padding: 2vh 2vw;
+  margin-right: 3vw;
+  width:25%;
+  list-style: none;
+  text-align: center;
+}
+
+.problem-list h3{
+  width: 10vw;
+  color: #1d5c8a;
+}
+
+// SPOTCHの説明
+
+.explain-contents {
+  padding:0 15vw;
+}
+
+.explain-lists {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.explain-lists>.list {
+  width: 33vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.explain-image {
+  margin-bottom: 2vh;
+  width: 100%;
+}
+
+.explain-list-number {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 5vw;
+  height: 7vh;
+  font-size: 30px;
+  text-align: center;
+  line-height: 7vh;
+  background-color: #3ccace;
+  color: #fff;
+}
+
+.explain-list-text {
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 5vh;
+}
+
+.explain-list-blue-text {
+  color: #3ccace;
+}
+
+.explain-list-description {
+  font-size: 18px;
+  margin-top: 2vh;
+  text-align: center;
+  line-height: 3.5vh;
+}
