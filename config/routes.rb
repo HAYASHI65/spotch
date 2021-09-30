@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
-  get 'donations/index'
-  get 'cards/new'
   devise_for :users
   root to: "teams#index"
+  get 'donations/index'
+  get 'cards/new'
   resources :teams do
     collection do
       get 'myteam'

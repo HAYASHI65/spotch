@@ -13,6 +13,7 @@
               <%= link_to "#{@user.nickname}さんとチャットする", chat_path(@user.id), class:"go-chat-room" %>
               <% end %>
             </div>
+            <%= link_to "ユーザー情報を編集する", edit_user_registration_path %>
             <div class="user-card">
               <% if user_signed_in? && @user.id == current_user.id %>
               <% if @user.card %>

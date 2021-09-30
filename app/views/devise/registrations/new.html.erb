@@ -62,7 +62,7 @@
       <div class="form-group">
         <div class="select-group">
           <div class='form-text-wrap'>
-            <label class="form-text">お名前カナ(全角)</label>
+            <label class="form-text">お名前カナ(全角)</label><br>
             <span class="indispensable">必須</span>
           </div>
           <div class='input-name-wrap'>
@@ -112,22 +112,22 @@
         </div>
         <div class="form-group">
           <div class="select-group">
-        <div class='form-text-wrap'>
-          <label class="form-text">プロフィール画像</label>
-            <span class="indispensable">必須</span>
+            <div class='form-text-wrap'>
+              <label class="form-text">プロフィール画像</label>
+              <span class="indispensable">必須</span>
+            </div>
+            <div class="box">
+              <label class="form-image">
+                <span class="image-file">画像を選択してください</span>
+                <%= f.file_field :image, id:"item-image", class:"hidden" %>
+              </label>
+            </div>
           </div>
-          <div class="box">
-            <label class="form-image">
-      <span class="image-file">画像を選択してください</span>
-      <input type="file" class="hidden">
-    </label>
-          </div>
-        </div>
         </div>
         <div class="form-group">
           <div class="select-group">
             <div class='form-text-wrap'>
-              <label class="form-text">ニックネーム</label>
+              <label class="form-text">ニックネーム</label><br>
               <span class="indispensable">必須(30文字以内)</span>
             </div>
             <div class="box">
@@ -193,7 +193,7 @@
         <div class="form-group">
           <div class="select-group">
             <div class='form-text-wrap'>
-              <label class="form-text">過去の実績に関する補足事項</label>
+              <label class="form-text">過去の実績の補足</label><br>
               <span class="indispensable-none">任意(50文字以内)</span>
             </div>
             <div class="box">
@@ -204,7 +204,7 @@
         <div class="form-group">
           <div class="select-group">
             <div class='form-text-wrap'>
-              <label class="form-text">プロフィール</label>
+              <label class="form-text">プロフィール</label><br>
               <span class="indispensable-none">任意(100文字以内)</span>
             </div>
             <div class="box">
@@ -212,10 +212,12 @@
             </div>
           </div>
         </div>
-<div class='btn'>
-    <%= f.submit "会員登録" ,class:"red-btn" %>
-  </div>
+        <div class='btn'>
+          <%= f.submit "会員登録" ,class:"red-btn" %>
+        </div>
         <% end %>
       </div>
+    </div>
+    </div>
     </div>
     <%= render "shared/footer" %>

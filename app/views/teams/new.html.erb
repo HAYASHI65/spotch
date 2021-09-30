@@ -12,135 +12,135 @@
       <%= render 'shared/error_messages', model: f.object %>
 
       <div class="form-group">
-          <div class="select-group">
-        <div class='form-text-wrap'>
-          <label class="form-text">チーム画像</label>
+        <div class="select-group">
+          <div class='form-text-wrap'>
+            <label class="form-text">チーム画像</label>
             <span class="indispensable">必須</span>
           </div>
           <div class="box">
             <label class="form-image">
-      <span class="image-file">画像を選択してください</span>
-      <input type="file" class="hidden">
-    </label>
+              <span class="image-file">画像を選択してください</span>
+              <%= f.file_field :image, id:"item-image", class:"hidden" %>
+            </label>
           </div>
         </div>
-        </div>
+      </div>
 
       <div class="form-group">
-      <div class="select-group">
-        <div class='form-text-wrap'>
-          <label class="form-text">チーム名</label>
-          <span class="indispensable">必須(30文字以内)</span>
+        <div class="select-group">
+          <div class='form-text-wrap'>
+            <label class="form-text">チーム名</label>
+            <span class="indispensable">必須(30文字以内)</span>
+          </div>
+          <div class="box">
+            <%= f.text_area :team_name, class:"input-default", id:"team-name", placeholder:"例) スポッチーズ", maxlength:"30" %>
+          </div>
         </div>
-        <div class="box">
-        <%= f.text_area :team_name, class:"input-default", id:"team-name", placeholder:"例) スポッチーズ", maxlength:"30" %>
-        </div>
-      </div>
       </div>
       <div class="form-group">
-      <div class="select-group">
-        <div class='form-text-wrap'>
-          <label class="form-text">スポーツカテゴリ</label>
-          <span class="indispensable">必須</span>
+        <div class="select-group">
+          <div class='form-text-wrap'>
+            <label class="form-text">スポーツカテゴリ</label>
+            <span class="indispensable">必須</span>
+          </div>
+          <div class="box">
+            <%= f.collection_select(:sports_id, Sports.all, :id, :name, {}, {class:"select-box", id:"team-sports"}) %>
+          </div>
         </div>
-        <div class="box">
-        <%= f.collection_select(:sports_id, Sports.all, :id, :name, {}, {class:"select-box", id:"team-sports"}) %>
-        </div>
-      </div>
       </div>
       <div class="form-group">
-      <div class="select-group">
-        <div class='form-text-wrap'>
-          <label class="form-text">団体カテゴリー</label>
-          <span class="indispensable">必須</span>
+        <div class="select-group">
+          <div class='form-text-wrap'>
+            <label class="form-text">団体カテゴリー</label>
+            <span class="indispensable">必須</span>
+          </div>
+          <div class="box">
+            <%= f.collection_select(:group_id, Group.all, :id, :name, {}, {class:"select-box", id:"team-group"}) %>
+          </div>
         </div>
-        <div class="box">
-        <%= f.collection_select(:group_id, Group.all, :id, :name, {}, {class:"select-box", id:"team-group"}) %>
-        </div>
-      </div>
       </div>
       <div class="form-group">
-      <div class="select-group">
-        <div class='form-text-wrap'>
-          <label class="form-text">活動地域</label>
-          <span class="indispensable">必須</span>
+        <div class="select-group">
+          <div class='form-text-wrap'>
+            <label class="form-text">活動地域</label>
+            <span class="indispensable">必須</span>
+          </div>
+          <div class="box">
+            <%= f.collection_select(:active_area_id, ActiveArea.all, :id, :name, {}, {class:"select-box", id:"team-active-area"}) %>
+          </div>
         </div>
-        <div class="box">
-        <%= f.collection_select(:active_area_id, ActiveArea.all, :id, :name, {}, {class:"select-box", id:"team-active-area"}) %>
-        </div>
-      </div>
       </div>
       <div class="form-group">
-      <div class="select-group">
-        <div class='form-text-wrap'>
-          <label class="form-text">活動曜日</label>
-          <span class="indispensable">必須</span>
+        <div class="select-group">
+          <div class='form-text-wrap'>
+            <label class="form-text">活動曜日</label>
+            <span class="indispensable">必須</span>
+          </div>
+          <div class="box">
+            <%= f.collection_select(:active_day_id, ActiveDay.all, :id, :name, {}, {class:"select-box", id:"team-active-day"}) %>
+          </div>
         </div>
-        <div class="box">
-        <%= f.collection_select(:active_day_id, ActiveDay.all, :id, :name, {}, {class:"select-box", id:"team-active-day"}) %>
-        </div>
-      </div>
       </div>
       <div class="form-group">
-      <div class="select-group">
-        <div class='form-text-wrap'>
-          <label class="form-text">活動時間帯</label>
-          <span class="indispensable">必須</span>
+        <div class="select-group">
+          <div class='form-text-wrap'>
+            <label class="form-text">活動時間帯</label>
+            <span class="indispensable">必須</span>
+          </div>
+          <div class="box">
+            <%= f.collection_select(:active_time_id, ActiveTime.all, :id, :name, {}, {class:"select-box", id:"team-active-time"}) %>
+          </div>
         </div>
-        <div class="box">
-        <%= f.collection_select(:active_time_id, ActiveTime.all, :id, :name, {}, {class:"select-box", id:"team-active-time"}) %>
-        </div>
-      </div>
       </div>
       <div class="form-group">
-      <div class="select-group">
-        <div class='form-text-wrap'>
-          <label class="form-text">具体的な活動場所</label><br>
-          <span class="indispensable">必須(100文字以内)</span>
+        <div class="select-group">
+          <div class='form-text-wrap'>
+            <label class="form-text">具体的な活動場所</label><br>
+            <span class="indispensable">必須(100文字以内)</span>
+          </div>
+          <div class="box">
+            <%= f.text_area :place, class:"input-default", class:"profile", placeholder:"例) 新宿スポーツセンター", maxlength:"100" %>
+          </div>
         </div>
-        <div class="box">
-        <%= f.text_area :place, class:"input-default", class:"profile", placeholder:"例) 新宿スポーツセンター", maxlength:"100" %>
-        </div>
-      </div>
       </div>
       <div class="form-group">
-      <div class="select-group">
-        <div class='form-text-wrap'>
-          <label class="form-text">男女比</label>
-          <span class="indispensable">必須</span>
+        <div class="select-group">
+          <div class='form-text-wrap'>
+            <label class="form-text">男女比</label>
+            <span class="indispensable">必須</span>
+          </div>
+          <div class="box">
+            <%= f.text_area :gender_ratio, class:"input-default", id:"team-gender-ratio", placeholder:"例) 1:1", maxlength:"30" %>
+          </div>
         </div>
-        <div class="box">
-        <%= f.text_area :gender_ratio, class:"input-default", id:"team-gender-ratio", placeholder:"例) 1:1", maxlength:"30" %>
-        </div>
-      </div>
       </div>
       <div class="form-group">
-      <div class="select-group">
-        <div class='form-text-wrap'>
-          <label class="form-text">チームレベル</label>
-          <span class="indispensable">必須</span>
+        <div class="select-group">
+          <div class='form-text-wrap'>
+            <label class="form-text">チームレベル</label>
+            <span class="indispensable">必須</span>
+          </div>
+          <div class="box">
+            <%= f.collection_select(:level_id, Level.all, :id, :name, {}, {class:"select-box", id:"team-level"}) %>
+          </div>
         </div>
-        <div class="box">
-        <%= f.collection_select(:level_id, Level.all, :id, :name, {}, {class:"select-box", id:"team-level"}) %>
-        </div>
-      </div>
       </div>
       <div class="form-group">
-          <div class="select-group">
-      <div class='form-text-wrap'>
-        <label class="form-text">プロフィール</label>
-        <span class="indispensable-none">任意(100文字以内)</span>
+        <div class="select-group">
+          <div class='form-text-wrap'>
+            <label class="form-text">プロフィール</label>
+            <span class="indispensable-none">任意(100文字以内)</span>
+          </div>
+          <div class="box">
+            <%= f.text_area :profile, class:"input-default", class:"profile", placeholder:"例) 人数は約30名で、20~30代多め。男女ともに仲の良いチームです！", maxlength:"100" %>
+          </div>
+        </div>
       </div>
-      <div class="box">
-      <%= f.text_area :profile, class:"input-default", class:"profile", placeholder:"例) 人数は約30名で、20~30代多め。男女ともに仲の良いチームです！", maxlength:"100" %>
+      <div class='btn'>
+        <%= f.submit "チームを投稿する" ,class:"red-btn" %>
+      </div>
     </div>
-    </div>
-        </div>
-    <div class='btn'>
-      <%= f.submit "チームを投稿する" ,class:"red-btn" %>
-    </div>
+    <% end %>
   </div>
-  <% end %>
-</div>
 </div>
 <%= render "shared/footer" %>
