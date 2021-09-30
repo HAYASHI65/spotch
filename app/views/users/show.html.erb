@@ -13,12 +13,12 @@
             <%= link_to "#{@user.nickname}さんとチャットする", chat_path(@user.id), class:"go-chat-room" %>
             <% end %>
           </div>
-          
-            <% if user_signed_in? && @user.id == current_user.id %>
-            <div class="user-edit">
+
+          <div class="user-edit">
+          <% if user_signed_in? && @user.id == current_user.id %>
             <%= link_to "ユーザー情報を編集する", edit_user_registration_path, class:"go-user-edit" %><br>
-            </div>
-            <div class="user-card">
+          </div>
+          <div class="user-card">
             <% if @user.card %>
             <%= link_to "登録しているクレジットカード情報を確認する", card_path(@user), class:"credit-info" %>
             <% else %>

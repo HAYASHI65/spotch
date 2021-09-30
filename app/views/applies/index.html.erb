@@ -8,21 +8,21 @@
         <% @applies.each do |apply| %>
         <li class="team-list">
           <div class="applied-team-name">
-          <%= link_to apply.team.team_name, team_path(apply.team) %>に応募申請が来ています
-        </div>
-        <div class='user-img-content'>
-          <%= image_tag apply.user.image.variant(resize: '100x130'), class: "user-img" %>
-        </div>
-        <div class="user-name">
-          応募申請者：<%= link_to apply.user.nickname, user_path(apply.user) %>
-        </div>
-        <%# teamsコントローラーにネストしており、URIに:team_idを含むが、teams#showからこのページへ遷移する際、どのteamのページなのか、teamsコントローラはわからない状態。 %>
-        <%# そのため、「どのチームの(ここでteam_idを確定)、applyの、どのユーザーのapplyの番号なのか(ここでuser_idを確定)」を引数で教えてあげる必要がある。 %>
-        <%# /teams/:team_id/favorites/:id → teamsコントローラーから遷移するにあたり、:team_id/favorites/:idの情報が揃ってなければならない。 %>
-        <div class="apply-judge">
-        <%= link_to "参加を承認する", team_approves_path(apply, user_id: apply.user_id, team_id: apply.team_id), method: :post, class:"apply-create" %>
-        <%= link_to "参加を却下する", team_approfe_path(apply, user_id: apply.user_id, team_id: apply.team_id), method: :delete, class:"apply-destroy"  %>
-        </div>
+            <%= link_to apply.team.team_name, team_path(apply.team) %>に応募申請が来ています
+          </div>
+          <div class='user-img-content'>
+            <%= image_tag apply.user.image.variant(resize: '100x130'), class: "user-img" %>
+          </div>
+          <div class="user-name">
+            応募申請者：<%= link_to apply.user.nickname, user_path(apply.user) %>
+          </div>
+          <%# teamsコントローラーにネストしており、URIに:team_idを含むが、teams#showからこのページへ遷移する際、どのteamのページなのか、teamsコントローラはわからない状態。 %>
+          <%# そのため、「どのチームの(ここでteam_idを確定)、applyの、どのユーザーのapplyの番号なのか(ここでuser_idを確定)」を引数で教えてあげる必要がある。 %>
+          <%# /teams/:team_id/favorites/:id → teamsコントローラーから遷移するにあたり、:team_id/favorites/:idの情報が揃ってなければならない。 %>
+          <div class="apply-judge">
+            <%= link_to "参加を承認する", team_approves_path(apply, user_id: apply.user_id, team_id: apply.team_id), method: :post, class:"apply-create" %>
+            <%= link_to "参加を却下する", team_approfe_path(apply, user_id: apply.user_id, team_id: apply.team_id), method: :delete, class:"apply-destroy"  %>
+          </div>
         </li>
         <% end %>
       </ul>
@@ -34,17 +34,17 @@
     <div class="team-contents">
       <ul class="team-lists">
         <% @approves.each do |approve| %>
-      <% user = User.find_by(id: approve.user_id) %>
-      <% team = Team.find_by(id: approve.team_id) %>
-      <% approve = Approve.find_by(user_id: user.id, team_id: team.id) %>
+        <% user = User.find_by(id: approve.user_id) %>
+        <% team = Team.find_by(id: approve.team_id) %>
+        <% approve = Approve.find_by(user_id: user.id, team_id: team.id) %>
         <li class="team-list">
           <div class="applied-team-name">
-          <%= link_to user.nickname, user_path(user.id) %>を承認しました
-          承認時間<%= approve.created_at %>
-        </div>
-        <div class='user-img-content'>
-          <%= image_tag user.image.variant(resize: '100x130'), class: "user-img" %>
-        </div>
+            <%= link_to user.nickname, user_path(user.id) %>を承認しました
+            承認時間<%= approve.created_at %>
+          </div>
+          <div class='user-img-content'>
+            <%= image_tag user.image.variant(resize: '100x130'), class: "user-img" %>
+          </div>
         </li>
         <% end %>
       </ul>

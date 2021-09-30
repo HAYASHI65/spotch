@@ -11,27 +11,27 @@
           <div class="info-lists">
             【チーム名】<%= link_to @team.team_name, team_path(@team.id) %>
           </div>
-            <div class="info-lists">
-              【種目】<%= @team.sports.name %>
-            </div>
-            <div class="info-lists">
-              【団体】<%= @team.group.name %>
-            </div>
-            <div class="info-lists">
-              【活動地域】<%= @team.active_area.name %>
-            </div>
-            <div class="info-lists">
-              【活動曜日】<%= @team.active_day.name %>
-            </div>
-            <div class="info-lists">
-              【活動時間帯】<%= @team.active_time.name %>
-            </div>
-            <div class="info-lists">
-              【チームレベル】<%= @team.level.name %>
-            </div>
-            <div class="info-lists">
-              【管理者】<%= link_to @team.user.nickname, user_path(@team.user.id) %>
-            </div>
+          <div class="info-lists">
+            【種目】<%= @team.sports.name %>
+          </div>
+          <div class="info-lists">
+            【団体】<%= @team.group.name %>
+          </div>
+          <div class="info-lists">
+            【活動地域】<%= @team.active_area.name %>
+          </div>
+          <div class="info-lists">
+            【活動曜日】<%= @team.active_day.name %>
+          </div>
+          <div class="info-lists">
+            【活動時間帯】<%= @team.active_time.name %>
+          </div>
+          <div class="info-lists">
+            【チームレベル】<%= @team.level.name %>
+          </div>
+          <div class="info-lists">
+            【管理者】<%= link_to @team.user.nickname, user_path(@team.user.id) %>
+          </div>
         </div>
       </div>
     </div>
