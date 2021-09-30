@@ -8,7 +8,6 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background-color: white;
 }
 
 .chat-wrapper{
@@ -20,10 +19,11 @@
 .chat-contents {
   height: 300px;
   padding: 0 25px;
-  background-color: #f8f8f8;
+  background-color: rgb(231, 255, 231);
   display: flex;
   flex-direction: column-reverse;
   overflow: scroll;
+  font-weight: bold;
 }
 
 .chat-user{
@@ -38,6 +38,10 @@
   justify-content: center;
   flex-direction: column;
   text-align: center;
+}
+
+.js-form{
+  margin-top: 5vh;
 }
 
 .chat-box{
