@@ -1,0 +1,87 @@
+*{
+  box-sizing: border-box;
+}
+
+a{
+  text-decoration: none;
+}
+
+.main{
+  background: #f8f8f8;
+  padding-bottom: 10vh;
+}
+
+//サイトロゴ
+
+.logo{
+  width: 25vw;
+}
+
+.spotch-logo{
+  width: 10vw;
+  transform: scale(1.8);
+}
+
+//各ページタイトル
+
+.title {
+  text-align: center;
+  font-size: 3.5vh;
+  font-weight: bold;
+  margin-top: 17vh;
+  margin-bottom: 5vh;
+  color: #000;/*文字色*/
+  padding: 0.5em 0;/*上下の余白*/
+  border-top: solid 3px #3ccace;/*上線*/
+  border-bottom: solid 3px #3ccace;/*下線*/
+}
+
+//共通のボタン関連
+
+.btn {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.red-btn {
+  width: 100%;
+  margin-bottom: 5vh;
+  background: #ea352d;
+  border: 1px solid #ea352d;
+  color: #fff;
+  line-height: 48px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.apply-destroy, .team-destroy, .apply-destroy, .back-mypage{
+  color: white;
+  background-color: red;
+  border-radius: 3px;
+  padding: 10px;
+  margin: 10px;
+}
+
+.apply-list, .apply-create, .credit-info{
+  color: white;
+  background-color: lightskyblue;
+  border-radius: 3px;
+  padding: 10px;
+  margin: 10px;
+}
+
+.team-edit, .go-chat-room, .apply-create, .go-user-edit{
+  color: white;
+  background-color: green;
+  border-radius: 3px;
+  padding: 10px;
+  margin: 10px;
+}
+
+.donation-btn, .card-regist{
+  color: white;
+  background-color: orange;
+  border-radius: 3px;
+  padding: 10px;
+  margin: 10px;
+}

@@ -1,0 +1,48 @@
+//「form〜」関連
+.form-container{
+  padding: 5vh 20vw;
+  text-align: center;
+}
+
+.form-title {
+  text-align: center;
+  font-size: 3.5vh;
+  font-weight: bold;
+  margin-top: 12vh;
+  color: #000;/*文字色*/
+  padding: 0.5em 0;
+  border-bottom: 1px solid #f5f5f5;
+}
+
+.form-header{
+  text-align: center;
+  padding: 1vh 0;
+}
+
+.form-wrap{
+  background-color: white;
+}
+
+.form-group{
+  font-size: 20px;
+  margin-bottom: 3vh;
+}
+
+.form-text-wrap{
+  margin-bottom: 4vh;
+  margin-right: 7vw;
+  padding-left: 12vw;
+}
+
+.form-text{
+  font-size: 15px;
+}
+
+.form-image {
+  font-size: 12px;
+  background-color: lightgreen;
+  color: #000;
+  padding: 2vh 1.2vw;
+  text-align: center;
+  cursor: pointer;
+}

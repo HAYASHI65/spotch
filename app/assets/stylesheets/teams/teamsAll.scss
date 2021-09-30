@@ -1,0 +1,36 @@
+// 新着チーム一覧
+.team-wrapper{
+  padding: 5vh 15vw;
+  height: 80vh;
+}
+
+.team-contents {
+  height: 50vh;
+  background-color: rgb(255, 239, 242);
+  display: flex;
+  overflow: scroll;
+}
+
+.team-lists{
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+}
+
+.team-list {
+  width: 15vw;
+  padding: 1vw;
+  margin-right: 1vw;
+  margin-bottom: 3vh;
+  background-color: #fff;
+  border: 2px solid #1d5c8a;
+  border-radius: 5px;
+}
+
+.team-image{
+  width: 100%;
+}
+
+.team-name{
+  margin-bottom: 1vh;
+}

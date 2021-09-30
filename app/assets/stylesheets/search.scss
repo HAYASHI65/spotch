@@ -1,3 +1,5 @@
+//チーム検索ページ
+
 .search{
   display: flex;
   padding: 10vh 10vw;
@@ -17,11 +19,6 @@
 .search-contents {
   height: 60vh;
   overflow: scroll;
-}
-
-.team-lists{
-  display: flex;
-  justify-content: space-between;
 }
 
 .search-box{

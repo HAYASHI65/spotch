@@ -9,15 +9,6 @@
   z-index: 10;
 }
 
-.logo{
-  width: 25vw;
-}
-
-.spotch-logo{
-  width: 150px;
-  transform: scale(1.8);
-}
-
 .nav-lists{
   display: flex;
   justify-content: flex-end;
