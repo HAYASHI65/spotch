@@ -5,12 +5,12 @@
       <h1 class="title"><%= @user.nickname %> さんの登録情報</h1>
       <div class="user-contents">
         <div class="user-contents-left">
-          <div class='user-img-content'>
+          <div class='user-show-img-content'>
             <%= image_tag @user.image.variant(resize: '400x200'), class: "user-img" %>
           </div>
             <div class="user-chat">
               <% if current_user.id != @user.id %>
-              <%= link_to "#{@user.nickname}さんとチャットする", chat_path(@user.id) %>
+              <%= link_to "#{@user.nickname}さんとチャットする", chat_path(@user.id), class:"go-chat-room" %>
               <% end %>
             </div>
             <div class="user-card">
@@ -60,6 +60,7 @@
 
     <div class="team-wrapper">
       <h1 class="title"><%= @user.nickname %> さんが応募しているチーム</h1>
+      <h3>チーム管理者にて参加申請を確認中です。申請が承認されると「SPOTCHしたチーム」に自動で追加されます。</h3>
       <div class="team-contents">
         <ul class="team-lists">
           <% @self_applies.each do |team_apply| %>
@@ -92,6 +93,7 @@
 
     <div class="team-wrapper">
       <h1 class="title"><%= @user.nickname %> さんがSPOTCHしたチーム</h1>
+      <h3>下記のチームから参加申請が承認されました！チーム管理者とチャットをして当日の詳細を確認しましょう！</h3>
       <div class="team-contents">
         <ul class="team-lists">
           <% @approves.each do |approve| %>

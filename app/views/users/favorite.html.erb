@@ -23,6 +23,15 @@
           <div class="team-active-area">
             【活動地域】<%= team.active_area.name %>
           </div>
+          <div class="team-active-area">
+            【活動曜日】<%= team.active_day.name %>
+          </div>
+          <div class="team-active-area">
+            【時間帯】<%= team.active_time.name %>
+          </div>
+          <div class="team-active-area">
+            【レベル】<%= team.level.name %>
+          </div>
           <div class="team-user-name">
             【管理者】<%= link_to team.user.nickname, user_path(team.user.id) %>
           </div>
@@ -33,7 +42,7 @@
   </div>
 
   <div class="team-wrapper">
-    <h1 class="title"><%= current_user.nickname %> さんのチームをお気に入りした人</h1>
+    <h1 class="title"><%= current_user.nickname %> さんのチームをお気に入りしたユーザー</h1>
     <div class="team-contents">
       <ul class="team-lists">
         <% @favorited.each do |favorited| %>
@@ -41,13 +50,16 @@
         <% team = Team.find_by(id: favorited.team_id) %>
         <li class="team-list">
           <div class="team-name">
-            <%= link_to team.team_name, team_path(team.id) %>がお気に入りされています
+            【お気に入りされたチーム】<%= link_to team.team_name, team_path(team.id) %>
           </div>
           <div class='team-img-content'>
-            <%= image_tag user.image.variant(resize: '100x130'), class: "team-img" %>
+            <%= image_tag team.image.variant(resize: '100x130'), class: "team-img" %>
           </div>
           <div class="user-name">
             【お気に入りした人】<br><%= link_to user.nickname, user_path(user.id) %>
+          </div>
+          <div class='team-img-content'>
+            <%= image_tag user.image.variant(resize: '100x130'), class: "team-img" %>
           </div>
         </li>
         <% end %>

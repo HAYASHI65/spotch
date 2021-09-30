@@ -215,12 +215,6 @@ a{
 }
 
 
-.team-contents {
-  height: 400px;
-  background-color: #f8f8f8;
-  overflow: scroll;
-}
-
 .team-lists{
   display: flex;
   flex-wrap: wrap;
@@ -273,7 +267,7 @@ a{
   padding-bottom: 3vh;
 }
 
-.apply-destroy, .team-destroy{
+.apply-destroy, .team-destroy, .apply-destroy{
   color: white;
   background-color: red;
   border-radius: 3px;
@@ -289,7 +283,7 @@ a{
   margin: 10px;
 }
 
-.team-edit{
+.team-edit, .go-chat-room, .apply-create{
   color: white;
   background-color: green;
   border-radius: 3px;
