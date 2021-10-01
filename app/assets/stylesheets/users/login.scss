@@ -40,3 +40,22 @@
   text-align: center;
   color: red;
 }
+
+ /* スマホ表示時 */
+@media (max-width: 599px) {
+
+  .login-wrapper{
+    padding: 0 10vw;
+    height: 100vh;
+    text-align: center;
+  }
+
+  .login-title {
+    text-align: center;
+    font-size: 3.5vh;
+    font-weight: bold;
+    margin-top: 8vh;
+    color: #000;/*文字色*/
+    border-bottom: 1px solid #f5f5f5;
+  }
+}
