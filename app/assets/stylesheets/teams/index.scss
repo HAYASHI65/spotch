@@ -195,5 +195,102 @@
 
  /* スマホ表示時 */
 @media (max-width: 599px) {
+
+  /* 画面上部の「あなたのスポーツをマッチする」帯部分 */
+  .service-title {
+    font-size: 8vh;
+    text-shadow:1px 0 0 #000,0 1px 0 #000,-1px 0 0 #000,0 -1px 0 #000,3px 3px 0 #000;
+    color:white;
+    background-color: rgba($color: #f5aa2c, $alpha: 0.8);
+    padding: 2vh 2vw;
+    margin-top: 20vh;
+    margin-bottom: -1vh;
+    text-align: center;
+  }
+  .service-explain {
+    text-align: center;
+    margin-top: 5vh;
+    margin-bottom: 2vh;
+    text-shadow:1px 0 0 #000,0 1px 0 #000,-1px 0 0 #000,0 -1px 0 #000,3px 3px 0 #000;
+    font-size: 22px;
+  }
+
+  .service-search{
+    display: flex;
+    flex-direction: column;
+  }
+
+  // 問題提起
+  .problem-contents{
+    height: 60vh;
+  }
   
+  .problem-left{
+    display: none;
+  }
+  
+  .problem-image{
+    display: none;
+  }
+  
+  .problem-lists{
+    width: 100%;
+    padding: 0 4vw;
+
+  }
+  
+  .problem-list{
+    border: 1px solid #000;
+    border-radius: 5px;
+    width:100%;
+    padding: 1vh 3vw;
+    list-style: none;
+    text-align: center;
+  }
+  
+  .problem-list h3{
+    width: 100%;
+    color: #1d5c8a;
+  }
+
+  // SPOTCHの説明
+
+  .explain-contents{
+    height: 170vh;
+  }
+
+  .explain-lists>.list {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    margin-right: 35px;
+  }
+
+  .explain-image {
+    width: 100%;
+    margin-top: 40px;
+    margin-bottom: -5px;
+  }
+
+  .explain-list-number {
+    position: absolute;
+    top: 40px;
+    left: 0;
+    width: 6vw;
+    height: 5vh;
+    font-size: 20px;
+    text-align: center;
+    line-height: 5vh;
+    background-color: #3ccace;
+    color: #fff;
+  }
+
+  .explain-list-text {
+    font-weight: bold;
+    font-size: 24px;
+    margin-bottom: -5px;
+  }
+
 }
