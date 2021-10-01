@@ -23,3 +23,67 @@
   color: #333333;
   font-size: 3vh;
 }
+
+.smart-nav, .menu-icon{
+  display: none;
+}
+
+/* スマホ表示時 */
+@media (max-width: 599px) {
+
+  .page-header{
+    width: 100vw;
+    background: #f8f8f8;
+    position: fixed;
+    z-index: 10;
+  }
+  .nav-lists{
+    display: none;
+  }
+  .menu-icon {
+    color: gray;
+    font-size: 20px;
+    display: block;
+  }
+  .smart-nav {
+    display: block;
+    z-index: 1;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    display: block;
+    width: 100%;
+    background: rgba(0, 0, 0, .8);
+    transition: all .2s ease-in-out;
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+  .smart-nav ul {
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    list-style: none;
+  }
+  .smart-nav li {
+    margin: 0;
+    padding: 0;
+  } 
+  .smart-nav li span {
+    font-size: 15px;
+    color: #fff;
+  }
+  .smart-nav li a, .smart-nav li span {
+    display: block;
+    padding: 20px 0;
+    color: white;
+  }
+  .toggle {
+    transform: translateY( 0 );
+    opacity: 1;
+  }
+}

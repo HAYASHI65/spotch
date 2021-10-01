@@ -29,4 +29,31 @@
       <% end %>
     </ul>
   </div>
+
+  <div class='smart-nav'>
+    <ul>
+
+      <% if user_signed_in?%>
+      <li class="faa-parent animated-hover"><%= link_to "マイページ", user_path(current_user.id) %></li>
+      <li class="faa-parent animated-hover"><%= link_to 'お気に入り', favorite_users_path %></li>
+      <li class="faa-parent animated-hover "><%= link_to 'Myチーム', myteam_teams_path %></li>
+      <li class="faa-parent animated-hover "><%= link_to 'オファー', "#" %></li>
+      <li class="faa-parent animated-hover "><%= link_to '寄付', donation_teams_path %></li>
+      <li>
+        <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+      </li>
+      <% else %>
+      <li>
+        <%= link_to "新規登録", new_user_registration_path %>
+      </li>
+      <li>
+        <%= link_to "ログイン", new_user_session_path %>
+      </li>
+      <% end %>
+      <li class="close"><span>× 閉じる</span></li>
+    </ul>
+  </div>
+  <div class="menu-icon">
+  <span><i class="fas fa-bars"></i></span>
+  </div>
 </header>
