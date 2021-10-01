@@ -20,3 +20,10 @@
 .team-btn-icon {
   width: 60%;
 }
+
+/* スマホ表示時 */
+@media (max-width: 599px) {
+  .team-btn{
+    display: none;
+  }
+}
