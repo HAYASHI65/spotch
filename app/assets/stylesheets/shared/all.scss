@@ -85,3 +85,9 @@ a{
   padding: 1.3vh 1vw;
   margin: 1.3vh 1vw;
 }
+
+@media (max-width: 599px) {
+  .title{
+    font-size: 21px;
+  }
+}

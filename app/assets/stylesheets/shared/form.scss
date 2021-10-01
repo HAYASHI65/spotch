@@ -46,3 +46,15 @@
   text-align: center;
   cursor: pointer;
 }
+
+ /* スマホ表示時 */
+@media (max-width: 599px) {
+  .form-container{
+    padding: 0 10vw;
+    text-align: center;
+  }
+
+  .form-text{
+    font-size: 10px;
+  }
+}
