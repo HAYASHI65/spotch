@@ -4,7 +4,7 @@
     <div class="search-container">
       <div class='form-wrap'>
         <h1 class='form-title'>チーム検索</h1>
-        <div class="search-contents">
+        <div class="search-choice">
           <%= search_form_for @p, url: search_teams_path do |f| %>
           <div class="search-box">
             <%= f.label :sports_id_eq, 'スポーツカテゴリー' %>
@@ -27,7 +27,7 @@
             <%= f.collection_select :active_time_id_eq, ActiveTime.all, :id, :name,  include_blank: '指定なし' %>
           </div>
           <div class="search-box">
-            <%= f.label :level_id_eq, 'チームレベル' %>
+            <%= f.label :level_id_eq, 'レベル' %>
             <%= f.collection_select :level_id_eq, Level.all, :id, :name,  include_blank: '指定なし' %>
           </div>
           <div class="btn">
@@ -53,7 +53,7 @@
                 <%= link_to team.team_name, team_path(team.id) %>
               </div>
               <div class='team-img-content'>
-                <%= image_tag team.image.variant(resize: '100x130'), class: "team-img" %>
+                <%= image_tag team.image.variant(resize: '81x160'), class: "team-img" %>
               </div>
               <div class="team-info">
                 <div class="team-sports">
@@ -69,13 +69,10 @@
                   【活動曜日】<%= team.active_day.name %>
                 </div>
                 <div class="team-active-time">
-                  【活動時間帯】<%= team.active_time.name %>
+                  【時間帯】<%= team.active_time.name %>
                 </div>
                 <div class="team-level">
-                  【チームレベル】<%= team.level.name %>
-                </div>
-                <div class="team-user-name">
-                  【管理者】<%= link_to team.user.nickname, user_path(team.user.id) %>
+                  【レベル】<%= team.level.name %>
                 </div>
               </div>
             </li>
