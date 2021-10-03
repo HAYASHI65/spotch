@@ -19,7 +19,7 @@
             寄付してくれた人：<%= link_to user.nickname, user_path(user.id) %>
           </div>
           <div class="donation-price">
-            寄付金額：<%= received_donation.donation.price %>
+            寄付金額：<%= received_donation.donation.price %>円
           </div>
           <div class="donation-text">
             メッセージ：<%= received_donation.donation.text %>
@@ -48,7 +48,7 @@
             チーム管理者：<%= link_to team.user.nickname, user_path(team.user.id) %>
           </div>
           <div class="price">
-            寄付金額：<%= send_donation.donation.price %>
+            寄付金額：<%= send_donation.donation.price %>円
           </div>
         </li>
         <% end %>

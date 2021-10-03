@@ -12,7 +12,16 @@
 .donation-info{
   width: 70%;
   margin-left: 5vw;
-  
+}
+
+.donation-title {
+  text-align: center;
+  font-size: 3.5vh;
+  font-weight: bold;
+  margin-top: 12vh;
+  color: #000;/*文字色*/
+  padding: 0.5em 0;
+  border-bottom: 1px solid #f5f5f5;
 }
 
 .donation-contents {
@@ -42,4 +51,37 @@
   width: 80%;
   margin-top: 2vh;
   resize: none;
+}
+
+ /* スマホ表示時 */
+@media (max-width: 599px) {
+  .donation{
+    display: flex;
+    flex-direction: column;
+    padding: 0 2vw;
+  }
+  
+  .donation-container{
+    width: 100%;
+  }
+
+  .donation-title {
+    font-size: 20px;
+  }
+  
+  .donation-info{
+    width: 100%;
+    margin-left: -1px;
+  }
+  
+  .donation-contents {
+    height: 55vh;
+    width: 100%;
+  }
+  
+  #yell-text{
+    width: 100%;
+    margin-top: 2vh;
+    resize: none;
+  }
 }
