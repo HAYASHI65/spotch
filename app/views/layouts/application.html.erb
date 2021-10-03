@@ -16,6 +16,7 @@
 </head>
 
 <body>
+  <%= yield %>
 <script>
     $(function () {
       const bars = $('.menu-icon, .close')
@@ -25,7 +26,6 @@
       });
     });
   </script>
-  <%= yield %>
 </body>
 
 </html>
