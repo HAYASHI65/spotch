@@ -6,7 +6,7 @@
       <div class="user-contents">
         <div class="user-contents-left">
           <div class='user-show-img-content'>
-            <%= image_tag @user.image.variant(resize: '400x200'), class: "user-img" %>
+            <%= image_tag @user.image.variant(resize: '400x200') %>
           </div>
           <div class="user-chat">
             <% if current_user.id != @user.id %>
@@ -20,9 +20,9 @@
           </div>
           <div class="user-card">
             <% if @user.card %>
-            <%= link_to "登録しているクレジットカード情報を確認する", card_path(@user), class:"credit-info" %>
+            <%= link_to "クレジットカードの確認", card_path(@user), class:"credit-info" %>
             <% else %>
-            <%= link_to "クレジットカードを登録する", new_card_path, class:"card-regist" %>
+            <%= link_to "クレジットカードの登録", new_card_path, class:"card-regist" %>
             <% end %>
             <% end %>
           </div>

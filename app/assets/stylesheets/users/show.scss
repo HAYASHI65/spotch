@@ -50,3 +50,15 @@
 .user-card{
   margin-top: 4vh;
 }
+
+ /* スマホ表示時 */
+@media (max-width: 599px) {
+
+  .user-info{
+    height: 250vh;
+  }
+
+  .user-wrapper{
+    padding: 0 2vw;
+  }
+}
