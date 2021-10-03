@@ -48,3 +48,27 @@
 .backpage{
   margin-top: 5vh;
 }
+
+ /* スマホ表示時 */
+@media (max-width: 599px) {
+
+  //クレジットカード登録
+.card{
+  padding: 6vh 2vw;
+}
+
+.card-wrapper{
+  height: 40vh;
+  background-color: white;
+}
+
+.number, .cvc{
+  width: 45vw;
+}
+
+.exp-month-box, .exp-year-box{
+  margin-left: 2vw;
+  width: 15vw;
+}
+
+}
