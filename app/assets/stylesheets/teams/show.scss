@@ -6,6 +6,7 @@
   flex-direction: column;
   align-items: center;
   padding: 3vh 3vw;
+  position: relative;
 }
 
 .team-contents-right{
@@ -14,13 +15,16 @@
   text-align: left;
 }
 
-.team-img-content{
-  padding-bottom: 3vh;
-  position: relative;
-}
 
 .favorite-icon{
   position: absolute;
-  top: 0px;
-  right: 0px;
+  top: 30x;
+  left: 30px;
+}
+
+ /* スマホ表示時 */
+@media (max-width: 599px) {
+  .favorite-icon{
+    font-size: 10px;
+  }
 }
