@@ -22,8 +22,8 @@ class TeamsController < ApplicationController
   end
 
   def show
-    @comment = Comment.new
-    @comments = @team.comments.includes(:user)
+    #@comment = Comment.new
+    #@comments = @team.comments.includes(:user)
   end
 
   def edit
@@ -48,7 +48,7 @@ class TeamsController < ApplicationController
   end
 
   def search
-    @results = @p.result.order('created_at DESC')
+    @results = @p.result.includes(:user).order('created_at DESC')
   end
 
   def donation

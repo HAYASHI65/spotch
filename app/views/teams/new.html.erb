@@ -19,9 +19,10 @@
           </div>
           <div class="box">
             <label class="form-image">
-              <span class="image-file">画像を選択してください</span>
-              <%= f.file_field :image, id:"item-image", class:"hidden" %>
+              <span class="image-file">画像を選択</span>
+              <%= f.file_field :image, class:"hidden" %>
             </label>
+            <div id="image-list"></div>
           </div>
         </div>
       </div>
