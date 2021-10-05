@@ -1,0 +1,28 @@
+<%= render "shared/header" %>
+<div class="main">
+
+  <div class="chat-container">
+    <div class='chat-wrap'>
+      <div class='form-title'>チャット相手一覧</div>
+      <% @chat_rooms.each do |chat_room| %>
+      <% user = User.find_by(id: chat_room.user_id)  %>
+      <% if chat_room.user_id != current_user.id %> <%# user_idは、「ログイン中ユーザー」「チャット相手」の2つずつ抽出されるので、チャット相手の名前のみ表示させる条件分岐 %>
+      <div class="chat-lists">
+        <div class="chat-list">
+          <div class="chat-list-left">
+          <%= image_tag user.image.variant(resize: '80x80'), class: "user-img" %>
+          </div>
+          <div class="chat-list-right">
+            <%= link_to user.nickname, chat_path(user.id) %> <%# chats/showアクションでユーザーidを元にチャット相手を特定するため、user.idを引数に取る%>
+          </div>
+        </div>
+      </div>
+      
+      
+      <% end %>
+      <% end %>
+
+    </div>
+  </div>
+
+  <%= render "shared/footer" %>

@@ -1,4 +1,10 @@
 class ChatsController < ApplicationController
+
+  def index
+    rooms = current_user.user_rooms.pluck(:room_id) # 「ログイン中ユーザーに紐付く、user_roomsテーブルのroom_id」を全て取得
+    @chat_rooms = UserRoom.where(room_id: rooms).order("created_at DESC")    # 「ログイン中ユーザーに紐付くroom_id」と等しいroom_idを持つuser_roomsを全て取得
+  end
+
   def show
     @user = User.find(params[:id])
 

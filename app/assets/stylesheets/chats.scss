@@ -1,4 +1,10 @@
 //チャット相手一覧
+.chat-container{
+  padding: 5vh 35vw;
+  text-align: center;
+  height: 100vh;
+}
+
 .chat-wrap{
   background-color: white;
 }
@@ -8,14 +14,30 @@
   flex-direction: column;
 }
 
+.chat-list{
+  display: flex;
+  border: 1px solid gray;
+  margin: 10px;
+  height: 85px;
+}
+
+.chat-list-left{
+  width: 30%;
+  border-right: 1px solid #f5f5f5;
+}
+
+.chat-list-right{
+  width: 70%;
+  font-size: 40px;
+  text-align: center;
+  line-height: 85px;
+}
+
 .user-img{
   border: 0px solid #000;
   border-radius: 50px;
 }
 
-.chat-list{
-  display: flex;
-}
 
 //チャットページ
 .table{
@@ -106,5 +128,9 @@
 
   .chat-red-btn {
     margin-left: 20px;
+  }
+
+  .chat-container{
+    padding: 5vh 2vw;
   }
 }
