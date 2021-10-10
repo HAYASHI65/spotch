@@ -30,6 +30,13 @@
   padding: 2vh 1vw;
 }
 
+.search-box-sports{
+  display: flex;
+  flex-direction: column;
+  padding: 2vh 1vw;
+  font-size: 17px;
+}
+
  /* スマホ表示時 */
 @media (max-width: 599px) {
   .search{
@@ -67,5 +74,12 @@
     justify-content: space-between;
     height: 55px;
     padding: 2vh 1vw;
+  }
+
+  .search-box-sports{
+    display: flex;
+    flex-direction: column;
+    padding: 2vh 1vw;
+    font-size: 17px;
   }
 }

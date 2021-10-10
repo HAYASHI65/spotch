@@ -6,28 +6,28 @@
         <h1 class='form-title'>チーム検索</h1>
         <div class="search-choice">
           <%= search_form_for @p, url: search_teams_path do |f| %>
-          <div class="search-box">
-            <%= f.label :sports_id_eq, 'スポーツカテゴリー' %>
+          <div class="search-box-sports">
+            <%= f.label :sports_id_eq, '【スポーツカテゴリー】' %>
             <%= f.collection_select :sports_id_eq, Sports.all, :id, :name,  include_blank: '指定なし' %>
           </div>
           <div class="search-box">
-            <%= f.label :group_id_eq, '団体カテゴリー' %>
+            <%= f.label :group_id_eq, '【団体カテゴリー】' %>
             <%= f.collection_select :group_id_eq, Group.all, :id, :name,  include_blank: '指定なし' %>
           </div>
           <div class="search-box">
-            <%= f.label :active_area_id_eq, '活動地域' %>
+            <%= f.label :active_area_id_eq, '【活動地域】' %>
             <%= f.collection_select :active_area_id_eq, ActiveArea.all, :id, :name,  include_blank: '指定なし' %>
           </div>
           <div class="search-box">
-            <%= f.label :active_day_id_eq, '活動曜日' %>
+            <%= f.label :active_day_id_eq, '【活動曜日】' %>
             <%= f.collection_select :active_day_id_eq, ActiveDay.all, :id, :name,  include_blank: '指定なし' %>
           </div>
           <div class="search-box">
-            <%= f.label :active_time_id_eq, '活動時間帯' %>
+            <%= f.label :active_time_id_eq, '【活動時間帯】' %>
             <%= f.collection_select :active_time_id_eq, ActiveTime.all, :id, :name,  include_blank: '指定なし' %>
           </div>
           <div class="search-box">
-            <%= f.label :level_id_eq, 'レベル' %>
+            <%= f.label :level_id_eq, '【レベル】' %>
             <%= f.collection_select :level_id_eq, Level.all, :id, :name,  include_blank: '指定なし' %>
           </div>
           <div class="btn">
