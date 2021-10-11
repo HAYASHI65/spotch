@@ -182,8 +182,8 @@ VSCode
 * has_many :applies
 * has_many :team_donations
 * has_one :card
-* has_many :rooms, through: :user_rooms
 * has_many :user_rooms
+* has_many :rooms, through: :user_rooms
 * has_many :chats
 
 ## teamsテーブル
@@ -204,7 +204,6 @@ VSCode
 
 ## Association
 * belongs_to :user
-* has_many :comments
 * has_many :favorites
 * has_many :applies
 * has_many :team_donations
