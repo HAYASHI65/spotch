@@ -17,4 +17,10 @@ class AppliesController < ApplicationController
     @team_apply.destroy
     redirect_to team_path(params[:team_id])
   end
+
+  private
+
+  def move_to_index
+    redirect_to root_path unless current_user.id == @team.user_id
+  end
 end
