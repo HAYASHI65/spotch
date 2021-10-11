@@ -78,7 +78,7 @@
             <span class="indispensable">必須</span>
           </div>
           <div class="box">
-            <%= f.collection_select(:gender_id, Gender.all, :id, :name, {}, {class:"select-box", id:"gender"}) %>
+            <%= f.collection_select(:gender_id, Gender.all, :id, :name, {}, {class:"select-box"}) %>
           </div>
         </div>
       </div>
@@ -131,7 +131,7 @@
               <span class="indispensable">必須(30文字以内)</span>
             </div>
             <div class="box">
-              <%= f.text_area :nickname, class:"input-default", id:"", placeholder:"例) spotch太郎", maxlength:"30" %>
+              <%= f.text_area :nickname, class:"input-default", placeholder:"例) spotch太郎", maxlength:"30" %>
             </div>
           </div>
         </div>
@@ -197,7 +197,7 @@
               <span class="indispensable-none">任意(50文字以内)</span>
             </div>
             <div class="box">
-              <%= f.text_area :achievement_content, class:"input-default text-box", placeholder:"例) 高校時代：神奈川県大会ベスト8", maxlength:"50" %>
+              <%= f.text_area :achievement_content, class:"input-default text-box", id:"achievement-content", placeholder:"例) 高校時代：神奈川県大会ベスト8", maxlength:"50" %>
             </div>
           </div>
         </div>
@@ -208,7 +208,7 @@
               <span class="indispensable-none">任意(50文字以内)</span>
             </div>
             <div class="box">
-              <%= f.text_area :profile, class:"input-default text-box", placeholder:"例) 中学から10年以上プレイしています。よろしくお願いします！", maxlength:"50" %>
+              <%= f.text_area :profile, class:"input-default text-box", id:"user-profile", placeholder:"例) 中学から10年以上プレイしています。よろしくお願いします！", maxlength:"50" %>
             </div>
           </div>
         </div>
