@@ -1,5 +1,8 @@
 class ChatsController < ApplicationController
 
+  before_action :authenticate_user!
+  before_action :move_to_index, only: [:show]
+
   def index
     rooms = current_user.user_rooms.pluck(:room_id) # 「ログイン中ユーザーに紐付く、user_roomsテーブルのroom_id」を全て取得
     @chat_rooms = UserRoom.where(room_id: rooms).order("created_at DESC")    # 「ログイン中ユーザーに紐付くroom_id」と等しいroom_idを持つuser_roomsを全て取得
@@ -43,5 +46,10 @@ class ChatsController < ApplicationController
 
   def chat_params
     params.require(:chat).permit(:message, :room_id).merge(user_id: current_user.id)
+  end
+
+  def move_to_index
+    @user = User.find(params[:id])
+    redirect_to root_path if current_user.id == @user.id
   end
 end
