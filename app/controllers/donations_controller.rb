@@ -1,4 +1,5 @@
 class DonationsController < ApplicationController
+  before_action :authenticate_user!
   before_action :donation, only: :create
 
   def new
