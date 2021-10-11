@@ -60,7 +60,33 @@ RSpec.describe "ユーザー新規登録", type: :system do
 
   context 'ユーザー新規登録ができない時' do
     it '誤った情報ではユーザー新規登録ができずに新規登録ページへ戻ってくる' do
-      
+      # トップページに移動する
+      visit root_path
+      # トップページにサインアップページへ遷移するボタンがあることを確認する
+      expect(page).to have_content('新規登録')
+      # 新規登録ページへ移動する
+      visit new_user_registration_path
+      # ユーザー情報を入力する
+      fill_in 'email', with: ''
+      fill_in 'password', with: ''
+      fill_in 'password-confirmation', with: ''
+      fill_in 'last-name', with: ''
+      fill_in 'first-name', with: ''
+      fill_in 'last-name-kana', with: ''
+      fill_in 'first-name-kana', with: ''
+      # 添付する画像を定義する
+      image_path = Rails.root.join('public/images/test_image.png')
+      # 画像選択フォームに画像を添付する
+      attach_file('user[image]', image_path, make_visible: true)
+      fill_in 'user_nickname', with: ''
+      fill_in 'achievement-content', with: ''
+      fill_in 'user-profile', with: ''
+      # サインアップボタンを押してもユーザーモデルのカウントが上がらないことを確認する
+      expect{
+        find('input[name="commit"]').click
+      }.to change{User.count}.by(0)
+      # 新規登録ページへ戻されることを確認する
+      expect(current_path).to eq(user_registration_path)
     end
     
   end
