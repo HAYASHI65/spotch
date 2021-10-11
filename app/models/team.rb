@@ -8,7 +8,7 @@ class Team < ApplicationRecord
   belongs_to :level
 
   belongs_to :user
-  has_many :comments, dependent: :destroy
+  #has_many :comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
   has_many :applies, dependent: :destroy
   has_many :approves, dependent: :destroy

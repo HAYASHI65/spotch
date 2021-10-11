@@ -11,7 +11,7 @@ class User < ApplicationRecord
   belongs_to :active_time
   belongs_to :achievement
   has_many :teams, dependent: :destroy
-  has_many :comments, dependent: :destroy
+  #has_many :comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
   has_many :applies, dependent: :destroy
   has_many :approves, dependent: :destroy
