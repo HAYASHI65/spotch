@@ -74,10 +74,6 @@ RSpec.describe "ユーザー新規登録", type: :system do
       fill_in 'first-name', with: ''
       fill_in 'last-name-kana', with: ''
       fill_in 'first-name-kana', with: ''
-      # 添付する画像を定義する
-      image_path = Rails.root.join('public/images/test_image.png')
-      # 画像選択フォームに画像を添付する
-      attach_file('user[image]', image_path, make_visible: true)
       fill_in 'user_nickname', with: ''
       fill_in 'achievement-content', with: ''
       fill_in 'user-profile', with: ''

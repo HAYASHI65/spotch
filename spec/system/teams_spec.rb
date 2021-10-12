@@ -51,4 +51,32 @@ RSpec.describe "チーム新規投稿", type: :system do
       expect(page).to have_content(@user.nickname)
     end
   end
+
+  context 'チーム新規投稿ができないとき' do
+    it '必須項目が空の場合、チームの新規投稿ができずに新規投稿ページへ戻ってくる' do
+      # トップページに移動する
+      visit root_path
+      # ログインする
+      visit new_user_session_path
+      fill_in 'email', with: @user.email
+      fill_in 'password', with: @user.password
+      find('input[name="commit"]').click
+      expect(current_path).to eq(root_path)
+      # トップページにチーム新規投稿ページへ遷移するボタンがあることを確認する
+      expect(page).to have_content('チームを投稿する')
+      # 新規投稿ページへ移動する
+      visit new_team_path
+      # チーム情報を入力する
+      fill_in 'team_team_name', with: ''
+      fill_in 'team_place', with: ''
+      fill_in 'team_gender_ratio', with: ''
+      fill_in 'team-profile', with: ''
+      # 投稿ボタンを押してもTeamモデルのカウントが上がらないことを確認する
+      expect{
+        find('input[name="commit"]').click
+      }.to change{Team.count}.by(0)
+      # 新規投稿ページへ戻されることを確認する
+      expect(current_path).to eq(teams_path)
+    end
+  end
 end
