@@ -34,7 +34,7 @@
             <span class="indispensable">必須(30文字以内)</span>
           </div>
           <div class="box">
-            <%= f.text_area :team_name, class:"input-default", id:"team-name", placeholder:"例) スポッチーズ", maxlength:"30" %>
+            <%= f.text_area :team_name, class:"input-default", placeholder:"例) スポッチーズ", maxlength:"30" %>
           </div>
         </div>
       </div>
@@ -45,7 +45,7 @@
             <span class="indispensable">必須</span>
           </div>
           <div class="box">
-            <%= f.collection_select(:sports_id, Sports.all, :id, :name, {}, {class:"select-box", id:"team-sports"}) %>
+            <%= f.collection_select(:sports_id, Sports.all, :id, :name, {}, {class:"select-box"}) %>
           </div>
         </div>
       </div>
@@ -56,7 +56,7 @@
             <span class="indispensable">必須</span>
           </div>
           <div class="box">
-            <%= f.collection_select(:group_id, Group.all, :id, :name, {}, {class:"select-box", id:"team-group"}) %>
+            <%= f.collection_select(:group_id, Group.all, :id, :name, {}, {class:"select-box"}) %>
           </div>
         </div>
       </div>
@@ -67,7 +67,7 @@
             <span class="indispensable">必須</span>
           </div>
           <div class="box">
-            <%= f.collection_select(:active_area_id, ActiveArea.all, :id, :name, {}, {class:"select-box", id:"team-active-area"}) %>
+            <%= f.collection_select(:active_area_id, ActiveArea.all, :id, :name, {}, {class:"select-box"}) %>
           </div>
         </div>
       </div>
@@ -78,7 +78,7 @@
             <span class="indispensable">必須</span>
           </div>
           <div class="box">
-            <%= f.collection_select(:active_day_id, ActiveDay.all, :id, :name, {}, {class:"select-box", id:"team-active-day"}) %>
+            <%= f.collection_select(:active_day_id, ActiveDay.all, :id, :name, {}, {class:"select-box"}) %>
           </div>
         </div>
       </div>
@@ -89,7 +89,7 @@
             <span class="indispensable">必須</span>
           </div>
           <div class="box">
-            <%= f.collection_select(:active_time_id, ActiveTime.all, :id, :name, {}, {class:"select-box", id:"team-active-time"}) %>
+            <%= f.collection_select(:active_time_id, ActiveTime.all, :id, :name, {}, {class:"select-box"}) %>
           </div>
         </div>
       </div>
@@ -111,7 +111,7 @@
             <span class="indispensable">必須</span>
           </div>
           <div class="box">
-            <%= f.text_area :gender_ratio, class:"input-default", id:"team-gender-ratio", placeholder:"例) 1:1", maxlength:"30" %>
+            <%= f.text_area :gender_ratio, class:"input-default", placeholder:"例) 1:1", maxlength:"30" %>
           </div>
         </div>
       </div>
@@ -122,7 +122,7 @@
             <span class="indispensable">必須</span>
           </div>
           <div class="box">
-            <%= f.collection_select(:level_id, Level.all, :id, :name, {}, {class:"select-box", id:"team-level"}) %>
+            <%= f.collection_select(:level_id, Level.all, :id, :name, {}, {class:"select-box"}) %>
           </div>
         </div>
       </div>
@@ -133,7 +133,7 @@
             <span class="indispensable-none">任意(50文字以内)</span>
           </div>
           <div class="box">
-            <%= f.text_area :profile, class:"input-default text-box", placeholder:"例) 人数は約30名で、20~30代多め。男女ともに仲の良いチームです！", maxlength:"50" %>
+            <%= f.text_area :profile, class:"input-default text-box", id:"team-profile", placeholder:"例) 人数は約30名で、20~30代多め。男女ともに仲の良いチームです！", maxlength:"50" %>
           </div>
         </div>
       </div>
