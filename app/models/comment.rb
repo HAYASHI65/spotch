@@ -1,6 +1,6 @@
-#class Comment < ApplicationRecord
-  #belongs_to :user
-  #belongs_to :team
+class Comment < ApplicationRecord
+  belongs_to :user
+  belongs_to :team
 
-  #validates :text, presence: true
-#end
+  validates :text, presence: true
+end

@@ -11,7 +11,7 @@ Rails.application.routes.draw do
       get 'search'
       get 'donation'
     end
-    #resources :comments, only: [:create]
+    resources :comments, only: [:create]
     resources :favorites, only: [:create, :destroy]
     resources :applies, only: [:index, :create, :destroy]
     resources :approves, only: [:create, :destroy]
