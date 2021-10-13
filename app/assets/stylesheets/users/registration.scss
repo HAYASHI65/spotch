@@ -116,51 +116,97 @@
 }
 
  /* スマホ表示時 */
-@media (max-width: 599px) {  
+@media (max-width: 599px) { 
+  
+  .select-group{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .box{
+    padding: 0;
+  }
+
+  .input-default{
+    font-size: 5px;
+    width: 60vw;
+    height: 35px;
+    padding: 0 5px;
+    resize: none;
+  }
+
+  .password-info{
+    font-size: 10px;
+    padding: 0;
+    margin-top: -10px;
+  }
+
+  .select-box{
+    width: 40vw;
+    height: 35px;
+  }
+
+  .input-name-wrap {
+    padding: 0;
+  }
+
+  .input-name {
+    width: 30vw;
+    height: 35px;
+    font-size: 5px;
+    padding: 0 5px;
+  }
+
+  .input-birth-wrap{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+  }
+
+  .input-birth-wrap>select {
+    width: 15vw;
+    margin-right: 3px;
+    padding: 0;
+    height: 33px;
+  }
+
+  .input-birth-wrap p {
+    margin-right: 8px;
+  }
+
+  .image-file{
+    font-size: 10px;
+  }
+
+  .text-box{
+    height: 60px;
+    padding: 0 5px;
+  }
+
+  .indispensable{
+    font-size: 5px;
+    color: white;
+    background-color: red;
+    padding: 0.7vh 0.4vw;
+    border-radius: 2px;
+    margin-left: 0.5vw;
+  }
+  
+  .indispensable-none{
+    font-size: 5px;
+    color: white;
+    background-color: gray;
+    padding: 0.7vh 0.4vw;
+    border-radius: 2px;
+    margin-left: 0.5vw;
+  }
 
   .form-info-text{
     font-size: 10px;
     padding: 10px 0;
   }
 
-  .input-default{
-    font-size: 10px;
-    resize: none;
-  }
-
-  .password-info{
-    font-size: 10px;
-  }
-
-  .input-name-wrap {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    padding-right: 65px;
-  }
-
-  .input-name {
-    width: 63px;
-    font-size: 10px;
-  }
-
-  .select-box{
-    width: 22vw;
-    height: 30px;
-  }
-
-  .input-birth-wrap>select {
-    width: 30px;
-    margin-right: 5px;
-    height: 30px;
-    font-size: 10px;
-  }
-
-  .input-birth-wrap p {
-    font-size: 10px;
-  }
-
-  .image-file{
-    font-size: 10px;
-  }
+  
 }

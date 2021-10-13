@@ -73,13 +73,15 @@
     display: flex;
     justify-content: space-between;
     height: 55px;
-    padding: 2vh 1vw;
+    padding: 10px 1vw;
+    margin-bottom: 10px;
   }
 
   .search-box-sports{
     display: flex;
     flex-direction: column;
-    padding: 2vh 1vw;
-    font-size: 17px;
+    height: 70px;
+    padding: 40px 1vw;
+    margin-bottom: 10px;
   }
 }

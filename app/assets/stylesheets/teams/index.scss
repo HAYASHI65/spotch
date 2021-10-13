@@ -198,7 +198,7 @@
 
   /* 画面上部の「あなたのスポーツをマッチする」帯部分 */
   .service-title {
-    font-size: 8vh;
+    font-size: 40px;
     text-shadow:1px 0 0 #000,0 1px 0 #000,-1px 0 0 #000,0 -1px 0 #000,3px 3px 0 #000;
     color:white;
     background-color: rgba($color: #f5aa2c, $alpha: 0.8);
@@ -212,7 +212,7 @@
     margin-top: 5vh;
     margin-bottom: 2vh;
     text-shadow:1px 0 0 #000,0 1px 0 #000,-1px 0 0 #000,0 -1px 0 #000,3px 3px 0 #000;
-    font-size: 22px;
+    font-size: 24px;
   }
 
   .service-search{
@@ -220,9 +220,21 @@
     flex-direction: column;
   }
 
+  .service-search a{
+    font-size: 4vh;
+  }
+
   // 問題提起
   .problem-contents{
-    height: 60vh;
+    height: 73vh;
+  }
+
+  .problem-title{
+    font-size: 20px;
+  }
+  
+  .problem-title span{
+    font-size: 30px;
   }
   
   .problem-left{
@@ -235,17 +247,15 @@
   
   .problem-lists{
     width: 100%;
-    padding: 0 4vw;
-
+    padding: 0 2vw;
+    display: flex;
+    flex-direction: column;
   }
   
   .problem-list{
-    border: 1px solid #000;
-    border-radius: 5px;
     width:100%;
     padding: 1vh 3vw;
-    list-style: none;
-    text-align: center;
+    margin:0 0 15px 0;
   }
   
   .problem-list h3{
@@ -256,7 +266,8 @@
   // SPOTCHの説明
 
   .explain-contents{
-    height: 170vh;
+    padding: 0 2vw;
+    height: 150vh;
   }
 
   .explain-lists>.list {
@@ -278,18 +289,14 @@
     position: absolute;
     top: 40px;
     left: 0;
-    width: 6vw;
+    width: 9vw;
     height: 5vh;
     font-size: 20px;
     text-align: center;
     line-height: 5vh;
-    background-color: #3ccace;
-    color: #fff;
   }
 
   .explain-list-text {
-    font-weight: bold;
-    font-size: 24px;
     margin-bottom: -5px;
   }
 

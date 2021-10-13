@@ -61,4 +61,25 @@
   .user-wrapper{
     padding: 0 2vw;
   }
+
+  .user-contents {
+    height: 65vh;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    overflow: scroll;
+  }
+
+  .user-contents-left{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 5vh 3vw;
+  }
+  
+  .user-contents-right{
+    width: 100%;
+    padding: 0 0 0 10px;
+    text-align: left;
+  }
 }
