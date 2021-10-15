@@ -1,6 +1,5 @@
 class AppliesController < ApplicationController
   before_action :authenticate_user!
-  before_action :move_to_index
 
   def index
     @team = Team.find(params[:team_id])
@@ -20,9 +19,4 @@ class AppliesController < ApplicationController
   end
 
   private
-
-  def move_to_index
-    @team = Team.find(params[:team_id])
-    redirect_to root_path unless current_user.id == @team.user_id
-  end
 end
