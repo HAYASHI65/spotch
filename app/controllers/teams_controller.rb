@@ -53,8 +53,8 @@ class TeamsController < ApplicationController
 
   def donation
     @user = current_user
-    @received_donations = TeamDonation.where(team_id: @user.teams)
-    @send_donations = TeamDonation.where(user_id: @user.id)
+    @received_donations = TeamDonation.where(team_id: @user.teams).order("created_at DESC")
+    @send_donations = TeamDonation.where(user_id: @user.id).order("created_at DESC")
   end
 
   private

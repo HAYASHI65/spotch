@@ -10,7 +10,7 @@ class UsersController < ApplicationController
   end
 
   def favorite
-    @myfavorites = Favorite.where(user_id: current_user.id)
-    @favorited = Favorite.where(team_id: current_user.teams)
+    @myfavorites = Favorite.where(user_id: current_user.id).order('created_at DESC')
+    @favorited = Favorite.where(team_id: current_user.teams).order('created_at DESC')
   end
 end
