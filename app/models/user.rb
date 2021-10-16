@@ -37,4 +37,8 @@ class User < ApplicationRecord
     validates :active_day_id, numericality: { other_than: 1, message: 'を入力してください' }
     validates :active_time_id, numericality: { other_than: 1, message: 'を入力してください' }
   end
+
+  def applied?(team)
+    applies.where(team_id: team.id).exists? # 引数のuserと同じidをuser_idにもつfavoriteレコードは存在する？のメソッド
+  end
 end
