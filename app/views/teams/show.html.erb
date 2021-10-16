@@ -7,15 +7,24 @@
       <div class="team-show-contents">
         <div class="team-contents-left">
 
-            <%= image_tag @team.image.variant(resize: '200x200'), class: "team-img" %>
-            <% if user_signed_in? && current_user.id != @team.user_id %>
-            <div id="favorite-<%= @team.id %>" , class="favorite-icon">
-              <%= render partial: "shared/favorite", locals: { team: @team } %>
-            </div>
-            <% end %>
-
+          <%= image_tag @team.image.variant(resize: '200x200'), class: "team-img" %>
 
           <% if user_signed_in? && current_user.id != @team.user_id %>
+
+          <div class="favorite-icon">
+            <% if @team.favorited?(current_user) %>
+            <%= link_to team_favorite_path(@team.id), method: :delete do %>
+            <span style="color:red;"><i class="fas fa-heart fa-2x"></i></span>
+            <% end %>
+            <% else %>
+            <%= link_to team_favorites_path(@team.id), method: :post do %>
+            <span style="color:gray;"><i class="fas fa-heart fa-2x"></i></i></span>
+            <% end %>
+            <% end %>
+            <%= @team.favorites.count %>
+          </div>
+
+
           <% if @team.applied?(current_user) %>
           <%= link_to "このチームへの応募を取り消す", team_apply_path(@team.id), method: :delete, class: "apply-destroy"%>
           <% else %>
