@@ -15,11 +15,17 @@ PASS：2222
 ログイン情報（テスト用）
 <br>
 
-* Eメール：
+* Eメール：test@gmail.com
 <br>
 
-* パスワード：
-* <br><br>
+* パスワード：test65
+<br><br>
+
+* Eメール：spo@gmail.com
+<br>
+
+* パスワード：spo111
+<br><br>
 
 クレジットカード登録情報（テスト用）
 <br>
