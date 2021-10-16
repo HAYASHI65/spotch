@@ -14,15 +14,16 @@ PASS：2222
 <br><br>
 ログイン情報（テスト用）
 <br>
+
 【テスト用アカウント１】
+
 * Eメール：test@gmail.com
 * パスワード：test65
 <br><br>
 
 【テスト用アカウント２】
-* Eメール：spo@gmail.com
-<br>
 
+* Eメール：spo@gmail.com
 * パスワード：spo111
 <br><br>
 
