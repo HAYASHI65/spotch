@@ -37,10 +37,9 @@
         <% user = User.find_by(id: approve.user_id) %>
         <% team = Team.find_by(id: approve.team_id) %>
         <% approve = Approve.find_by(user_id: user.id, team_id: team.id) %>
-        <li class="team-list">
+        <li class="approve-team-list">
           <div class="applied-team-name">
             <%= link_to user.nickname, user_path(user.id) %>を承認しました
-            承認時間<%= approve.created_at %>
           </div>
           <div class='user-img-content'>
             <%= image_tag user.image.variant(resize: '100x130'), class: "user-img" %>

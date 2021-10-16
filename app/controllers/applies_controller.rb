@@ -3,8 +3,8 @@ class AppliesController < ApplicationController
 
   def index
     @team = Team.find(params[:team_id])
-    @applies = Apply.where(team_id: params[:team_id])
-    @approves = Approve.where(team_id: params[:team_id])
+    @applies = Apply.where(team_id: params[:team_id]).order('created_at DESC')
+    @approves = Approve.where(team_id: params[:team_id]).order('created_at DESC')
   end
 
   def create
