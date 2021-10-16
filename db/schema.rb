@@ -164,21 +164,11 @@ ActiveRecord::Schema.define(version: 2021_09_22_092140) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "applies", "teams"
   add_foreign_key "applies", "users"
-  add_foreign_key "approves", "teams"
   add_foreign_key "approves", "users"
   add_foreign_key "cards", "users"
-  add_foreign_key "chats", "rooms"
   add_foreign_key "chats", "users"
-  add_foreign_key "comments", "teams"
-  add_foreign_key "comments", "users"
-  add_foreign_key "donations", "team_donations"
-  add_foreign_key "favorites", "teams"
-  add_foreign_key "favorites", "users"
-  add_foreign_key "team_donations", "teams"
   add_foreign_key "team_donations", "users"
   add_foreign_key "teams", "users"
-  add_foreign_key "user_rooms", "rooms"
   add_foreign_key "user_rooms", "users"
 end

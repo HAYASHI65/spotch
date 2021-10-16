@@ -3,7 +3,7 @@ class CreateDonations < ActiveRecord::Migration[6.0]
     create_table :donations do |t|
       t.integer :price, null: false
       t.text :text
-      t.references :team_donation, null: false, foreign_key: true
+      t.references :team_donation, null: false
       t.timestamps
     end
   end
